@@ -1,0 +1,86 @@
+[
+    {
+      "Name": "Adept Fighter [1/2]",
+      "Requires": "",
+      "Cost (PP)": 2,
+      "Effect": "Learn two of the Advanced techniques. The second rank lets you learn two more."
+    },
+    {
+      "Name": "Berserker",
+      "Requires": "",
+      "Cost (PP)": 4,
+      "Effect": "When you kill an enemy, you instantly regain half of your maximum AP up to your cap."
+    },
+    {
+      "Name": "Deadeye [1/2/3]",
+      "Requires": "PER 12",
+      "Cost (PP)": 2,
+      "Effect": "Gain +2 to ranged attacks, The second rank halves the penalty for shooting targets in cover, and the third rank grants Advantage on ranged attacks."
+    },
+    {
+      "Name": "Death Blow [1/2]",
+      "Requires": "MGT 12",
+      "Cost (PP)": 2,
+      "Effect": "Increase your critical range to 19-20. The second rank increases your critical multiplier by 1."
+    },
+    {
+      "Name": "Dual Weapon Fighter [1/2]",
+      "Requires": "",
+      "Cost (PP)": 1,
+      "Effect": "Reduce your attack penalty while dual-wielding by 1, and Dual Strike now uses your main hand penalty. The second rank no longer doubles your off-hand penalty for using a non-Light weapon."
+    },
+    {
+      "Name": "Evasion",
+      "Requires": "AGI 11",
+      "Cost (PP)": 3,
+      "Effect": "When hit, you may pay 3AP to halve the incoming damage (to a minimum of 1) after reduction."
+    },
+    {
+      "Name": "Fast Adaptation",
+      "Requires": "",
+      "Cost (PP)": 1,
+      "Effect": "Each time you miss, gain a stacking +1 bonus to your next attack that resets on hit."
+    },
+    {
+      "Name": "Fast Hands",
+      "Requires": "",
+      "Cost (PP)": 1,
+      "Effect": "Reduce the cost of Draw Item by 1AP."
+    },
+    {
+      "Name": "Great Weapon Fighter",
+      "Requires": "",
+      "Cost (PP)": 2,
+      "Effect": "-1AP cost of Swings and Thrusts while using two-handed weapons and add an extra damage dice to your critical hits."
+    },
+    {
+      "Name": "Martial Artist",
+      "Requires": "",
+      "Cost (PP)": "DOESNT EXIST",
+      "Effect": "You learned one of the fighting styles in the world. Pick from the list to the right. In addition, you may use your AGI for all attack and damage rolls done with Unarmed techniques, and gain Quick Riposte for unarmed combat at -1AP cost to unarmed techniques."
+    },
+    {
+      "Name": "Quick Riposte",
+      "Requires": "",
+      "Cost (PP)": 2,
+      "Effect": "After a successful Guard, you may make a Swing or Thrust at -2AP."
+    },
+    {
+      "Name": "Second Wind",
+      "Requires": "FOR 13",
+      "Cost (PP)": 2,
+      "Effect": "Once per combat on your own turn, you may replenish half of your AP for free. The next two hits that land on you deal half damage, after reduction."
+    },
+    {
+      "Name": "Shield Fighter",
+      "Requires": "",
+      "Cost (PP)": 1,
+      "Effect": "When you bash enemies, add the shield's Guard as extra damage."
+    },
+    {
+      "Name": "Fast Footwork",
+      "Requires": "AGI 12",
+      "Cost (PP)": 2,
+      "Effect": "When facing someone alone, moving to their side doesn't make them automatically face you."
+    }
+  ]

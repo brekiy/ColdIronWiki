@@ -1,0 +1,110 @@
+[
+  {
+    "Name": "Actor",
+    "Requirements": "",
+    "Cost (PP)": 1,
+    "Effect": "Gain +1 to any Deception checks where you are imitating something."
+  },
+  {
+    "Name": "Animal Tamer",
+    "Requirements": "CHR 12",
+    "Cost (PP)": 2,
+    "Effect": "Wild animals don't attack you unless provoked, and you may try to tame or befriend some."
+  },
+  {
+    "Name": "Artisan [1/2]",
+    "Requirements": "",
+    "Cost (PP)": 1,
+    "Effect": "Pick a trade to learn, such as leatherworking, shoemaking, cooking, etc. Your character gains a +2 to rolls with this trade and may work for money or craft items using it, provided they have the tools and purchase the materials. The second rank allows you to learn a second trade."
+  },
+  {
+    "Name": "Bombmaker",
+    "Requirements": "",
+    "Cost (PP)": 1,
+    "Effect": "You no longer have to roll an Alchemy check to make grenades."
+  },
+  {
+    "Name": "Doctor",
+    "Requirements": "",
+    "Cost (PP)": 2,
+    "Effect": "Gain +2 to Medicine checks."
+  },
+  {
+    "Name": "Eagle Eye",
+    "Requirements": "",
+    "Cost (PP)": 1,
+    "Effect": "Gain +1 PER, and on top of that add a +1 to Investigation and Observation checks."
+  },
+  {
+    "Name": "Sneaky Beaky",
+    "Requirements": "",
+    "Cost (PP)": 1,
+    "Effect": "Gain +2 to Sneak checks."
+  },
+  {
+    "Name": "Intense Training [1/2/3]",
+    "Requirements": "",
+    "Cost (PP)": 3,
+    "Effect": "Increase one of your base attributes by 1, up to your species limit. Cannot be taken at character creation."
+  },
+  {
+    "Name": "Language",
+    "Requirements": "",
+    "Cost (PP)": "Free",
+    "Effect": "Use this perk to note the languages your character knows or has learned. Leaving the languages and their fluency levels in the Notes is helpful."
+  },
+  {
+    "Name": "Magical Aptitude",
+    "Requirements": "",
+    "Cost (PP)": 4,
+    "Effect": "You were born with the potential to become a wizard. You can learn magic. This can only be taken at character creation."
+  },
+  {
+    "Name": "Masterchef",
+    "Requirements": "Artisan - Cooking",
+    "Cost (PP)": 1,
+    "Effect": "You're a great cook. Gain +2 to all cooking rolls, and on a 10+ you make a meal it inspires those who eat it for the next 4 hours, giving them a +1 bonus to all rolls."
+  },
+  {
+    "Name": "Mentat",
+    "Requirements": "",
+    "Cost (PP)": "-",
+    "Effect": "Gain +2 to INT, which can surpass your normal species INT limit. You also double your INT and CHR bonus on skill checks. Only granted via Mind 1."
+  },
+  {
+    "Name": "Parkour",
+    "Requirements": "",
+    "Cost (PP)": 2,
+    "Effect": "Gain +2 to Acrobatics checks. In addition, you can move over Difficult Terrain as if it were normal ground, and Standing after being knocked prone costs only 1AP."
+  },
+  {
+    "Name": "Silver Tongue",
+    "Requirements": "CHR 11",
+    "Cost (PP)": 1,
+    "Effect": "Gain +2 on both Coercion and Deception checks."
+  },
+  {
+    "Name": "Slayer",
+    "Requirements": "",
+    "Cost (PP)": "DOESNT EXIST RIGHT NOW",
+    "Effect": "You have survived the dark magic and training of the Slayer Order. The base DC for your Toxicity checks is reduced to 5, you increase your PER, AGI, MGT, and FOR by 1 (which can surpass your species limits), and every hour you regenerate 1 Wound. Additionally, you have knowledge of the various magical monsters listed in the Bestiary. This can only be taken at character creation. You also must purchase Tracker, Fast Adaptation, and Evasion, at -1PP cost."
+  },
+  {
+    "Name": "Sticky Fingers",
+    "Requirements": "",
+    "Cost (PP)": 2,
+    "Effect": "Gain +2 on pickpocketing, and also +2 to the Disarm Technique if you have it."
+  },
+  {
+    "Name": "Tough",
+    "Requirements": "FOR 11",
+    "Cost (PP)": 2,
+    "Effect": "Gain +2 to FOR checks and heal 2 more Wounds per 24 hours."
+  },
+  {
+    "Name": "Tracker",
+    "Requirements": "",
+    "Cost (PP)": 2,
+    "Effect": "You can now use the Investigation skill to recognize tracks. On a successful DC10 check you can tell the number and type of creature it is, if you know it, and how long ago the tracks were left."
+  }
+]
