@@ -4,35 +4,49 @@
 <head>
   <meta charset="utf-8">
   <title>Character Sheet</title>
+  <script src="char_sheet.js"></script>
 </head>
 
 <body>
   <div>
     <button onclick="window.location='../index.html'">Home</button>
+    <button onclick="calculate()">Calculate Modifiers</button>
+    <button onclick="upload()">Upload Character</button>
+    <button onclick="download()">Download Character</button>
   </div>
   <div id="basic-info">
     <!-- Container for a character's basic information -->
-    <input id="name">
-    <input id="title">
-    <input id="species">
-    <input id="size">
+    <input id="name" type="text">
+    <input id="title" type="text">
+    <input id="species" type="text">
+    <input id="size" type="text">
   </div>
   <div id="spamfic">
     <!-- Container for the SPAMFIC attributes and the output modifiers -->
-    <input id="spirit" name="spirit-score" type="number" value="10">
-    <input id="perception" name="perception-score" type="number" value="10">
-    <input id="agility" name="agility-score" type="number" value="10">
-    <input id="might" name="might-score" type="number" value="10">
-    <input id="fortitude" name="fortitude-score" type="number" value="10">
-    <input id="intelligence" name="intelligence-score" type="number" value="10">
-    <input id="charisma" name="charisma-score" type="number" value="10">
-    <output id="spirit-mod">0</output>
-    <output id="perception-mod">0</output>
-    <output id="agility-mod">0</output>
-    <output id="might-mod">0</output>
-    <output id="fortitude-mod">0</output>
-    <output id="intelligence-mod">0</output>
-    <output id="charisma-mod">0</output>
+    <input id="spirit" name="spirit-score" type="number" value="10" onchange="modifier(this)">
+    <input id="perception" name="perception-score" type="number" value="10" onchange="modifier(this)">
+    <input id="agility" name="agility-score" type="number" value="10" onchange="modifier(this)">
+    <input id="might" name="might-score" type="number" value="10" onchange="modifier(this)">
+    <input id="fortitude" name="fortitude-score" type="number" value="10" onchange="modifier(this)">
+    <input id="intelligence" name="intelligence-score" type="number" value="10" onchange="modifier(this)">
+    <input id="charisma" name="charisma-score" type="number" value="10" onchange="modifier(this)">
+    <output id="spirit-mod">+0</output>
+    <output id="perception-mod">+0</output>
+    <output id="agility-mod">+0</output>
+    <output id="might-mod">+0</output>
+    <output id="fortitude-mod">+0</output>
+    <output id="intelligence-mod">+0</output>
+    <output id="charisma-mod">+0</output>
+  </div>
+  <div id="combat-stats">
+    <output id="action-points">0</output>
+    <output id="willpower">0</output>
+    <output id="guard">0</output>
+    <div id="wounds">
+      <output id="wounded">10</output>
+      <output id="very-wounded">25</output>
+      <output id="dead">40</output>
+    </div>
   </div>
   <div id="skills">
     <!-- Container for the skills and their skill levels -->
@@ -42,42 +56,224 @@
     <label for="acrobatics-skilled">Skilled</label>
     <input id="acrobatics-expert" name="acrobatics" type="radio" value="expert">
     <label for="acrobatics-expert">Expert</label>
-    <output id="acrobatics-mod">0</output>
+    <output id="acrobatics-mod">+0</output>
     <input id="alchemy-unskilled" name="alchemy" type="radio" value="unskilled">
     <label for="alchemy-unskilled">Unskilled</label>
     <input id="alchemy-skilled" name="alchemy" type="radio" value="skilled">
     <label for="alchemy-skilled">Skilled</label>
     <input id="alchemy-expert" name="alchemy" type="radio" value="expert">
     <label for="alchemy-expert">Expert</label>
-    <output id="alchemy-mod">0</output>
+    <output id="alchemy-mod">+0</output>
     <input id="athletics-unskilled" name="athletics" type="radio" value="unskilled">
     <label for="athletics-unskilled">Unskilled</label>
     <input id="athletics-skilled" name="athletics" type="radio" value="skilled">
     <label for="athletics-skilled">Skilled</label>
     <input id="athletics-expert" name="athletics" type="radio" value="expert">
     <label for="athletics-expert">Expert</label>
-    <output id="athletics-mod">0</output>
+    <output id="athletics-mod">+0</output>
     <input id="coercion-unskilled" name="coercion" type="radio" value="unskilled">
     <label for="coercion-unskilled">Unskilled</label>
     <input id="coercion-skilled" name="coercion" type="radio" value="skilled">
     <label for="coercion-skilled">Skilled</label>
     <input id="coercion-expert" name="coercion" type="radio" value="expert">
     <label for="coercion-expert">Expert</label>
-    <output id="coercion-mod">0</output>
-    <input id="acrobatics-unskilled" name="acrobatics" type="radio" value="unskilled">
-    <label for="acrobatics-unskilled">Unskilled</label>
-    <input id="acrobatics-skilled" name="acrobatics" type="radio" value="skilled">
-    <label for="acrobatics-skilled">Skilled</label>
-    <input id="acrobatics-expert" name="acrobatics" type="radio" value="expert">
-    <label for="acrobatics-expert">Expert</label>
-    <output id="acrobatics-mod">0</output>
-    <input id="acrobatics-unskilled" name="acrobatics" type="radio" value="unskilled">
-    <label for="acrobatics-unskilled">Unskilled</label>
-    <input id="acrobatics-skilled" name="acrobatics" type="radio" value="skilled">
-    <label for="acrobatics-skilled">Skilled</label>
-    <input id="acrobatics-expert" name="acrobatics" type="radio" value="expert">
-    <label for="acrobatics-expert">Expert</label>
-    <output id="acrobatics-mod">0</output>
+    <output id="coercion-mod">+0</output>
+    <input id="deception-unskilled" name="deception" type="radio" value="unskilled">
+    <label for="deception-unskilled">Unskilled</label>
+    <input id="deception-skilled" name="deception" type="radio" value="skilled">
+    <label for="deception-skilled">Skilled</label>
+    <input id="deception-expert" name="deception" type="radio" value="expert">
+    <label for="deception-expert">Expert</label>
+    <output id="deception-mod">+0</output>
+    <input id="investigation-unskilled" name="investigation" type="radio" value="unskilled">
+    <label for="investigation-unskilled">Unskilled</label>
+    <input id="investigation-skilled" name="investigation" type="radio" value="skilled">
+    <label for="investigation-skilled">Skilled</label>
+    <input id="investigation-expert" name="investigation" type="radio" value="expert">
+    <label for="investigation-expert">Expert</label>
+    <output id="investigation-mod">+0</output>
+    <input id="lore-unskilled" name="lore" type="radio" value="unskilled">
+    <label for="lore-unskilled">Unskilled</label>
+    <input id="lore-skilled" name="lore" type="radio" value="skilled">
+    <label for="lore-skilled">Skilled</label>
+    <input id="lore-expert" name="lore" type="radio" value="expert">
+    <label for="lore-expert">Expert</label>
+    <output id="lore-mod">+0</output>
+    <input id="medicine-unskilled" name="medicine" type="radio" value="unskilled">
+    <label for="medicine-unskilled">Unskilled</label>
+    <input id="medicine-skilled" name="medicine" type="radio" value="skilled">
+    <label for="medicine-skilled">Skilled</label>
+    <input id="medicine-expert" name="medicine" type="radio" value="expert">
+    <label for="medicine-expert">Expert</label>
+    <output id="medicine-mod">+0</output>
+    <input id="observation-unskilled" name="observation" type="radio" value="unskilled">
+    <label for="observation-unskilled">Unskilled</label>
+    <input id="observation-skilled" name="observation" type="radio" value="skilled">
+    <label for="observation-skilled">Skilled</label>
+    <input id="observation-expert" name="observation" type="radio" value="expert">
+    <label for="observation-expert">Expert</label>
+    <output id="observation-mod">+0</output>
+    <input id="sabotage-unskilled" name="sabotage" type="radio" value="unskilled">
+    <label for="sabotage-unskilled">Unskilled</label>
+    <input id="sabotage-skilled" name="sabotage" type="radio" value="skilled">
+    <label for="sabotage-skilled">Skilled</label>
+    <input id="sabotage-expert" name="sabotage" type="radio" value="expert">
+    <label for="sabotage-expert">Expert</label>
+    <output id="sabotage-mod">+0</output>
+    <input id="sneak-unskilled" name="sneak" type="radio" value="unskilled">
+    <label for="sneak-unskilled">Unskilled</label>
+    <input id="sneak-skilled" name="sneak" type="radio" value="skilled">
+    <label for="sneak-skilled">Skilled</label>
+    <input id="sneak-expert" name="sneak" type="radio" value="expert">
+    <label for="sneak-expert">Expert</label>
+    <output id="sneak-mod">+0</output>
+    <input id="survival-unskilled" name="survival" type="radio" value="unskilled">
+    <label for="survival-unskilled">Unskilled</label>
+    <input id="survival-skilled" name="survival" type="radio" value="skilled">
+    <label for="survival-skilled">Skilled</label>
+    <input id="survival-expert" name="survival" type="radio" value="expert">
+    <label for="survival-expert">Expert</label>
+    <output id="survival-mod">+0</output>
+  </div>
+  <div id="perks">
+    <input id="perk-list" name="perk-list" type="text">
+  </div>
+  <div id="magic">
+    <input id="force-ignorant" name="force" type="radio" value="unskilled">
+    <label for="force-ignorant">Ignorant</label>
+    <input id="force-basic" name="force" type="radio" value="skilled">
+    <label for="force-basic">Basic</label>
+    <input id="force-control" name="force" type="radio" value="expert">
+    <label for="force-control">Control</label>
+    <input id="force-command" name="force" type="radio" value="expert">
+    <label for="force-command">Command</label>
+    <input id="force-mastery" name="force" type="radio" value="expert">
+    <label for="force-mastery">Mastery</label>
+    <output id="force-mod">+0</output>
+    <input id="matter-ignorant" name="matter" type="radio" value="unskilled">
+    <label for="matter-ignorant">Ignorant</label>
+    <input id="matter-basic" name="matter" type="radio" value="skilled">
+    <label for="matter-basic">Basic</label>
+    <input id="matter-control" name="matter" type="radio" value="expert">
+    <label for="matter-control">Control</label>
+    <input id="matter-command" name="matter" type="radio" value="expert">
+    <label for="matter-command">Command</label>
+    <input id="matter-mastery" name="matter" type="radio" value="expert">
+    <label for="matter-mastery">Mastery</label>
+    <output id="matter-mod">+0</output>
+    <input id="space-ignorant" name="space" type="radio" value="unskilled">
+    <label for="space-ignorant">Ignorant</label>
+    <input id="space-basic" name="space" type="radio" value="skilled">
+    <label for="space-basic">Basic</label>
+    <input id="space-control" name="space" type="radio" value="expert">
+    <label for="space-control">Control</label>
+    <input id="space-command" name="space" type="radio" value="expert">
+    <label for="space-command">Command</label>
+    <input id="space-mastery" name="space" type="radio" value="expert">
+    <label for="space-mastery">Mastery</label>
+    <output id="space-mod">+0</output>
+    <input id="conjuration-ignorant" name="conjuration" type="radio" value="unskilled">
+    <label for="conjuration-ignorant">Ignorant</label>
+    <input id="conjuration-basic" name="conjuration" type="radio" value="skilled">
+    <label for="conjuration-basic">Basic</label>
+    <input id="conjuration-control" name="conjuration" type="radio" value="expert">
+    <label for="conjuration-control">Control</label>
+    <input id="conjuration-command" name="conjuration" type="radio" value="expert">
+    <label for="conjuration-command">Command</label>
+    <input id="conjuration-mastery" name="conjuration" type="radio" value="expert">
+    <label for="conjuration-mastery">Mastery</label>
+    <output id="conjuration-mod">+0</output>
+    <input id="mind-ignorant" name="mind" type="radio" value="unskilled">
+    <label for="mind-ignorant">Ignorant</label>
+    <input id="mind-basic" name="mind" type="radio" value="skilled">
+    <label for="mind-basic">Basic</label>
+    <input id="mind-control" name="mind" type="radio" value="expert">
+    <label for="mind-control">Control</label>
+    <input id="mind-command" name="mind" type="radio" value="expert">
+    <label for="mind-command">Command</label>
+    <input id="mind-mastery" name="mind" type="radio" value="expert">
+    <label for="mind-mastery">Mastery</label>
+    <output id="mind-mod">+0</output>
+    <input id="life-ignorant" name="life" type="radio" value="unskilled">
+    <label for="life-ignorant">Ignorant</label>
+    <input id="life-basic" name="life" type="radio" value="skilled">
+    <label for="life-basic">Basic</label>
+    <input id="life-control" name="life" type="radio" value="expert">
+    <label for="life-control">Control</label>
+    <input id="life-command" name="life" type="radio" value="expert">
+    <label for="life-command">Command</label>
+    <input id="life-mastery" name="life" type="radio" value="expert">
+    <label for="life-mastery">Mastery</label>
+    <output id="life-mod">+0</output>
+  </div>
+  <div id="inventory">
+    <!-- Also contains encumbrance -->
+    <input id="inv-1" type="text">
+    <input id="inv-1-weight" type="number">
+    <input id="inv-2" type="text">
+    <input id="inv-2-weight" type="number">
+    <input id="inv-3" type="text">
+    <input id="inv-3-weight" type="number">
+    <input id="inv-4" type="text">
+    <input id="inv-4-weight" type="number">
+    <input id="inv-5" type="text">
+    <input id="inv-5-weight" type="number">
+    <input id="inv-6" type="text">
+    <input id="inv-6-weight" type="number">
+    <input id="inv-7" type="text">
+    <input id="inv-7-weight" type="number">
+    <input id="inv-8" type="text">
+    <input id="inv-8-weight" type="number">
+    <input id="inv-9" type="text">
+    <input id="inv-9-weight" type="number">
+    <input id="inv-10" type="text">
+    <input id="inv-10-weight" type="number">
+    <input id="inv-11" type="text">
+    <input id="inv-11-weight" type="number">
+    <input id="inv-12" type="text">
+    <input id="inv-12-weight" type="number">
+    <input id="inv-13" type="text">
+    <input id="inv-13-weight" type="number">
+    <input id="inv-14" type="text">
+    <input id="inv-14-weight" type="number">
+    <input id="inv-15" type="text">
+    <input id="inv-15-weight" type="number">
+    <input id="inv-16" type="text">
+    <input id="inv-16-weight" type="number">
+    <input id="inv-17" type="text">
+    <input id="inv-17-weight" type="number">
+    <input id="inv-18" type="text">
+    <input id="inv-18-weight" type="number">
+    <input id="inv-19" type="text">
+    <input id="inv-19-weight" type="number">
+    <input id="inv-20" type="text">
+    <input id="inv-20-weight" type="number">
+    <output id="encumbered">15</output>
+    <label for="encumbered">Encumbered</label>
+    <output id="over-encumbered">25</output>
+    <label for="over-encumbered">Over Encumbered</label>
+    <output id="max-encumbered">30</output>
+    <label for="max-encumbered">Max Encumbrance</label>
+    <output id="inv-weight">0</output>
+    <label for="inv-weight">Current Inventory Weight</label>
+  </div>
+  <div id="wealth">
+    <input id="1-note" type="number" value="0">
+    <label for="1-note">1 Note</label>
+    <input id="10-note" type="number" value="0">
+    <label for="10-note">10 Note</label>
+    <input id="50-note" type="number" value="0">
+    <label for="50-note">50 Note</label>
+    <input id="100-note" type="number" value="0">
+    <label for="100-note">100 Note</label>
+  </div>
+  <div id="life-story">
+    <input id="backstory" type="text">
+    <input id="legend-goal" type="text">
+    <input id="dream-goal" type="text">
+    <input id="value-goal-1" type="text">
+    <input id="value-goal-2" type="text">
+    <input id="value-goal-3" type="text">
   </div>
 </body>
 
