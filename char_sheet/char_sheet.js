@@ -105,7 +105,7 @@ function download(){
   data = JSON.stringify(data, null, 2);
   var file = document.createElement('a');
   file.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
-  file.setAttribute('download', fields[name] + '.json');
+  file.setAttribute('download', fields[0].value + '.json');
   file.style.display = 'none';
   document.body.appendChild(file);
   file.click();
