@@ -1,0 +1,59 @@
+body {
+  background-color: lightsteelblue;
+}
+
+#fileio {
+  margin: auto;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+#basic-info {
+  position: relative;
+  width: 173px;
+  float: left;
+  border: 2px solid black;
+  padding: 5px;
+}
+
+#spamfic {
+  display: block;
+  position: relative;
+  float: left;
+  border: 2px solid black;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+#combat-stats {
+  display: block;
+  margin-top: 53px;
+  float: left;
+  padding: 5px;
+}
+
+#combat-stats-table {
+  border: 2px solid black;
+}
+
+#skills {
+  float: left;
+  border: 2px solid black;
+}
+
+#magic-table {
+  border: 2px solid black;
+}
+
+.group {
+  display:inline-block;
+}
+
+input[type="number"]{
+  width: 50px;
+}
+
+table {
+  text-align: center;
+}
+

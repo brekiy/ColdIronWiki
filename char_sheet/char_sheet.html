@@ -4,11 +4,12 @@
 <head>
   <meta charset="utf-8">
   <title>Character Sheet</title>
+  <link rel="stylesheet" type="text/css" href="char_sheet.css">
   <script src="char_sheet.js"></script>
 </head>
 
 <body>
-  <div>
+  <div id="fileio">
     <button onclick="window.location='../index.html'">Home</button>
     <button onclick="calculate()">Calculate Derived Stats/Modifiers</button>
     <input id="fileupload" type="file" name="files[]">
@@ -17,272 +18,398 @@
   </div>
   <div id="basic-info">
     <!-- Container for a character's basic information -->
-    <input id="name" type="text" class="sheet">
-    <input id="title" type="text" class="sheet">
-    <input id="species" type="text" class="sheet">
-    <input id="size" type="text" class="sheet">
+    <div class="group">
+      <label for="name">Name</label>
+      <input id="name" type="text" class="sheet" style="display:block">
+    </div>
+    <div class="group">
+      <label for="title">Title</label>
+      <input id="title" type="text" class="sheet" style="display:block">
+    </div>
+    <div class="group">
+      <label for="species">Species</label>
+      <input id="species" type="text" class="sheet" style="display:block">
+    </div>
+    <div class="group">
+      <label for="size">Size</label>
+      <input id="size" type="text" class="sheet" style="display:block">
+    </div>
   </div>
-  <div id="spamfic">
-    <!-- Container for the SPAMFIC attributes and the output modifiers -->
-    <input id="spirit" name="spirit-score" type="number" value="10" min="1" step="1"  class="sheet" onchange="modifier(this)">
-    <input id="perception" name="perception-score" type="number" value="10" min="1" step="1" class="sheet" onchange="modifier(this)">
-    <input id="agility" name="agility-score" type="number" value="10" min="1" step="1" class="sheet" onchange="modifier(this)">
-    <input id="might" name="might-score" type="number" value="10" min="1" step="1" class="sheet" onchange="modifier(this)">
-    <input id="fortitude" name="fortitude-score" type="number" value="10" min="1" step="1" class="sheet" onchange="modifier(this)">
-    <input id="intelligence" name="intelligence-score" type="number" value="10" min="1" step="1" class="sheet" onchange="modifier(this)">
-    <input id="charisma" name="charisma-score" type="number" value="10" min="1" step="1" class="sheet" onchange="modifier(this)">
-    <output id="spirit-mod">+0</output>
-    <output id="perception-mod">+0</output>
-    <output id="agility-mod">+0</output>
-    <output id="might-mod">+0</output>
-    <output id="fortitude-mod">+0</output>
-    <output id="intelligence-mod">+0</output>
-    <output id="charisma-mod">+0</output>
+  <div id="spamfic" class="group">
+    <!-- Align the SPAMFIC stats, inputs and mods neatly in a table -->
+    <table>
+      <tr>
+        <td>Spirit (SPR)</td>
+        <td><input id="spirit" name="spirit-score" type="number" value="10" min="1" step="1" class="sheet" onchange="modifier(this)"></td>
+        <td><output id="spirit-mod">+0</output></td>
+      </tr>
+      <tr>
+        <td>Perception (PER)</td>
+        <td><input id="perception" name="perception-score" type="number" value="10" min="1" step="1" class="sheet" onchange="modifier(this)"></td>
+        <td><output id="perception-mod">+0</output></td>
+      </tr>
+      <tr>
+        <td>Agility (AGI)</td>
+        <td><input id="agility" name="agility-score" type="number" value="10" min="1" step="1" class="sheet" onchange="modifier(this)"></td>
+        <td><output id="agility-mod">+0</output></td>
+      </tr>
+      <tr>
+        <td>Might (MGT)</td>
+        <td><input id="might" name="might-score" type="number" value="10" min="1" step="1" class="sheet" onchange="modifier(this)"></td>
+        <td><output id="might-mod">+0</output></td>
+      </tr>
+      <tr>
+        <td>Fortitude (FOR)</td>
+        <td><input id="fortitude" name="fortitude-score" type="number" value="10" min="1" step="1" class="sheet" onchange="modifier(this)"></td>
+        <td><output id="fortitude-mod">+0</output></td>
+      </tr>
+      <tr>
+        <td>Intelligence (INT)</td>
+        <td><input id="intelligence" name="intelligence-score" type="number" value="10" min="1" step="1" class="sheet" onchange="modifier(this)"></td>
+        <td><output id="intelligence-mod">+0</output></td>
+      </tr>
+      <tr>
+        <td>Charisma (CHR)</td>
+        <td><input id="charisma" name="charisma-score" type="number" value="10" min="1" step="1" class="sheet" onchange="modifier(this)"></td>
+        <td><output id="charisma-mod">+0</output></td>
+      </tr>
+    </table>
   </div>
   <div id="combat-stats">
-    <output id="action-points" class="sheet">8</output>
-    <output id="willpower" class="sheet">12</output>
-    <output id="guard" class="sheet">9</output>
-    <div id="wounds">
-      <output id="wounded" class="sheet">10</output>
-      <output id="very-wounded" class="sheet">25</output>
-      <output id="dead" class="sheet">40</output>
-    </div>
+    <table id="combat-stats-table">
+      <tr>
+        <td>Action Points</td>
+        <td><output id="action-points" class="sheet">8</output></td>
+        <td>Wounded</td>
+        <td><output id="wounded" class="sheet">10</output></td>
+      </tr>
+      <tr>
+        <td>Willpower</td>
+        <td><output id="willpower" class="sheet">12</output></td>
+        <td>Very Wounded</td>
+        <td><output id="very-wounded" class="sheet">25</output></td>
+      </tr>
+      <tr>
+        <td>Guard</td>
+        <td><output id="guard" class="sheet">9</output></td>
+        <td>Dead</td>
+        <td><output id="dead" class="sheet">40</output></td>
+      </tr>
+    </table>
   </div>
   <div id="skills">
     <!-- Container for the skills and their skill levels -->
-    <input id="acrobatics-unskilled" name="acrobatics" type="radio" value="unskilled" class="sheet">
-    <label for="acrobatics-unskilled">Unskilled</label>
-    <input id="acrobatics-skilled" name="acrobatics" type="radio" value="skilled" class="sheet">
-    <label for="acrobatics-skilled">Skilled</label>
-    <input id="acrobatics-expert" name="acrobatics" type="radio" value="expert" class="sheet">
-    <label for="acrobatics-expert">Expert</label>
-    <output id="acrobatics-mod">+0</output>
-    <input id="alchemy-unskilled" name="alchemy" type="radio" value="unskilled" class="sheet">
-    <label for="alchemy-unskilled">Unskilled</label>
-    <input id="alchemy-skilled" name="alchemy" type="radio" value="skilled" class="sheet">
-    <label for="alchemy-skilled">Skilled</label>
-    <input id="alchemy-expert" name="alchemy" type="radio" value="expert" class="sheet">
-    <label for="alchemy-expert">Expert</label>
-    <output id="alchemy-mod">+0</output>
-    <input id="athletics-unskilled" name="athletics" type="radio" value="unskilled" class="sheet">
-    <label for="athletics-unskilled">Unskilled</label>
-    <input id="athletics-skilled" name="athletics" type="radio" value="skilled" class="sheet">
-    <label for="athletics-skilled">Skilled</label>
-    <input id="athletics-expert" name="athletics" type="radio" value="expert" class="sheet">
-    <label for="athletics-expert">Expert</label>
-    <output id="athletics-mod">+0</output>
-    <input id="coercion-unskilled" name="coercion" type="radio" value="unskilled" class="sheet">
-    <label for="coercion-unskilled">Unskilled</label>
-    <input id="coercion-skilled" name="coercion" type="radio" value="skilled" class="sheet">
-    <label for="coercion-skilled">Skilled</label>
-    <input id="coercion-expert" name="coercion" type="radio" value="expert" class="sheet">
-    <label for="coercion-expert">Expert</label>
-    <output id="coercion-mod">+0</output>
-    <input id="deception-unskilled" name="deception" type="radio" value="unskilled" class="sheet">
-    <label for="deception-unskilled">Unskilled</label>
-    <input id="deception-skilled" name="deception" type="radio" value="skilled" class="sheet">
-    <label for="deception-skilled">Skilled</label>
-    <input id="deception-expert" name="deception" type="radio" value="expert" class="sheet">
-    <label for="deception-expert">Expert</label>
-    <output id="deception-mod">+0</output>
-    <input id="investigation-unskilled" name="investigation" type="radio" value="unskilled" class="sheet">
-    <label for="investigation-unskilled">Unskilled</label>
-    <input id="investigation-skilled" name="investigation" type="radio" value="skilled" class="sheet">
-    <label for="investigation-skilled">Skilled</label>
-    <input id="investigation-expert" name="investigation" type="radio" value="expert" class="sheet">
-    <label for="investigation-expert">Expert</label>
-    <output id="investigation-mod">+0</output>
-    <input id="lore-unskilled" name="lore" type="radio" value="unskilled" class="sheet">
-    <label for="lore-unskilled">Unskilled</label>
-    <input id="lore-skilled" name="lore" type="radio" value="skilled" class="sheet">
-    <label for="lore-skilled">Skilled</label>
-    <input id="lore-expert" name="lore" type="radio" value="expert" class="sheet">
-    <label for="lore-expert">Expert</label>
-    <output id="lore-mod">+0</output>
-    <input id="medicine-unskilled" name="medicine" type="radio" value="unskilled" class="sheet">
-    <label for="medicine-unskilled">Unskilled</label>
-    <input id="medicine-skilled" name="medicine" type="radio" value="skilled" class="sheet">
-    <label for="medicine-skilled">Skilled</label>
-    <input id="medicine-expert" name="medicine" type="radio" value="expert" class="sheet">
-    <label for="medicine-expert">Expert</label>
-    <output id="medicine-mod">+0</output>
-    <input id="observation-unskilled" name="observation" type="radio" value="unskilled" class="sheet">
-    <label for="observation-unskilled">Unskilled</label>
-    <input id="observation-skilled" name="observation" type="radio" value="skilled" class="sheet">
-    <label for="observation-skilled">Skilled</label>
-    <input id="observation-expert" name="observation" type="radio" value="expert" class="sheet">
-    <label for="observation-expert">Expert</label>
-    <output id="observation-mod">+0</output>
-    <input id="sabotage-unskilled" name="sabotage" type="radio" value="unskilled" class="sheet">
-    <label for="sabotage-unskilled">Unskilled</label>
-    <input id="sabotage-skilled" name="sabotage" type="radio" value="skilled" class="sheet">
-    <label for="sabotage-skilled">Skilled</label>
-    <input id="sabotage-expert" name="sabotage" type="radio" value="expert" class="sheet">
-    <label for="sabotage-expert">Expert</label>
-    <output id="sabotage-mod">+0</output>
-    <input id="sneak-unskilled" name="sneak" type="radio" value="unskilled" class="sheet">
-    <label for="sneak-unskilled">Unskilled</label>
-    <input id="sneak-skilled" name="sneak" type="radio" value="skilled" class="sheet">
-    <label for="sneak-skilled">Skilled</label>
-    <input id="sneak-expert" name="sneak" type="radio" value="expert" class="sheet">
-    <label for="sneak-expert">Expert</label>
-    <output id="sneak-mod">+0</output>
-    <input id="survival-unskilled" name="survival" type="radio" value="unskilled" class="sheet">
-    <label for="survival-unskilled">Unskilled</label>
-    <input id="survival-skilled" name="survival" type="radio" value="skilled" class="sheet">
-    <label for="survival-skilled">Skilled</label>
-    <input id="survival-expert" name="survival" type="radio" value="expert" class="sheet">
-    <label for="survival-expert">Expert</label>
-    <output id="survival-mod">+0</output>
-  </div>
-  <div id="perks">
-    <input id="perk-list" name="perk-list" type="text">
+    <table>
+      <th>Skill</th><th>Relevant Stat(s)</th><th>Unskilled</th><th>Skilled</th><th>Expert</th><th>Modifier</th>
+      <tr>
+          <td>Acrobatics</td>
+          <td>AGI, MGT</td>
+          <td><input id="acrobatics-unskilled" name="acrobatics" type="radio" value="unskilled" checked class="sheet"></td>
+          <td><input id="acrobatics-skilled" name="acrobatics" type="radio" value="skilled" class="sheet"></td>
+          <td><input id="acrobatics-expert" name="acrobatics" type="radio" value="expert" class="sheet"></td>
+          <td><output id="acrobatics-mod">+0</output></td>
+      </tr>
+      <tr>
+        <td>Alchemy</td>
+        <td>INT</td>
+        <td><input id="alchemy-unskilled" name="alchemy" type="radio" value="unskilled" checked class="sheet"></td>
+        <td><input id="alchemy-skilled" name="alchemy" type="radio" value="skilled" class="sheet"></td>
+        <td><input id="alchemy-expert" name="alchemy" type="radio" value="expert" class="sheet"></td>
+        <td><output id="alchemy-mod">+0</output></td>
+      </tr>
+      <tr>
+        <td>Athletics</td>
+        <td>MGT, FOR</td>
+        <td><input id="athletics-unskilled" name="athletics" type="radio" value="unskilled" checked class="sheet"></td>
+        <td><input id="athletics-skilled" name="athletics" type="radio" value="skilled" class="sheet"></td>
+        <td><input id="athletics-expert" name="athletics" type="radio" value="expert" class="sheet"></td>
+        <td><output id="athletics-mod">+0</output></td>
+      </tr>
+      <tr>
+        <td>Coercion</td>
+        <td>SPR, CHR</td>
+        <td><input id="coercion-unskilled" name="coercion" type="radio" value="unskilled" checked class="sheet"></td>
+        <td><input id="coercion-skilled" name="coercion" type="radio" value="skilled" class="sheet"></td>
+        <td><input id="coercion-expert" name="coercion" type="radio" value="expert" class="sheet"></td>
+        <td><output id="coercion-mod">+0</output></td>
+      </tr>
+      <tr>
+        <td>Deception</td>
+        <td>CHR</td>
+        <td><input id="deception-unskilled" name="deception" type="radio" value="unskilled" checked class="sheet"></td>
+        <td><input id="deception-skilled" name="deception" type="radio" value="skilled" class="sheet"></td>
+        <td><input id="deception-expert" name="deception" type="radio" value="expert" class="sheet"></td>
+        <td><output id="deception-mod">+0</output></td>
+      </tr>
+      <tr>
+        <td>Investigation</td>
+        <td>INT, PER</td>
+        <td><input id="investigation-unskilled" name="investigation" type="radio" value="unskilled" checked class="sheet"></td>
+        <td><input id="investigation-skilled" name="investigation" type="radio" value="skilled" class="sheet"></td>
+        <td><input id="investigation-expert" name="investigation" type="radio" value="expert" class="sheet"></td>
+        <td><output id="investigation-mod">+0</output></td>
+      </tr>
+      <tr>
+        <td>Lore</td>
+        <td>INT</td>
+        <td><input id="lore-unskilled" name="lore" type="radio" value="unskilled" checked class="sheet"></td>
+        <td><input id="lore-skilled" name="lore" type="radio" value="skilled" class="sheet"></td>
+        <td><input id="lore-expert" name="lore" type="radio" value="expert" class="sheet"></td>
+        <td><output id="lore-mod">+0</output></td>
+      </tr>
+      <tr>
+        <td>Medicine</td>
+        <td>INT</td>
+        <td><input id="medicine-unskilled" name="medicine" type="radio" value="unskilled" checked class="sheet"></td>
+        <td><input id="medicine-skilled" name="medicine" type="radio" value="skilled" class="sheet"></td>
+        <td><input id="medicine-expert" name="medicine" type="radio" value="expert" class="sheet"></td>
+        <td><output id="medicine-mod">+0</output></td>
+      </tr>
+      <tr>
+        <td>Observation</td>
+        <td>PER</td>
+        <td><input id="observation-unskilled" name="observation" type="radio" value="unskilled" checked class="sheet"></td>
+        <td><input id="observation-skilled" name="observation" type="radio" value="skilled" class="sheet"></td>
+        <td><input id="observation-expert" name="observation" type="radio" value="expert" class="sheet"></td>
+        <td><output id="observation-mod">+0</output></td>
+      </tr>
+      <tr>
+        <td>Sabotage</td>
+        <td>INT</td>
+        <td><input id="sabotage-unskilled" name="sabotage" type="radio" value="unskilled" checked class="sheet"></td>
+        <td><input id="sabotage-skilled" name="sabotage" type="radio" value="skilled" class="sheet"></td>
+        <td><input id="sabotage-expert" name="sabotage" type="radio" value="expert" class="sheet"></td>
+        <td><output id="sabotage-mod">+0</output></td>
+      </tr>
+      <tr>
+        <td>Sneak</td>
+        <td>AGI</td>
+        <td><input id="sneak-unskilled" name="sneak" type="radio" value="unskilled" checked class="sheet"></td>
+        <td><input id="sneak-skilled" name="sneak" type="radio" value="skilled" class="sheet"></td>
+        <td><input id="sneak-expert" name="sneak" type="radio" value="expert" class="sheet"></td>
+        <td><output id="sneak-mod">+0</output></td>
+      </tr>
+      <tr>
+        <td>Survival</td>
+        <td>FOR, INT</td>
+        <td><input id="survival-unskilled" name="survival" type="radio" value="unskilled" checked class="sheet"></td>
+        <td><input id="survival-skilled" name="survival" type="radio" value="skilled" class="sheet"></td>
+        <td><input id="survival-expert" name="survival" type="radio" value="expert" class="sheet"></td>
+        <td><output id="survival-mod">+0</output></td>
+      </tr>
+    </table>
   </div>
   <div id="magic">
-    <input id="force-unskilled" name="force" type="radio" value="unskilled" class="sheet">
-    <label for="force-unskilled">Unskilled</label>
-    <input id="force-basic" name="force" type="radio" value="basic" class="sheet">
-    <label for="force-basic">Basic</label>
-    <input id="force-control" name="force" type="radio" value="control" class="sheet">
-    <label for="force-control">Control</label>
-    <input id="force-command" name="force" type="radio" value="command" class="sheet">
-    <label for="force-command">Command</label>
-    <input id="force-mastery" name="force" type="radio" value="mastery" class="sheet">
-    <label for="force-mastery">Mastery</label>
-    <input id="matter-unskilled" name="matter" type="radio" value="unskilled" class="sheet">
-    <label for="matter-unskilled">Unskilled</label>
-    <input id="matter-basic" name="matter" type="radio" value="basic" class="sheet">
-    <label for="matter-basic">Basic</label>
-    <input id="matter-control" name="matter" type="radio" value="control" class="sheet">
-    <label for="matter-control">Control</label>
-    <input id="matter-command" name="matter" type="radio" value="command" class="sheet">
-    <label for="matter-command">Command</label>
-    <input id="matter-mastery" name="matter" type="radio" value="mastery" class="sheet">
-    <label for="matter-mastery">Mastery</label>
-    <input id="space-unskilled" name="space" type="radio" value="unskilled" class="sheet">
-    <label for="space-unskilled">Unskilled</label>
-    <input id="space-basic" name="space" type="radio" value="basic" class="sheet">
-    <label for="space-basic">Basic</label>
-    <input id="space-control" name="space" type="radio" value="control" class="sheet">
-    <label for="space-control">Control</label>
-    <input id="space-command" name="space" type="radio" value="command" class="sheet">
-    <label for="space-command">Command</label>
-    <input id="space-mastery" name="space" type="radio" value="mastery" class="sheet">
-    <label for="space-mastery">Mastery</label>
-    <input id="conjuration-unskilled" name="conjuration" type="radio" value="unskilled" class="sheet">
-    <label for="conjuration-unskilled">Unskilled</label>
-    <input id="conjuration-basic" name="conjuration" type="radio" value="basic" class="sheet">
-    <label for="conjuration-basic">Basic</label>
-    <input id="conjuration-control" name="conjuration" type="radio" value="control" class="sheet">
-    <label for="conjuration-control">Control</label>
-    <input id="conjuration-command" name="conjuration" type="radio" value="command" class="sheet">
-    <label for="conjuration-command">Command</label>
-    <input id="conjuration-mastery" name="conjuration" type="radio" value="mastery" class="sheet">
-    <label for="conjuration-mastery">Mastery</label>
-    <input id="mind-unskilled" name="mind" type="radio" value="unskilled" class="sheet">
-    <label for="mind-unskilled">Unskilled</label>
-    <input id="mind-basic" name="mind" type="radio" value="basic" class="sheet">
-    <label for="mind-basic">Basic</label>
-    <input id="mind-control" name="mind" type="radio" value="control" class="sheet">
-    <label for="mind-control">Control</label>
-    <input id="mind-command" name="mind" type="radio" value="command" class="sheet">
-    <label for="mind-command">Command</label>
-    <input id="mind-mastery" name="mind" type="radio" value="mastery" class="sheet">
-    <label for="mind-mastery">Mastery</label>
-    <input id="life-unskilled" name="life" type="radio" value="unskilled" class="sheet">
-    <label for="life-unskilled">Unskilled</label>
-    <input id="life-basic" name="life" type="radio" value="basic" class="sheet">
-    <label for="life-basic">Basic</label>
-    <input id="life-control" name="life" type="radio" value="control" class="sheet">
-    <label for="life-control">Control</label>
-    <input id="life-command" name="life" type="radio" value="command" class="sheet">
-    <label for="life-command">Command</label>
-    <input id="life-mastery" name="life" type="radio" value="mastery" class="sheet">
-    <label for="life-mastery">Mastery</label>
+    <table id="magic-table">
+      <th>Magic Field</th><th>Unskilled</th><th>Basic</th><th>Control</th><th>Command</th><th>Mastery</th>
+      <tr>
+        <td>Force</td>
+        <td><input id="force-unskilled" name="force" type="radio" value="unskilled" checked class="sheet"></td>
+        <td><input id="force-basic" name="force" type="radio" value="basic" class="sheet"></td>
+        <td><input id="force-control" name="force" type="radio" value="control" class="sheet"></td>
+        <td><input id="force-command" name="force" type="radio" value="command" class="sheet"></td>
+        <td><input id="force-mastery" name="force" type="radio" value="mastery" class="sheet"></td>
+      </tr>
+      <tr>
+        <td>Matter</td>
+        <td><input id="matter-unskilled" name="matter" type="radio" value="unskilled" checked class="sheet"></td>
+        <td><input id="matter-basic" name="matter" type="radio" value="basic" class="sheet"></td>
+        <td><input id="matter-control" name="matter" type="radio" value="control" class="sheet"></td>
+        <td><input id="matter-command" name="matter" type="radio" value="command" class="sheet"></td>
+        <td><input id="matter-mastery" name="matter" type="radio" value="mastery" class="sheet"></td>
+      </tr>
+      <tr>
+        <td>Space</td>
+        <td><input id="space-unskilled" name="space" type="radio" value="unskilled" checked class="sheet"></td>
+        <td><input id="space-basic" name="space" type="radio" value="basic" class="sheet"></td>
+        <td><input id="space-control" name="space" type="radio" value="control" class="sheet"></td>
+        <td><input id="space-command" name="space" type="radio" value="command" class="sheet"></td>
+        <td><input id="space-mastery" name="space" type="radio" value="mastery" class="sheet"></td>
+      </tr>
+      <tr>
+        <td>Conjuration</td>
+        <td><input id="conjuration-unskilled" name="conjuration" type="radio" value="unskilled" checked class="sheet"></td>
+        <td><input id="conjuration-basic" name="conjuration" type="radio" value="basic" class="sheet"></td>
+        <td><input id="conjuration-control" name="conjuration" type="radio" value="control" class="sheet"></td>
+        <td><input id="conjuration-command" name="conjuration" type="radio" value="command" class="sheet"></td>
+        <td><input id="conjuration-mastery" name="conjuration" type="radio" value="mastery" class="sheet"></td>
+      </tr>
+      <tr>
+        <td>Mind</td>
+        <td><input id="mind-unskilled" name="mind" type="radio" value="unskilled" checked class="sheet"></td>
+        <td><input id="mind-basic" name="mind" type="radio" value="basic" class="sheet"></td>
+        <td><input id="mind-control" name="mind" type="radio" value="control" class="sheet"></td>
+        <td><input id="mind-command" name="mind" type="radio" value="command" class="sheet"></td>
+        <td><input id="mind-mastery" name="mind" type="radio" value="mastery" class="sheet"></td>
+      </tr>
+      <tr>
+        <td>Life</td>
+        <td><input id="life-unskilled" name="life" type="radio" value="unskilled" checked class="sheet"></td>
+        <td><input id="life-basic" name="life" type="radio" value="basic" class="sheet"></td>
+        <td><input id="life-control" name="life" type="radio" value="control" class="sheet"></td>
+        <td><input id="life-command" name="life" type="radio" value="command" class="sheet"></td>
+        <td><input id="life-mastery" name="life" type="radio" value="mastery" class="sheet"></td>
+      </tr>
+    </table>
+  </div>
+  <div id="perks">
+    <label for="perk-list"><b>Perks</b></label>
+    <textarea id="perk-list" name="perk-list" rows="10" cols="25" style="display: block"></textarea>
   </div>
   <div id="inventory">
     <!-- Also contains encumbrance -->
-    <input id="inv-1" type="text" class="sheet">
-    <input id="inv-1-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-2" type="text" class="sheet">
-    <input id="inv-2-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-3" type="text" class="sheet">
-    <input id="inv-3-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-4" type="text" class="sheet">
-    <input id="inv-4-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-5" type="text" class="sheet">
-    <input id="inv-5-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-6" type="text" class="sheet">
-    <input id="inv-6-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-7" type="text" class="sheet">
-    <input id="inv-7-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-8" type="text" class="sheet">
-    <input id="inv-8-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-9" type="text" class="sheet">
-    <input id="inv-9-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-10" type="text" class="sheet">
-    <input id="inv-10-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-11" type="text" class="sheet">
-    <input id="inv-11-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-12" type="text" class="sheet">
-    <input id="inv-12-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-13" type="text" class="sheet">
-    <input id="inv-13-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-14" type="text" class="sheet">
-    <input id="inv-14-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-15" type="text" class="sheet">
-    <input id="inv-15-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-16" type="text" class="sheet">
-    <input id="inv-16-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-17" type="text" class="sheet">
-    <input id="inv-17-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-18" type="text" class="sheet">
-    <input id="inv-18-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-19" type="text" class="sheet">
-    <input id="inv-19-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-20" type="text" class="sheet">
-    <input id="inv-20-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-21" type="text" class="sheet">
-    <input id="inv-21-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-22" type="text" class="sheet">
-    <input id="inv-22-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-23" type="text" class="sheet">
-    <input id="inv-23-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-24" type="text" class="sheet">
-    <input id="inv-24-weight" type="number" value="0" min="0" class="sheet">
-    <input id="inv-25" type="text" class="sheet">
-    <input id="inv-25-weight" type="number" value="0" min="0" class="sheet">
-    <output id="encumbered" class="sheet">15</output>
-    <label for="encumbered">Encumbered</label>
-    <output id="very-encumbered" class="sheet">25</output>
-    <label for="very-encumbered">Very Encumbered</label>
-    <output id="over-encumbered" class="sheet">30</output>
-    <label for="over-encumbered">Over Encumbered</label>
-    <output id="inv-weight" class="sheet">0</output>
-    <label for="inv-weight">Current Inventory Weight</label>
+    <label for="inventory-table">Inventory</label>
+    <table id="inventory-table">
+      <th>Item</th><th>Weight</th><th>Item</th><th>Weight</th>
+      <tr>
+        <td><input id="inv-1" type="text" class="sheet"></td>
+        <td><input id="inv-1-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+        <td><input id="inv-2" type="text" class="sheet"></td>
+        <td><input id="inv-2-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+      </tr>
+      <tr>
+        <td><input id="inv-3" type="text" class="sheet"></td>
+        <td><input id="inv-3-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+        <td><input id="inv-4" type="text" class="sheet"></td>
+        <td><input id="inv-4-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+      </tr>
+      <tr>
+        <td><input id="inv-5" type="text" class="sheet"></td>
+        <td><input id="inv-5-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+        <td><input id="inv-6" type="text" class="sheet"></td>
+        <td><input id="inv-6-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+      </tr>
+      <tr>
+        <td><input id="inv-7" type="text" class="sheet"></td>
+        <td><input id="inv-7-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+        <td><input id="inv-8" type="text" class="sheet"></td>
+        <td><input id="inv-8-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+      </tr>
+      <tr>
+        <td><input id="inv-9" type="text" class="sheet"></td>
+        <td><input id="inv-9-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+        <td><input id="inv-10" type="text" class="sheet"></td>
+        <td><input id="inv-10-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+      </tr>
+      <tr>
+        <td><input id="inv-11" type="text" class="sheet"></td>
+        <td><input id="inv-11-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+        <td><input id="inv-12" type="text" class="sheet"></td>
+        <td><input id="inv-12-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+      </tr>
+      <tr>
+        <td><input id="inv-13" type="text" class="sheet"></td>
+        <td><input id="inv-13-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+        <td><input id="inv-14" type="text" class="sheet"></td>
+        <td><input id="inv-14-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+      </tr>
+      <tr>
+        <td><input id="inv-15" type="text" class="sheet"></td>
+        <td><input id="inv-15-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+        <td><input id="inv-16" type="text" class="sheet"></td>
+        <td><input id="inv-16-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+      </tr>
+      <tr>
+        <td><input id="inv-17" type="text" class="sheet"></td>
+        <td><input id="inv-17-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+        <td><input id="inv-18" type="text" class="sheet"></td>
+        <td><input id="inv-18-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+      </tr>
+      <tr>
+        <td><input id="inv-19" type="text" class="sheet"></td>
+        <td><input id="inv-19-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+        <td><input id="inv-20" type="text" class="sheet"></td>
+        <td><input id="inv-20-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+      </tr>
+      <tr>
+        <td><input id="inv-21" type="text" class="sheet"></td>
+        <td><input id="inv-21-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+        <td><input id="inv-22" type="text" class="sheet"></td>
+        <td><input id="inv-22-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+      </tr>
+      <tr>
+        <td><input id="inv-23" type="text" class="sheet"></td>
+        <td><input id="inv-23-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+        <td><input id="inv-24" type="text" class="sheet"></td>
+        <td><input id="inv-24-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+      </tr>
+      <tr>
+        <td><input id="inv-25" type="text" class="sheet"></td>
+        <td><input id="inv-25-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+        <td><input id="inv-26" type="text" class="sheet"></td>
+        <td><input id="inv-26-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td>Encumbered</td>
+        <td><output id="encumbered" class="sheet">15</output></td>
+      </tr>
+      <tr>
+        <td>Very Encumbered</td>
+        <td><output id="very-encumbered" class="sheet">25</output></td>
+      </tr>  
+      <tr>
+        <td>Over Encumbered</td>
+        <td><output id="over-encumbered" class="sheet">30</output></td>
+      </tr>
+      <tr>
+        <td>Current Inventory Weight</td>
+        <td><output id="inv-weight" class="sheet">0</output></td>
+      </tr>
+    </table>
   </div>
   <div id="wealth">
-    <input id="1-note" type="number" value="0" min="0" step="1" class="sheet">
-    <label for="1-note">1 Note</label>
-    <input id="10-note" type="number" value="0" min="0" step="1" class="sheet">
-    <label for="10-note">10 Note</label>
-    <input id="50-note" type="number" value="0" min="0" step="1" class="sheet">
-    <label for="50-note">50 Note</label>
-    <input id="100-note" type="number" value="0" min="0" step="1" class="sheet">
-    <label for="100-note">100 Note</label>
+    <table>
+      <tr>
+        <td>1 Note</td>
+        <td><input id="1-note" type="number" value="0" min="0" step="1" class="sheet" onchange="weight(); wealth()"></td>
+      </tr>
+      <tr>
+        <td>10 Note</td>
+        <td><input id="10-note" type="number" value="0" min="0" step="1" class="sheet" onchange="weight(); wealth()"></td>
+      </tr>
+      <tr>
+        <td>50 Note</td>
+        <td><input id="50-note" type="number" value="0" min="0" step="1" class="sheet" onchange="weight(); wealth()"></td>
+      </tr>
+      <tr>
+        <td>100 Note</td>
+        <td><input id="100-note" type="number" value="0" min="0" step="1" class="sheet" onchange="weight(); wealth()"></td>
+      </tr>
+    </table>
     <output id="cur-wealth">0</output>
     <label for="cur-wealth">Current Wealth</label>
   </div>
   <div id="bio">
-    <textarea id="backstory" class="sheet"></textarea>
-    <textarea id="appearance" class="sheet"></textarea>
-    <textarea id="personality" class="sheet"></textarea>
-    <input id="legend-goal" type="text" class="sheet">
-    <input id="dream-goal" type="text" class="sheet">
-    <input id="value-goal-1" type="text" class="sheet">
-    <input id="value-goal-2" type="text" class="sheet">
-    <input id="value-goal-3" type="text" class="sheet">
+    <label for="backstory">Backstory</label>
+    <textarea id="backstory" class="sheet" rows="10" cols="50"></textarea>
+    <label for="appearance">Appearance</label>
+    <textarea id="appearance" class="sheet" rows="10" cols="50"></textarea>
+    <label for="personality">Personality</label>
+    <textarea id="personality" class="sheet" rows="10" cols="50"></textarea>
+    <table>
+      <tr>
+        <td>Legend Goal</td>
+        <td><textarea id="legend-goal" class="sheet" rows="5"></textarea></td>
+      </tr>
+      <tr>
+        <td>Dream Goal</td>
+        <td><textarea id="dream-goal" class="sheet" rows="5"></textarea></td>
+      </tr>
+      <tr>
+        <td>Minor Goal 1</td>
+        <td><textarea id="minor-goal-1" class="sheet" rows="5"></textarea></td>
+      </tr>
+      <tr>
+        <td>Minor Goal 2</td>
+        <td><textarea id="minor-goal-2" class="sheet" rows="5"></textarea></td>
+      </tr>
+      <tr>
+        <td>Minor Goal 3</td>
+        <td><textarea id="minor-goal-3" class="sheet" rows="5"></textarea></td>
+      </tr>
+    </table>
   </div>
 </body>
 

@@ -7,8 +7,27 @@ function modifier(object) {
   output.value = score.toString();
 }
 
+function weight() {
+  var cur_weight = 0;
+  for (var i = 1; i <= 26; i++) {
+    cur_weight += parseFloat(document.getElementById('inv-' + i + '-weight').value);
+  }
+  // add the weight of our money
+  cur_weight += (parseInt(document.getElementById('1-note').value) + parseInt(document.getElementById('10-note').value) + parseInt(document.getElementById('50-note').value) + parseInt(document.getElementById('100-note').value)) / 100;
+  document.getElementById('inv-weight').value = cur_weight;
+}
+
+function wealth() {
+  // update wealth
+  document.getElementById('cur-wealth').value = 
+    parseInt(document.getElementById('1-note').value) 
+    + 10 * parseInt(document.getElementById('10-note').value) 
+    + 50 * parseInt(document.getElementById('50-note').value) 
+    + 100 * parseInt(document.getElementById('100-note').value);
+}
+
 // fills modifiers for the skills, action points, willpower, wounds, and encumbrance
-function calculate(){
+function calculate() {
   var skills = {
     'acrobatics': ['agi', 'mgt'],
     'alchemy': ['int'],
@@ -78,16 +97,6 @@ function calculate(){
   very_encumbered.value = Math.floor(2.5*spamfic['mgt']);
   var over_encumbered = document.getElementById('over-encumbered');
   over_encumbered.value = 3*spamfic['mgt'];
-  // update wealth
-  document.getElementById('cur-wealth').value = parseInt(document.getElementById('1-note').value) + 10*parseInt(document.getElementById('10-note').value) + 50*parseInt(document.getElementById('50-note').value) + 100*parseInt(document.getElementById('100-note').value);
-  // update the current inventory weight
-  var cur_weight = 0;
-  for (var i = 1; i < 26; i++) {
-    cur_weight += parseFloat(document.getElementById('inv-' + i + '-weight').value);
-  }
-  // add the weight of our money
-  cur_weight += (parseInt(document.getElementById('1-note').value) + parseInt(document.getElementById('10-note').value) + parseInt(document.getElementById('50-note').value) + parseInt(document.getElementById('100-note').value))/100;
-  document.getElementById('inv-weight').value = cur_weight;
 }
 
 // downloads the character sheet as a JSON object
