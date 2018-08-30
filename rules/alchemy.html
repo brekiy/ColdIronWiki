@@ -7,19 +7,125 @@
 </head>
 
 <body>
-<h1>Alchemy</h1>
-  <p>Alchemy is the study of combining and manipulating matter. Unlearned peasants might believe that alchemy can turn cow chips to gold, but the most amateurish alchemist will scoff and tell them to find a wizard. Many alchemists are happy to sit in their laboratories and immerse ores in solutions, purify compounds, and brew potent alcohol. The first to start studying alchemy were the dwarves, although since they passed some of its knowledge on to humans, humans have begun to make most of the advancements.</p>
-  <p>The dwarves hold that there are six basic alchemical substances: <span style="color:darkorange">Esh</span>, which is dark orange, <span style="color:blue">Dost</span>, which is blue, Gelad, which is dark red, Lokun, which is purple, Kumak, which is green, and Nehwaz, which is dark yellow. When created, they take the form of small, cubic crystals.</p>
-  <ul>
-    <li><u>Esh:</u> Governs mental strength, grants bonuses to resisting mental stress, casting magic, dealing with the supernatural, etc. A high SPR lets characters shrug off stress that would cripple a lesser being, and in settings with magic a high SPR lets characters cast more spells and commune with supernatural beings more easily.</li>
-    <li><u>Dost:</u> Governs awareness of the environment, grants bonuses to observation in/out of combat, etc. A high PER lets characters spot weaknesses and openings in combat, suspicious things in the environment, or help in observing the tells of another character in conversation.</li>
-    <li><u>Gelad:</u> Governs coordination/physical movement, grants bonuses to athletics, speed, initiative, etc. A high AGI lets characters react quickly in combat, move easily around the environment and perform acrobatic tricks.</li>
-    <li><u>Lokun:</u> Governs physical strength, grants bonuses to physical attacks, heavy lifting, etc. A high MGT lets characters land crushing blows and carry great weights.</li>
-    <li><u>Kumak:</u> Governs physical durability, grants bonuses to hit points, physical resistances, etc. A high FOR lets characters shrug off hits that would cripple a lesser being.</li>
-    <li><u>Nehwaz:</u> Governs mental aptitude, grants bonuses to skilled work, learning new skills, etc. A high INT lets characters use their natural intuition to help solve problems and learn skills more quickly. In a setting with magic, high INT lets characters master more complex spells.</li>
-    <li><u>Charisma (CHR):</u> Governs force of personality, grants bonuses to persuasion, bluffing, socializing, etc. A high CHR lets characters smooth talk their way through many situations, gaining followers or discerning another’s motivations/lies.
-    </li>
-  </ul>
+  <div>
+    <button onclick="window.location='../index.html'">Home</button>
+    <button onclick="window.location='index.html'">Back to Rules</button>
+  </div>
+  <h1>Alchemy</h1>
+    <p>Alchemy is the study of combining and manipulating matter. Unlearned peasants might believe that alchemy can turn cow chips to gold, but the most amateurish alchemist will scoff and tell them to find a wizard. Many alchemists are happy to sit in their laboratories and immerse ores in solutions, purify compounds, and brew potent alcohol. The first to start studying alchemy were the dwarves, although since they taught humans about the field, humans have begun to make most of the advancements.</p>
+    <p>The dwarves managed to distill six basic alchemical substances for the production of potions: <span style="color:darkorange">Esh</span>, which is dark orange, <span style="color:blue">Dost</span>, which is blue, Gelad, which is dark red, Lokun, which is purple, Kumak, which is green, and Nehwaz, which is dark yellow. When isolated from various herbs and minerals, they take the form of small, cubic crystals.</p>
+  <h2>Potions</h2>
+    <p>From these substances it is possible to brew potions with potent, almost magical effects at times, but they are invariably toxic and few can stomach more than a couple at a time. Consuming the raw material is tantamount to suicide. When dissolved in a potion, each substance has their own effect:</p>
+    <ul>
+      <li><u>Esh:</u> Sharpens the senses. A potion with Esh can boost the Investigation and Observation skills, one’s attack bonus, or one's Guard.</li>
+      <li><u>Dost:</u> Boosts mental performance. A potion with Dost can boost the Deception and Persuasion skills, or one’s Willpower.</li>
+      <li><u>Gelad:</u> Boosts physical performance. A potion with Gelad can boost the Acrobatics and Athletics skills, or damage dealt in melee combat and with throwing weapons.</li>
+      <li><u>Lokun:</u> Enhances magical abilities. A potion with Lokun can boost one’s spell mastery or nullify spells. </li>
+      <li><u>Kumak:</u> Cures weakness. A potion with Kumak helps wounds heal faster or acts as a cure-all antidote.</li>
+      <li><u>Nehwaz:</u> Poisons the body. A potion with Nehwaz can inflict lasting damage.</li>
+    </ul>
+  <h3>Nehwaz</h3>
+    <p>For Nehwaz to take effect, the target has to have failed two FOR saves, taken at the start of every round after being hit
+    with the poison. If instead they pass two FOR saves, they shrug off the poison. When Nehwaz is combined with one other crystal
+    of Esh, Gelad or Lokun, it gains additional effects while the poison is active. The effects do not increase with extra crystals,
+    as they dilute the poison.</p>
+    <ul>
+      <li><u>Esh:</u> Applies a -4 penalty to the target’s Guard.</li>
+      <li><u>Dost:</u> Paralyzes the target on a DC15 FOR check.</li>
+      <li><u>Gelad:</u> Seals the target’s magical abilities.</li>
+    </ul>
+  <h3>Brewing Potions</h3>
+    <p>An alchemist first begins by selecting substances according to what they want the potion to do. They can freely combine the six substances to make their potion.</p>
+    <p>When a crystal is added, its effect must be declared by the brewer. For instance, in the Potions section, Gelad is stated as being able to boost the Acrobatics and Athletics skills at once. Therefore, if an alchemist has two crystals of Gelad, they can both can be dedicated towards the Acrobatics/Athletics boost, or one to the boost and another to increasing melee damage, or both to increasing melee/throwing damage. A single crystal affects statistics in the following manner:</p>
+    <ul>
+      <li><u>Skill:</u> +2 bonus to skill checks per crystal.</li>
+      <li><u>Attack:</u> +2 bonus to Attack per crystal.</li>
+      <li><u>Guard:</u> +2 bonus to Guard per crystal.</li>
+      <li><u>Willpower:</u> +1 to Willpower per crystal.</li>
+      <li><u>Damage:</u> +1 damage dice per two crystals. One crystal has no effect.</li>
+      <li><u>Nullify magic:</u> When hit with a spell, roll 1d20. On an 12 or higher, it is nullified. Requires 5 crystals.</li>
+      <li><u>Healing:</u> +1d2 Wounds recovered per crystal. Recovery applies every hour, not in combat.</li>
+      <li><u>Antidote:</u> Cures the poison it is made for and grants immunity to further attempts from it while active. Requires 4 Kumak crystals and the substance to protect against: Nehwaz for a Nehwaz poison antidote, manticore spines for a manticore venom antidote, etc.</li>
+      <li><u>Poison:</u> +1d3 damage taken by the target at the start of each round. After combat, +1 damage taken every hour. The target is also hit with the Poisoned status effect.</li>
+    </ul>
+    <p>To actually brew a potion the various substances must be combined with a base. Potions are limited by the quality of their base. Bases are always some sort of strong alcohol, the purer and less palatable the better. This is so that the purified crystals of the six substances can be dissolved more completely. Indeed, even mixing spirits lowers its quality as a base. Many alchemists will distill their own bases, as well as some for drinking on the side. There are three grades of base quality:</p>
+    <ul>
+      <li><u>Regular:</u> Whiskey, rum, brandy, liqueur, and the like. These are usually just bottles purchased from a store, for relatively cheap. A regular base can contain one crystal worth, adds one Toxicity and its effects will last for one hour. When using Nehwaz it inflicts DC10 FOR saves.</li>
+      <li><u>Good:</u> Strong distilled neutral spirits, as well as unusually high-proof versions of regular spirits. A glass of this is pretty revolting and may make some people black out. A good base can contain three crystals worth, adds three Toxicity and its effects will last for two hours. When using Nehwaz it inflicts DC14 FOR saves.</li>
+      <li><u>Excellent:</u> Dangerously potent alcohol. Typically distilled by alchemists only for use in potions, but there are a few drinks that are sold and can be used as an excellent-quality base. Drinking these is highly detrimental to your wellbeing. An excellent base can contain five crystals worth, adds five Toxicity and its effects will last for four hours. When using Nehwaz it inflicts DC18 FOR saves.</li>
+    </ul>
+  <h3>Toxicity</h3>
+    <p>Drinking additional potions while still under the effects of one forces a DC(10+Toxicity) FOR check. On a failure, all potion
+    effects are nullified and the drinker immediately takes damage equal to their Toxicity, which can be halved to a minimum
+    of one by another DC(10+Toxicity) FOR check. Being poisoned by Nehwaz does not count as still under the effects for the purposes
+    of trying to drink an antidote.</p>
+  <h2>Explosives</h2>
+    <p>Gunpowder was invented by Sanzang the Dirty in roughly 400ASC, so named because his lab in Jianghu was filthy and his original
+    recipe for the black powder included his own urine. Since then, gunpowder has been used extensively in the Jianghu military,
+    and is a closely guarded military secret. Notably, however, the dwarves who were on good terms with the Jiangren gained the
+    recipe and began to utilize it in their own weapons, bringing it back across the Fehanil Sea to their other strongholds in
+    Daesca.</p>
+  <h3>Making Gunpowder</h3>
+    <p>Making gunpowder requires saltpeter, sulfur, and charcoal. The recipe calls for roughly 3 kilograms of saltpeter to half
+    a kilogram each of sulfur and charcoal. This makes 4 kilograms of gunpowder, which is packaged and sold in barrels.</p>
+  <h3>Making Explosives</h3>
+    <p>A simple hand grenade only requires a fist-sized lump of gunpowder, a wick, and a casing to contain it. 4 kilograms of powder
+    will make 10 grenades, each containing 0.4 kilograms of explosive. To make special grenades, certain components can be used. There are three types of special grenades, all of which can be viewed in more detail in the <a href="../items/index.html">Items</a> section:</p>
+    <ul>
+      <li><u>Frag Grenade:</u> A special metal casing must be used instead of the typical clay casing. It has a larger injury radius, but the damage type changes.</li>
+      <li><u>Stun Grenade:</u> A single Esh crystal must be ground up and added to the gunpowder. Nearby victims are disoriented by the nauseous, irritating fumes. Their skin and eyes burn and they are rendered helpless for a short time.</li>
+      <li><u>Smoke Grenade:</u> An amount of sugar is combined with some gunpowder and extra saltpetre to act as the smoke agent. The recipe calls for 0.1 kilograms of powder, 0.2 kilograms of saltpetre, and 0.1 kilograms of sugar. The explosion creates a smoke cloud that obscures vision, helpful for escaping. It can be dyed.</li>
+    </ul>
+  <h2>Narcotics</h2>
+    <p>The study of alchemy can be applied to creating substances for recreational use that alter the mind or body. There are a few popular ones listed here:</p>
+    <ul>
+      <li><u>Crow:</u> This milky drink is a combination of alcohol, a blend of six herbs and a small pinch of Nehwaz. It induces a sluggish state in the user, inhibiting all pain.</li>
+      <li><u>Swift:</u></li>
+    </ul>
+  <h2>Alchemy Crafting Modifiers</h2>
+    <div>
+      <div style="position:relative; float:left">
+        <p>Brewing any potion or grenade requires skill checks made with the Alchemy skill. The base DC for any potion is 10, assuming
+          the alchemy is done in a fully equipped, clean laboratory. Making gunpowder counts as a potion in this case. The base
+          DC for a grenade is 5, again assuming an equipped clean laboratory. On a failure, it explodes because of your incompetence
+          and deals damage according to what you were attempting to make. Making the bases in order from regular, good, and excellent
+          requires 5, 10, and 15 DC.</p>
+      </div>
+      <div>
+        <table>
+          <th>Factor</th>
+          <th>Modifier to DC</th>
+          <tr>
+            <td>More than one crystal</td>
+            <td>+1 per crystal</td>
+          </tr>
+          <tr>
+            <td>Making a special poison with Esh, Gelad, or Lokun</td>
+            <td>+2</td>
+          </tr>
+          <tr>
+            <td>Making gunpowder</td>
+            <td>+2</td>
+          </tr>
+          <tr>
+            <td>Making a Smoke or Stun Grenade</td>
+            <td>+2</td>
+          </tr>
+          <tr>
+            <td>No tools (glass, scales, thermoteters, etc.)</td>
+            <td>+2</td>
+          </tr>
+          <tr>
+            <td>Not in a clean lab</td>
+            <td>+2</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+    
+  <h2>Crafting</h2>
+    <p>Crafting is thrown here as an aside. It can basically be summed up as taking the perk Artisan, saying what type of craft your character is proficient in, paying some amount of money for materials, and having the GM come up with a reasonable DC and period of time for your character to make the item in. It encompasses too many possible items to be codified right now like alchemy, and doing so might make things too tedious for the player.</p>
 </body>
 
 </html>

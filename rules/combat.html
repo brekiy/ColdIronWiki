@@ -3,48 +3,83 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Rules - SPAMFIC System</title>
+  <title>Rules - Combat</title>
 </head>
 
 <body>
-<h1>Attribute System</h1>
-<h3>SPAMFIC Attributes</h3>
-  <p>Characters have seven basic attribute scores, which are grouped in a nice acronym as <b>SPAMFIC</b>. SPAMFIC stands for Spirit, Perception, Agility, Might, Fortitude, Intelligence, Charisma.</p>
-  <ul>
-    <li><u>Spirit (SPR):</u> Governs mental strength, grants bonuses to resisting mental stress, casting magic, dealing with the supernatural, etc. A high SPR lets characters shrug off stress that would cripple a lesser being, and in settings with magic a high SPR lets characters cast more spells and commune with supernatural beings more easily.</li>
-    <li><u>Perception (PER):</u> Governs awareness of the environment, grants bonuses to observation in/out of combat, etc. A high PER lets characters spot weaknesses and openings in combat, suspicious things in the environment, or help in observing the tells of another character in conversation.</li>
-    <li><u>Agility (AGI):</u> Governs coordination/physical movement, grants bonuses to athletics, speed, initiative, etc. A high AGI lets characters react quickly in combat, move easily around the environment and perform acrobatic tricks.</li>
-    <li><u>Might (MGT):</u> Governs physical strength, grants bonuses to physical attacks, heavy lifting, etc. A high MGT lets characters land crushing blows and carry great weights.</li>
-    <li><u>Fortitude (FOR):</u> Governs physical durability, grants bonuses to hit points, physical resistances, etc. A high FOR lets characters shrug off hits that would cripple a lesser being.</li>
-    <li><u>Intelligence (INT):</u> Governs mental aptitude, grants bonuses to skilled work, learning new skills, etc. A high INT lets characters use their natural intuition to help solve problems and learn skills more quickly. In a setting with magic, high INT lets characters master more complex spells.</li>
-    <li><u>Charisma (CHR):</u> Governs force of personality, grants bonuses to persuasion, bluffing, socializing, etc. A high CHR lets characters smooth talk their way through many situations, gaining followers or discerning another’s motivations/lies.
-    </li>
-  </ul>
-  <p>Every playable race has a basic statline and maximum stat caps. The caps are 8 higher than the baseline attribute score for a creature. For example, a human has 10 base MGT, so 18 is the cap. A goblin by contrast has 7 base MGT and this caps out at 15. Each SPAMFIC attribute confer modifiers on actions in a range. Checks use these modifiers when appropriate to represent a character’s aptitude or lack thereof when attempting actions.</p>
-  <p>The modifiers are handled in the character sheet, but if you are interested it roughly follows the Dungeons and Dragons system of every pair increasing a modifier by 1, stating at -5 for an attribute of 1, then -4 for an attribute of 2-3, and so on.</p>
-  <p>Basic stats cost 3 Power Points (PP) to increase each rank up to 12, and then 5 each rank after that. Power Points are explained in Character Creation.</p>
-<h3>Derived Stats</h3>
-  <p>Derived from some of the SPAMFIC attributes are a few more. Wounds, Action Points, and Encumbrance are all derived from direct stat scores, not stat modifiers. Size is derived from your character’s species.</p>
-<h4>Wounds</h4>
-  <p>A character’s Wounds stat broken into several breakpoints based off of their MGT and FOR. Once wounds equal or pass a breakpoint, the character suffers its penalties.</p>
-  <ul>
-    <li><u>Wounded (FOR):</u> You are injured, but still fit to fight. A -1 penalty on physical actions and initiative.</li>
-    <li><u>Very Wounded (0.5*MGT + 2*FOR):</u> You are injured, but still fit to fight. A -1 penalty on physical actions and initiative.</li>
-    <li><u>Dead (MGT + 3*FOR):</u> You are already dead.</li>
-  </ul>
-  <p>Physical actions include attack rolls, damage rolls, spellcasting, and various other interactions, such as performing medicine or climbing.</p>
-  <p>Wounds are healed by drinking a Kumak potion (see Alchemy) or otherwise at the rate of 2 every 24 hours after being injured, provided that all bleeding has stopped and treatment was given.</p>
-<h4>Action Points (AP)</h4>
-  <p>A character’s AP determines their number of actions per round of combat, based off of their PER and AGI. The max AP for a character is calculated as (0.25*PER + AGI).</p>
-<h4>Willpower (WP)</h4>
-  <p>A character’s WP acts as additional action points. WP does not regenerate every round, and can be burned at any time during combat to perform actions that otherwise cost too much AP. Notably, WP is also used as a resource by magic users, in order to cast their spells. The starting WP for a character is calculated as (SPR + 0.25*CHR).</p>
-<h4>Encumbrance</h4>
-  <p>A character’s encumbrance represents the weight they can carry long term. Once weight equals or passes a breakpoint, the character suffers its penalties.</p>
-  <ul>
-    <li><u>Encumbered (2*MGT):</u> You are carrying a moderate load. -2 penalty on AGI checks and initiative, and actions cost +1 AP.</li>
-    <li><u>Over Encumbered (2.5*MGT):</u> You are carrying a very heavy load. -5 penalty on AGI checks and initiative, and actions cost +2 AP.</li>
-    <li><u>Max Encumbrance (3*MGT):</u> You cannot carry more than this value. If you do you are reduced to a stationary state as well as suffering a -8 penalty on AGI checks and initiative, and actions cost +4 AP.</li>
-  </ul>
+  <div>
+    <button onclick="window.location='../index.html'">Home</button>
+    <button onclick="window.location='index.html'">Back to Rules</button>
+  </div>
+  <h1>Combat</h1>
+    <p>Combat in the Cold Iron system aims to give a reasonable and interesting amount of fidelity and to avert the auto-attack fest that can be a part of other systems. The goal is to give the player a variety of interesting choices.</p>
+  <h3>Initiative</h3>
+    <p>At the start of each round, each combatant refreshes their AP pool. They then roll 1d20 and add their AGI, size, and encumbrance modifiers, as well as any other effects. A natural 20 roll goes first, and a natural 1 roll goes last. Combatants take turns in order from highest to lowest, and the GM decides ties.</p>
+    <p>Below is a table of creature sizes and corresponding initiative modifiers.</p>
+    <table>
+      <th>Creature Size</th><th>Modifier</th>
+      <tr>
+        <td>Tiny</td>
+        <td>+4</td>
+      </tr>
+      <tr>
+        <td>Small</td>
+        <td>+2</td>
+      </tr>
+      <tr>
+        <td>Medium</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Large</td>
+        <td>-2</td>
+      </tr>
+      <tr>
+        <td>Huge</td>
+        <td>-4</td>
+      </tr>
+      <tr>
+        <td>Gigantic</td>
+        <td>-7</td>
+      </tr>
+    </table>
+  <h3>Action Points (AP)</h3>
+    <p>AP is used for everything from moving to swapping items to casting spells to swinging a sword. During your turn, you may act until your AP for the round is expended.</p>
+    <p>You may also reserve your AP to do one of three things when it isn't your turn, after you have already gone:</p>
+    <ol>
+      <li>Boost your Guard for 1 attack made against you, at a rate of 1AP for +1 Guard.</li>
+      <li>Move, at a +1AP cost per tile on top of the base cost</li>
+      <li>Shoot, Swing, Thrust, Kick, Punch or Throw</li>
+    </ol>
+    <p>You may only perform one of these per round.</p>
+  <h3>Movement</h3>
+    <p>Each tile costs at least 2AP to move over. Difficult terrain will cost 3AP and may require an Acrobatics check to cross safely.</p>
+  <h3>Attack Range, Attacks from Behind, and Attacks of Opportunity (AoO)</h3>
+    <p>In general, creatures can attack targets within a 2m threat radius unless otherwise specified or possessing the means to do so.</p>
+    <p>When targets leave your threat radius you get to make one free <b>Swing,</b> <b>Thrust,</b> or <b>Unarmed</b> attack. In the case of the humanoid sapients, this unarmed attack is restricted to a Punch or Kick.</p>
+    <p>Moving within the threat radius (say, stepping to the side after making a Thrust) does not trigger an AoO. In this manner, it is possible to <b>attack targets from behind,</b> which gives a +4 attack bonus. However, when facing a target one on one, it will automatically face you unless you have the Fast Footwork perk.</p>
+  <h2>Melee Combat</h2>
+    <p>In a fight in the Cold Iron system, combatants perform Techniques. These include a variety of armed and unarmed strikes, throws, and weapon manipulation. When performing a Technique, unless otherwise stated the attacker must make an attack roll against the target’s Guard. Weapon techniques can only be performed with a weapon, while Unarmed techniques can be performed with or without one; after all, you can still kick people with a sword in your hand. All characters know the Basic Weapon and Unarmed techniques, but only a few learn one or more Advanced ones.</p>
+    <p>To make an attack roll, roll 1d20 and add your MGT (if melee) or PER (if ranged) modifiers as well as any other bonuses/penalties. This value must exceed the target’s Guard in order to hit the target.</p>
+  <h3>Grappling</h3>
+    <p>There is a -2 penalty for each limb that you cannot use. For the purposes of grappling, having a shield, second weapon, or similar in the offhand counts as an unusable limb.</p>
+  <h3>Dual-wielding</h3>
+    <p>You get a +1 bonus to Guard in melee and a -1AP reduction to Swings and Thrusts as long as you alternate attacks between the main and off-hand. However, you take a -1/-2 penalty to attack with the main/off-hand, and the first attack still costs the full amount. The attack penalty is doubled for your off-hand if it isn’t holding a Light weapon.</p>
+  <h3>Techniques</h3>
+    <p>Techniques are the method by which characters fight. They begin the game knowing all Basic and Universal Techniques. Advanced ones can be learned as characters grow in expertise and gain perks. Below, all techniques are listed in order of [Name, (AP Cost, Modifier(s) used)]</p>
+    <b><u>Universal</u></b>
+    <ul>
+      <li><b>Disengage (3AP, None):</b> Carefully back away to just outside a target’s threat range, avoiding an AoO. In the case of multiple targets, Disengage must be used for each AoO seperately. Note that you can still attempt to move away from multiple targets if you don't have the AP to use Disengage from all of them - you will just take some AoOs. Automatic success.</li>
+      <li><b>Draw Item (3AP, None):</b> Retrieve something from your inventory and put it in one hand. If it was stored in a backpack or something similar, pay 4AP instead.</li>
+      <li><b>Stand (3AP, None):</b> Stand up from a prone state. Requires the use of both legs, or a suitable object.</li>
+    </ul>
+    <b><u>Weapon (Basic)</u></b>
+    <ul>
+      <li><b>Swing (Dep, MGT):</b> Swing your weapon at the target. AP cost/damage is on the weapon’s Swing profile.</li>
+      <li><b>Thrust (Dep, MGT):</b> Thrust your weapon at the target. AP cost/damage is on the weapon’s Thrust profile.</li>
+      <li><b>Grapple (1AP, Dep):</b> Both you and the target make one of an Athletics or Acrobatics check. If you win, you enter grappling. You may pay 1AP extra to turn this into a Takedown, where you and your target both go prone.</li>
+      <li><b>Dual Strike (Dep, MGT):</b> Make a Swing or Thrust with both weapons, paying the higher AP cost once. This results in two attack rolls made at the attack penalty of your off-hand.</li>
+    </ul>
 </body>
 
 </html>

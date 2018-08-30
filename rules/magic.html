@@ -3,48 +3,103 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Rules - SPAMFIC System</title>
+  <title>Rules - Magic</title>
 </head>
 
 <body>
-<h1>Attribute System</h1>
-<h3>SPAMFIC Attributes</h3>
-  <p>Characters have seven basic attribute scores, which are grouped in a nice acronym as <b>SPAMFIC</b>. SPAMFIC stands for Spirit, Perception, Agility, Might, Fortitude, Intelligence, Charisma.</p>
-  <ul>
-    <li><u>Spirit (SPR):</u> Governs mental strength, grants bonuses to resisting mental stress, casting magic, dealing with the supernatural, etc. A high SPR lets characters shrug off stress that would cripple a lesser being, and in settings with magic a high SPR lets characters cast more spells and commune with supernatural beings more easily.</li>
-    <li><u>Perception (PER):</u> Governs awareness of the environment, grants bonuses to observation in/out of combat, etc. A high PER lets characters spot weaknesses and openings in combat, suspicious things in the environment, or help in observing the tells of another character in conversation.</li>
-    <li><u>Agility (AGI):</u> Governs coordination/physical movement, grants bonuses to athletics, speed, initiative, etc. A high AGI lets characters react quickly in combat, move easily around the environment and perform acrobatic tricks.</li>
-    <li><u>Might (MGT):</u> Governs physical strength, grants bonuses to physical attacks, heavy lifting, etc. A high MGT lets characters land crushing blows and carry great weights.</li>
-    <li><u>Fortitude (FOR):</u> Governs physical durability, grants bonuses to hit points, physical resistances, etc. A high FOR lets characters shrug off hits that would cripple a lesser being.</li>
-    <li><u>Intelligence (INT):</u> Governs mental aptitude, grants bonuses to skilled work, learning new skills, etc. A high INT lets characters use their natural intuition to help solve problems and learn skills more quickly. In a setting with magic, high INT lets characters master more complex spells.</li>
-    <li><u>Charisma (CHR):</u> Governs force of personality, grants bonuses to persuasion, bluffing, socializing, etc. A high CHR lets characters smooth talk their way through many situations, gaining followers or discerning another’s motivations/lies.
-    </li>
-  </ul>
-  <p>Every playable race has a basic statline and maximum stat caps. The caps are 8 higher than the baseline attribute score for a creature. For example, a human has 10 base MGT, so 18 is the cap. A goblin by contrast has 7 base MGT and this caps out at 15. Each SPAMFIC attribute confer modifiers on actions in a range. Checks use these modifiers when appropriate to represent a character’s aptitude or lack thereof when attempting actions.</p>
-  <p>The modifiers are handled in the character sheet, but if you are interested it roughly follows the Dungeons and Dragons system of every pair increasing a modifier by 1, stating at -5 for an attribute of 1, then -4 for an attribute of 2-3, and so on.</p>
-  <p>Basic stats cost 3 Power Points (PP) to increase each rank up to 12, and then 5 each rank after that. Power Points are explained in Character Creation.</p>
-<h3>Derived Stats</h3>
-  <p>Derived from some of the SPAMFIC attributes are a few more. Wounds, Action Points, and Encumbrance are all derived from direct stat scores, not stat modifiers. Size is derived from your character’s species.</p>
-<h4>Wounds</h4>
-  <p>A character’s Wounds stat broken into several breakpoints based off of their MGT and FOR. Once wounds equal or pass a breakpoint, the character suffers its penalties.</p>
-  <ul>
-    <li><u>Wounded (FOR):</u> You are injured, but still fit to fight. A -1 penalty on physical actions and initiative.</li>
-    <li><u>Very Wounded (0.5*MGT + 2*FOR):</u> You are injured, but still fit to fight. A -1 penalty on physical actions and initiative.</li>
-    <li><u>Dead (MGT + 3*FOR):</u> You are already dead.</li>
-  </ul>
-  <p>Physical actions include attack rolls, damage rolls, spellcasting, and various other interactions, such as performing medicine or climbing.</p>
-  <p>Wounds are healed by drinking a Kumak potion (see Alchemy) or otherwise at the rate of 2 every 24 hours after being injured, provided that all bleeding has stopped and treatment was given.</p>
-<h4>Action Points (AP)</h4>
-  <p>A character’s AP determines their number of actions per round of combat, based off of their PER and AGI. The max AP for a character is calculated as (0.25*PER + AGI).</p>
-<h4>Willpower (WP)</h4>
-  <p>A character’s WP acts as additional action points. WP does not regenerate every round, and can be burned at any time during combat to perform actions that otherwise cost too much AP. Notably, WP is also used as a resource by magic users, in order to cast their spells. The starting WP for a character is calculated as (SPR + 0.25*CHR).</p>
-<h4>Encumbrance</h4>
-  <p>A character’s encumbrance represents the weight they can carry long term. Once weight equals or passes a breakpoint, the character suffers its penalties.</p>
-  <ul>
-    <li><u>Encumbered (2*MGT):</u> You are carrying a moderate load. -2 penalty on AGI checks and initiative, and actions cost +1 AP.</li>
-    <li><u>Over Encumbered (2.5*MGT):</u> You are carrying a very heavy load. -5 penalty on AGI checks and initiative, and actions cost +2 AP.</li>
-    <li><u>Max Encumbrance (3*MGT):</u> You cannot carry more than this value. If you do you are reduced to a stationary state as well as suffering a -8 penalty on AGI checks and initiative, and actions cost +4 AP.</li>
-  </ul>
+  <div>
+    <button onclick="window.location='../index.html'">Home</button>
+    <button onclick="window.location='index.html'">Back to Rules</button>
+  </div>
+  <h1>Magic</h1>
+  <h2>Introduction</h2>
+    <p>Since the age of creation, when gods walked the earth, there have been traces of magic. Those who were born with magical aptitude and can shape it to their will are referred to as wizards.</p>
+    <p>When a wizard focuses magic and shapes it to do what they want, they need to expend energy. Usually this is in the form of their stored mental power and time to do so, although if necessary they will find themselves spending their own life force. All this work requires a lot of energy, and so wizards find themselves needing to eat a lot if they constantly use their power.</p>
+    <p>In game terms this means that spells cost AP (time) to cast just like performing combat techniques with weapons or moving,
+    and if a wizard finds that they’re just short of success or the spell is too much for them to handle they might need to expend some Wounds or WP.</p>
+  <h2>Ranks of Magical Skill</h2>
+    <p>Wizards develop their skill in each field by purchasing ranks with Power Points, as they would with perks. Each field has a total of 4 ranks, which act as bonuses to casting spells in that field as well as descriptions of a wizard’s ability in that field. Further, each rank costs triple its number in Power Points, and requires INT equal to 10 + rank. Each rank’s power level can be summed up as:</p>
+    <ol>
+      <li>Basic perception and manipulation</li>
+      <li>Control</li>
+      <li>Command</li>
+      <li>Mastery</li>
+    </ol>
+  <h2>Casting Spells</h2>
+    <p>Casting a spell costs WP and AP equal to its rank + 1. If a wizard runs out of WP, they can pay the equivalent in Wounds. Once a wizard reaches rank 4 in a field, they lower the WP cost of spells in that field by 1. Furthermore, casting magic of a rank lower than the wizard's current rank grants a bonus equal to twice the difference between them.</p>
+    <p>The wizard should describe clearly what they want to do to the GM, who will determine whether or not it is within their power. The base DC for a spell is 10, unless it is a projectile of some sort, in which case the wizard must defeat the target's Guard. In both cases SPR is the primary attribute for spellcasting, providing a bonus to the die roll.</p>
+  <h2>Fields of Magic</h2>
+    <p>Magic is broken into several fields. A wizard develops their skill in each of them, generally specializing in one. Those who have mastered more than one field are usually styled "Mage-Lord".</p>
+    <ul>
+      <li><u>Force:</u> Control over natural phenomena such as fire, wind, lightning, gravity, and light.</li>
+      <li><u>Matter:</u> Control over the physical properties of objects.</li>
+      <li><u>Space:</u> Control over the space between objects and places.</li>
+      <li><u>Conjuration:</u> Control over manifesting temporary objects, magical barriers, and creatures with magical energy.</li>
+      <li><u>Mind:</u> Control over the senses and minds of others.</li>
+      <li><u>Life:</u> Control over the life force of creatures.</li>
+    </ul>
+    <h3>Force</h3>
+      <p>Users of Force magic can manipulate the flow of natural energy. Advanced users can create truly destructive displays of power, and masters can simply fire projectiles of raw, searing magic. They cannot, however, do things like condense air into water, which falls under the realm of Matter.</p>
+      <ol>
+        <li>The wizard can alter the flow of existing energies. They can’t yet conjure flames and the like, but can direct it easily
+        enough from a nearby source, or bend light and sound to make things invisible or silent.</li>
+        <li>The wizard can now conjure small phenomena and manipulate things more freely. In their hand they can will fire and lightning
+        into being, and project it. They can use this to grant their weapons additional power.</li>
+        <li>The wizard can now change the weather with some effort and fire magically propelled fireballs and other projectiles. A sunny
+        day can become a hailstorm in a few blinks of the eye. Lightning can stream from their palms over a vast distance.</li>
+        <li>The wizard’s understanding of the flow of energy is so great that they can lift things with their mind and fling them with
+        great force. They can fire projectiles of raw energy to burn targets with the aether. Such things can even harm spirits. Furthermore, they have mastered flight via manipulating gravity.</li>
+      </ol>
+    <h3>Matter</h3>
+      <p>Users of Matter magic can alter the properties of objects. They can reinforce metal, liquify it, rust it, change water to
+      air, and shape homes out of cliffsides. Advanced users can lift objects with their power, similar to Force users. True masters
+      can break down the material around them and shape it into other substances.</p>
+      <ol>
+        <li>The wizard can sense the structure and weak points of nearby objects. They can shape objects with some effort, but no guarantee is made for artistic skill.</li>
+        <li>The wizard can now temporarily change the state of objects, turning them from solid to liquid to gas and the other way around. This also lets them temporarily rejoin broken objects, although the bond breaks down within a few hours due to imperfect
+        spellcasting.</li>
+        <li>The wizard can lift objects with their magical power and perform permanent alterations to them. Fixing a bridge, melting
+        a knight’s armor, and scalping people from a distance are equally easy with a Matter wizard of this rank.</li>
+        <li>The wizard’s mastery of Matter allows them to fundamentally change objects: the myths of water to wine, or lead to gold,
+        are now possible.</li>
+      </ol>
+    <h3>Space</h3>
+      <p>Users of Space magic control the distance between objects. By creating tears in reality, wizards pull things from other locations and see the position of hidden objects or creatures. Advanced users can teleport themselves or others, and masters can fly or create pocket dimensions.</p>
+      <ol>
+        <li>The wizard can probe a small distance around themselves, noting things that are unseen. They can grab small objects from
+        afar, which appear to instantly appear in their hand, distinguishing it from mere telekinesis.</li>
+        <li>The wizard can temporarily open holes in space, allowing them to step through. As soon as something enters it or a few minutes have passed, it closes.</li>
+        <li>The wizard can now open permanent holes in space, creating a stable connection between two locations. It needs some sort
+        of magical structure to anchor it, however. Once created, the wizard does not need to expend more energy to maintain it.
+        They can also extend their senses to effectively be in multiple locations at once.</li>
+        <li>The wizard has learned to essentially warp themselves continuously, granting them the power of flight. They can also teleport
+        people inside walls and open portals to artificial dimensions, limited only by their creativity and magical reserves.</li>
+      </ol>
+    <h3>Conjuration</h3>
+      <p>Users of Conjuration magic are able to form energy into objects that can be interacted with. These are never permanent, unlike those created with Matter, unless one masters Conjuration enough to potentially summon spirits.</p>
+      <ol>
+        <li>The wizard can create simple shapes with some effort. They dissipate within an hour, and weigh almost nothing. However, they
+        are strong enough to protect against a few arrows. Gunshots go right through.</li>
+        <li>The wizard can now create more complex shapes, which now last for several hours. At this rank they can do away with making blocks to act as cover, and can instead temporarily conjure a warding field that blocks projectiles, or a holding cell.</li>
+        <li>The wizard’s skill allows for simple familiars to be created. These are limited to small creatures that lack sapience, such as cats, dogs, birds, and monkeys. The wizard can also fashion arms and armor out of magical energy, which are as effective as the real steel. Both of these require continuous energy to maintain.</li>
+        <li>The wizard can now summon complex, large familiars, such as bears and crocodiles. Their weapons now phase through steel, rending the flesh.</li>
+      </ol>
+    <h3>Mind</h3>
+      <p>Users of Mind magic learn to reinforce their own cognitive abilities as well as delve into the minds of others. Advanced users can induce hallucinations and overload the senses, and the masters of this field can grant intelligence to creatures and enthrall them.</p>
+      <ol>
+        <li>The wizard first learns to shield their mind from psychic assault, gaining a +2 bonus to doing so. They also gain the ability to listen to the thoughts of others nearby, and gain the perk Mentat.</li>
+        <li>The wizard can now delve deeper into other minds, sending them messages and hallucinations to influence their actions, and forcibly obtain information via memories.</li>
+        <li>The wizard can overload the mind with horrific imagery, driving people insane and/or stunning them. They can also enthrall people temporarily and untether their consciousness from their body.</li>
+        <li>The wizard has the power to create sentience where there was none before, potentially giving animals and constructs such as golems intelligence. They also learn to enthrall people indefinitely by binding their will to an object. So long as the object remains intact the thrall will be unflinchingly loyal to the wizard.</li>
+      </ol>
+    <h3>Life</h3>
+      <p>Users of Life magic control the life force found in all living things. They can knit flesh, redistribute life between creatures, and even bring back the dead.</p>
+      <ol>
+        <li>The wizard can perform healing by touch. Bruises and bleeding will disappear in a few seconds, and given some time cuts will close. They can also alter small things about themselves like their skin color.</li>
+        <li>The wizard has learned to manipulate life force more effectively. They can heal wounds more quickly and can siphon the life from others nearby into themselves. Regenerating limbs is possible, but costly. They can also alter other life forms slightly: a wizard can make an apple tree grow some extra branches or give a dog a blue coat of fur.</li>
+        <li>The wizard can shapeshift, but only into mundane creatures they have knowledge of and that are of similar size. A human wizard cannot, for instance, turn into a bird, but can become a wolf or black bear.</li>
+        <li>The wizard has now perfected shapeshifting. They can replicate mundane creatures of various sizes easily. In addition to this, they can use their mastery of life to raise the dead to do their bidding.</li>
+      </ol>
 </body>
 
 </html>

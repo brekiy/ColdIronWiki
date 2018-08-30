@@ -32,7 +32,7 @@ function calculate() {
     'acrobatics': ['agi', 'mgt'],
     'alchemy': ['int'],
     'athletics': ['mgt', 'for'],
-    'coercion': ['spr','chr'],
+    'coercion': ['chr'],
     'deception': ['chr'],
     'investigation': ['int', 'per'],
     'lore': ['int'],
