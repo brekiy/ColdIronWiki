@@ -9,48 +9,36 @@ body {
 }
 
 #basic-info {
-  position: relative;
-  width: 173px;
-  float: left;
-  border: 2px solid black;
+  width: 240px;
   padding: 5px;
 }
 
 #spamfic {
-  display: block;
-  position: relative;
-  float: left;
-  border: 2px solid black;
   padding: 5px;
   margin-left: 5px;
 }
 
 #combat-stats {
-  display: block;
   margin-top: 53px;
-  float: left;
   padding: 5px;
 }
 
-#combat-stats-table {
-  border: 2px solid black;
+.info-category {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 5px;
+  margin: auto;
+  text-align: center;
 }
 
-#skills {
-  float: left;
-  border: 2px solid black;
-}
-
-#magic-table {
-  border: 2px solid black;
-}
-
-.group {
-  display:inline-block;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }
 
 input[type="number"]{
-  width: 50px;
+  width: 40px;
+  text-align: center;
 }
 
 table {
