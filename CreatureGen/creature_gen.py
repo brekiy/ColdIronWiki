@@ -16,6 +16,19 @@ def int_positive():
       print('Error. Number must be greater than 0.')
   return num
 
+def yes_no():
+  while True:
+    try:
+      boolean = str(input())
+      if(boolean != 'y' and boolean != 'n'):
+        raise ValueError('D:')
+      break
+    except ValueError:
+      print(yn_error_msg)
+  if boolean == 'y':
+    return True
+  else: return False
+  
 # builds a tuple containing the information for one attack
 def add_attack():
   print('''Input the name of the attack - Bite, Breathe Fire, etc.''')
@@ -31,12 +44,30 @@ whether it requires a certain body part, etc. should go here.''')
   print('''Attack added.''')
   return (name, ap_cost, damage, description)
 
+def add_trait():
+  print('''Name the trait.''')
+  name = input()
+  print('''Describe it. Be specific about what it is.''')
+  description = input()
+  return (name, description)
+
 def modifier(score):
   score = math.floor((score / 2) - 5)
   if score < 0:
     return str(score)
   else:
     return '+' + str(score)
+
+# takes stats, calculates AP, wounds, willpower, guard,
+# spits them back out as a tuple
+def combat_stats(stat_dict):
+  ap = math.floor(stat_dict['PER']/4) + math.floor(stat_dict['AGI']/1.5)
+  willpower = math.floor(stat_dict['SPR']) + math.floor(stat_dict['CHR']/4)
+  guard = math.floor(stat_dict['PER']/2.5) + math.floor(stat_dict['AGI']/2)
+  wounded = stat_dict['FOR']
+  very_wounded = stat_dict['FOR']*2 + math.floor(stat_dict['MGT']/2)
+  dead = stat_dict['FOR']*3 + stat_dict['MGT']
+  return (ap, willpower, guard, wounded, very_wounded, dead)
 
 def make_html():
   # required tag bits
@@ -45,7 +76,7 @@ def make_html():
   creature_file.write('<body>\n\t')
   # basic info
   creature_file.write('<h1>' + name + '</h1>\n\t')
-  creature_file.write('<h2>' + category + '</h2>\n\t')
+  creature_file.write('<h2>' + size + ' ' + category + '</h2>\n\t')
   creature_file.write('<p>' + description + '</p>\n\t')
   # SPAMFIC table
   creature_file.write('<table>\n\t')
@@ -55,6 +86,15 @@ def make_html():
   for key, value in creature_stats.items():
     creature_file.write('<td>' + str(value) + ' (' + modifier(value) + ') ' + '</td>')
   creature_file.write('\n</tr>\n</table>')
+  # wounds, action points, willpower, guard table
+  derived_stats = combat_stats(creature_stats)
+  creature_file.write('<table>\n\t')
+  creature_file.write('<tr><td>Action Points</td><td>' + str(derived_stats[0]) + '</td>')
+  creature_file.write('<td>Wounded</td><td>' + str(derived_stats[3]) + '</td></tr>\n\t')
+  creature_file.write('<tr><td>Willpower</td><td>' + str(derived_stats[1]) + '</td>')
+  creature_file.write('<td>Very Wounded</td><td>' + str(derived_stats[4]) + '</td></tr>\n\t')
+  creature_file.write('<tr><td>Guard</td><td>' + str(derived_stats[2]) + '</td>')
+  creature_file.write('<td>Dead</td><td>' + str(derived_stats[5]) + '</td></tr></table>\n\t')
   # attacks
   creature_file.write('<h2>Attacks</h2>\n\t')
   for attack in attacks:
@@ -81,11 +121,33 @@ creature_file = open(name + '.html', 'w+')
 print('''Enter a description of this creature.''')
 description = input()
 
-print('''Enter the number of the category that this creature belongs to. This is case sensitive.
+creature_sizes = ["Tiny", "Small", "Medium", "Large", "Huge", "Gigantic"]
+
+print('''Enter the number of the size that this creature is. The larger it is, the easier it is to hit in combat and the more space it takes up on the battlemap.
+Available categories and their general are:
+1. Tiny (less than 15cm: ants, spiders, small birds, etc.)
+2. Small (15cm to 1m: dogs, cats, birds of prey (eagles), etc.)
+3. Medium (1m to 2m: goblins, humans, mazorecs, goats, ghouls, etc.)
+4. Large (2m to 7m: bears, lions, wyverns, giant cave spiders, manticores, crocodiles, qhonitari, etc.)
+5. Huge (7m to 12m: rocs, hydra, elephants, rhinoceros, griffins, etc.)
+6. Gigantic (12m and beyond: dragons, sphinxes, landwyrms, etc.''')
+while True:
+  try:
+    size = input()
+    if size not in ["1", "2", "3", "4", "5", "6"]:
+      raise ValueError('D:')
+    break
+  except ValueError:
+    print('''Invalid category. Available categories are:
+1. Tiny, 2. Small, 3. Medium, 4. Large, 5. Huge, 6. Gigantic''')
+
+size = creature_sizes[int(size) - 1]
+
+print('''Enter the number of the category that this creature belongs to.
 Available categories are:
-1. Sapient (a creature possessing the ability to think and act using knowledge and forms civilizations, e.g. human, aelvezim, mazorec)
+1. Sapient (a creature possessing the ability to think and act using knowledge and form civilizations, e.g. human, aelvezim, mazorec)
 2. Beast (an ordinary creature lacking sapience, e.g. parrot, dog, bear)
-3. Megabeast (a magical or unusually dangerous creature lacking sapience, e.g. troglodyte, unicorn, roc)
+3. Megabeast (a magical or unusually dangerous creature lacking sapience, e.g. troglodyte, unicorn, ogre)
 4. Legendary (an incredibly powerful, intelligent, special creature, e.g. dragon, werebeast, vampire)''')
 
 creature_categories = ["Sapient", "Beast", "Megabeast", "Legendary"]
@@ -98,17 +160,16 @@ while True:
     break
   except ValueError:
     print('''Invalid category. Available categories are:
-1. Sapient
-2. Beast
-3. Monster
-4. Legendary''')
+1. Sapient, 2. Beast, 3. Megabeast, 4. Legendary''')
 
 category = creature_categories[int(category) - 1]
 
 ####### STATTING THE CREATURE
 
-print('Input the stat scores of the creature. All stats must be integers greater than 0.')
-print('''How much Spirit (SPR) does the creature have? Spirit represents the creature's mental fortitude. Spirit should differ with creature type. A Sapient has around 6-13 SPR, a Beast or Megabeast typically less than 5, and Legendaries are generally Sapient-level or higher.''')
+print('''Input the stat scores of the creature. All stats must be integers greater than 0. 
+Please see the Rules/SPAMFIC Stat System for more information on each stat.''')
+print('''How much Spirit (SPR) does the creature have? Spirit represents the creature's mental fortitude. 
+Spirit should differ with creature type. A Sapient has around 6-13 SPR, a Beast or Megabeast typically less than 5, and Legendaries are generally Sapient-level or higher.''')
 yn_error_msg = 'Error. Please input y or n.'
 creature_spr = int_positive()
 
@@ -124,10 +185,12 @@ creature_mgt = int_positive()
 print('''How much Fortitude (FOR) does the creature have? Fortitude represents the hardiness of the creature.''')
 creature_for = int_positive()
 
-print('''How much Intelligence (INT) does the creature have? Intelligence represents the mental aptitude of the creature. Intelligence should differ with creature type. A Sapient has around 6-13 Intelligence, a Beast or Megabeast typically less than 5, and Legendaries are generally Sapient-level or higher.''')
+print('''How much Intelligence (INT) does the creature have? Intelligence represents the mental aptitude of the creature. 
+Intelligence should differ with creature type. A Sapient has around 6-13 Intelligence, a Beast or Megabeast typically less than 5, and Legendaries are generally Sapient-level or higher.''')
 creature_int = int_positive()
 
-print('''How much Charisma (CHR) does the creature have? Charisma represents the strength of personality of a creature. Charisma should increase with a creature's intelligence.''')
+print('''How much Charisma (CHR) does the creature have? Charisma represents the strength of personality of a creature. 
+Charisma for Beasts and Megabeasts should increase a little higher than their intelligence.''')
 creature_chr = int_positive()
 
 creature_stats = {
@@ -144,21 +207,30 @@ creature_stats = {
 
 print('''Now you will add attacks to your creature. Every creature has at least one attack it can use.''')
 print('''Can your creature use techniques? (y/n)''')
-
-while True:
-  try:
-    techniques_allowed = str(input())
-    if(techniques_allowed != 'y' and techniques_allowed != 'n'):
-      raise ValueError('D:')
-    break
-  except ValueError:
-    print(yn_error_msg)
+techniques_allowed = yes_no()
 
 print('''How many different attacks does it have?''')
 num_attacks = int_positive()
 attacks = set()
 for i in range(0, num_attacks):
   attacks.add(add_attack())
+
+####### ADDING INNATE PERKS/TRAITS TO THE CREATURE
+print('''Does your creature have any perks? Check the perks page for a list of valid perks.''')
+perks_allowed = yes_no()
+if perks_allowed == True:
+  print('''List the creature's perks, seperated by commas. i.e. perk1, perk2, perk3...''')
+  perks = input()
+
+print('''Does your creature have any unique traits? Traits are qualities more along
+the lines of "no predisposition for magic" or "regenerates 5 Wounds per round of combat".''')
+traits_allowed = yes_no()
+traits = set()
+if traits_allowed == True:
+  print('''List the number of the creature's traits.''')
+  num_traits = int_positive()
+  for i in range(0, num_traits):
+    traits.add(add_trait)
 
 print('''You're all done! Generating HTML page...''')
 make_html()
