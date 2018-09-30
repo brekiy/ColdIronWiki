@@ -8,5 +8,6 @@ TODO:
 * Make the character sheet pretty
 * Make the website pretty
 * Port over entire rulebook from my Google Drive
-* Finish Python script to generate the HTML for a creature's page in the bestiary
+* ~~Finish Python script to generate the HTML for a creature's page in the bestiary~~
+** Spit out the creature as a JSON object
 * Other things that seem like a good idea as I think of them
