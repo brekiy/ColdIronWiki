@@ -1,4 +1,4 @@
-import math
+import math, json
 
 ####################################
 ## FUNCTIONS
@@ -29,7 +29,7 @@ def yes_no():
     return True
   else: return False
   
-# builds a tuple containing the information for one attack
+# builds a dict containing the information for one attack
 def add_attack():
   print('''Input the name of the attack - Bite, Breathe Fire, etc.''')
   name = input()
@@ -42,15 +42,26 @@ where X is the number of dice and Y is the number of faces on those dice.''')
 whether it requires a certain body part, etc. should go here.''')
   description = input()
   print('''Attack added.''')
-  return (name, ap_cost, damage, description)
+  attack = {
+    "name": name,
+    "ap_cost": ap_cost,
+    "damage": damage,
+    "description": description
+  }
+  return attack
 
 def add_trait():
   print('''Name the trait.''')
   name = input()
   print('''Describe it. Be specific about what it is.''')
   description = input()
-  return (name, description)
+  trait = {
+    "name": name,
+    "description": description
+  }
+  return trait
 
+# calculates the modifier for a single SPAMFIC stat
 def modifier(score):
   score = math.floor((score / 2) - 5)
   if score < 0:
@@ -58,7 +69,7 @@ def modifier(score):
   else:
     return '+' + str(score)
 
-# takes stats, calculates AP, wounds, willpower, guard,
+# calculates AP, wounds, willpower, guard from SPAMFIC
 # spits them back out as a tuple
 def combat_stats(stat_dict):
   ap = math.floor(stat_dict['PER']/4) + math.floor(stat_dict['AGI']/1.5)
@@ -67,41 +78,81 @@ def combat_stats(stat_dict):
   wounded = stat_dict['FOR']
   very_wounded = stat_dict['FOR']*2 + math.floor(stat_dict['MGT']/2)
   dead = stat_dict['FOR']*3 + stat_dict['MGT']
-  return (ap, willpower, guard, wounded, very_wounded, dead)
+  combat_stats_dict = {
+    "ap": ap,
+    "willpower": willpower,
+    "guard": guard,
+    "wounded": wounded,
+    "very_wounded": very_wounded,
+    "dead": dead
+  }
+  return combat_stats_dict
 
-def make_html():
+# createes a dict to hold the creature info and writes it to a json file
+def make_json():
+  combat_stats_dict = combat_stats(creature_stats)
+  creature_obj = {
+    "name": name,
+    "size": size,
+    "description": description,
+    "category": category,
+    "playable": playable,
+    "stats": creature_stats,
+    "combat_stats": combat_stats_dict,
+    "techniques_allowed": techniques_allowed,
+    "num_attacks": num_attacks,
+    "attacks": attacks,
+    "perks_allowed": perks_allowed,
+    "perks": perks,
+    "traits_allowed": traits_allowed,
+    "traits": traits
+  }
+  creature_json = open(name + '.json', 'w+')
+  json.dump(creature_obj, creature_json, indent=2)
+  return creature_obj
+
+def make_html(creature):
   # required tag bits
   creature_file.write('<!DOCTYPE html>\n<html>')
-  creature_file.write('<head>\n\t<meta charset="utf-8">\n\t<title>' + name + '</title>\n<head>\n')
+  creature_file.write('<head>\n\t<meta charset="utf-8">\n\t<title>' + creature["name"] + '</title>\n<head>\n')
   creature_file.write('<body>\n\t')
   # basic info
-  creature_file.write('<h1>' + name + '</h1>\n\t')
-  creature_file.write('<h2>' + size + ' ' + category + '</h2>\n\t')
-  creature_file.write('<p>' + description + '</p>\n\t')
+  creature_file.write('<h1>' + creature["name"] + '</h1>\n\t')
+  creature_file.write('<h2>' + creature["size"] + ' ' + creature["category"] + '</h2>\n\t')
+  if(creature["playable"] == True):
+    creature_file.write('<h2>Playable Species</h2>\n\t')
+  creature_file.write('<p>' + creature["description"] + '</p>\n\t')
   # SPAMFIC table
   creature_file.write('<table>\n\t')
-  for key, value in creature_stats.items():
+  for key, value in creature["stats"].items():
     creature_file.write('<th>' + key + '</th>')
   creature_file.write('\n<tr>')
-  for key, value in creature_stats.items():
+  for key, value in creature["stats"].items():
     creature_file.write('<td>' + str(value) + ' (' + modifier(value) + ') ' + '</td>')
   creature_file.write('\n</tr>\n</table>')
   # wounds, action points, willpower, guard table
-  derived_stats = combat_stats(creature_stats)
   creature_file.write('<table>\n\t')
-  creature_file.write('<tr><td>Action Points</td><td>' + str(derived_stats[0]) + '</td>')
-  creature_file.write('<td>Wounded</td><td>' + str(derived_stats[3]) + '</td></tr>\n\t')
-  creature_file.write('<tr><td>Willpower</td><td>' + str(derived_stats[1]) + '</td>')
-  creature_file.write('<td>Very Wounded</td><td>' + str(derived_stats[4]) + '</td></tr>\n\t')
-  creature_file.write('<tr><td>Guard</td><td>' + str(derived_stats[2]) + '</td>')
-  creature_file.write('<td>Dead</td><td>' + str(derived_stats[5]) + '</td></tr></table>\n\t')
+  creature_file.write('<tr><td>Action Points</td><td>' + str(creature["combat_stats"]["ap"]) + '</td>')
+  creature_file.write('<td>Wounded</td><td>' + str(creature["combat_stats"]["wounded"]) + '</td></tr>\n\t')
+  creature_file.write('<tr><td>Willpower</td><td>' + str(creature["combat_stats"]["willpower"]) + '</td>')
+  creature_file.write('<td>Very Wounded</td><td>' + str(creature["combat_stats"]["very_wounded"]) + '</td></tr>\n\t')
+  creature_file.write('<tr><td>Guard</td><td>' + str(creature["combat_stats"]["guard"]) + '</td>')
+  creature_file.write('<td>Dead</td><td>' + str(creature["combat_stats"]["dead"]) + '</td></tr></table>\n\t')
   # attacks
   creature_file.write('<h2>Attacks</h2>\n\t')
-  for attack in attacks:
-    creature_file.write('<p><b>' + attack[0] + '</b> ')
-    creature_file.write('(AP Cost: ' + str(attack[1]) + ') ')
-    creature_file.write('[Damage: ' + attack[2] + ']</p>\n\t')
-    creature_file.write('<p>' + attack[3] + '</p>\n\t')
+  creature_file.write('<p><b>Can use techniques:</b> ' + str(creature["techniques_allowed"]) + '</p>')
+  # TODO: figure out why python thinks it's a tuple
+  for attack in creature["attacks"].items():
+    creature_file.write('<p><b>' + str(attack[1]["name"]) + '</b> ')
+    creature_file.write('(AP Cost: ' + str(attack[1]["ap_cost"]) + ') ')
+    creature_file.write('[Damage: ' + str(attack[1]["damage"]) + ']</p>\n\t')
+    creature_file.write('<p>' + str(attack[1]["description"]) + '</p>\n\t')
+  creature_file.write('<h2>Traits</h2>\n\t')
+  for trait in creature["traits"].items():
+    creature_file.write('<p><b>' + str(trait[1]["name"]) + '</b> ')
+    creature_file.write('<p>' + str(trait[1]["description"]) + '</p>\n\t')
+  creature_file.write('<h2>Perks</h2>\n\t')
+  creature_file.write('<p>' + creature["perks"]+ '</p>\n')
   creature_file.write('</body>\n</html>')
 
 
@@ -114,7 +165,6 @@ Enter a name for the creature, case sensitive:''')
 
 # TODO: clean numbers and certain punctuation from the input
 name = input()
-
 creature_file = open(name + '.html', 'w+')
 
 # TODO: add multiple paragraph support
@@ -161,6 +211,9 @@ while True:
   except ValueError:
     print('''Invalid category. Available categories are:
 1. Sapient, 2. Beast, 3. Megabeast, 4. Legendary''')
+
+print('''You said this is a sapient creature. Is this species playable? (y/n)''')
+playable = yes_no()
 
 category = creature_categories[int(category) - 1]
 
@@ -211,28 +264,33 @@ techniques_allowed = yes_no()
 
 print('''How many different attacks does it have?''')
 num_attacks = int_positive()
-attacks = set()
+attacks = {}
 for i in range(0, num_attacks):
-  attacks.add(add_attack())
+  attack = add_attack()
+  attacks[i] = attack
 
 ####### ADDING INNATE PERKS/TRAITS TO THE CREATURE
-print('''Does your creature have any perks? Check the perks page for a list of valid perks.''')
+print('''Does your creature have any perks? Check the perks page for a list of valid perks. (y/n)''')
 perks_allowed = yes_no()
+perks = ""
 if perks_allowed == True:
   print('''List the creature's perks, seperated by commas. i.e. perk1, perk2, perk3...''')
   perks = input()
 
 print('''Does your creature have any unique traits? Traits are qualities more along
-the lines of "no predisposition for magic" or "regenerates 5 Wounds per round of combat".''')
+the lines of "no predisposition for magic" or "regenerates 5 Wounds per round of combat". (y/n)''')
 traits_allowed = yes_no()
-traits = set()
+traits = {}
 if traits_allowed == True:
   print('''List the number of the creature's traits.''')
   num_traits = int_positive()
   for i in range(0, num_traits):
-    traits.add(add_trait)
+    trait = add_trait()
+    traits[i] = trait
+
+# start building the creature object as a JSON object and return it as a dict
+creature_json_obj = make_json()
 
 print('''You're all done! Generating HTML page...''')
-make_html()
+make_html(creature_json_obj)
 print('''You can find the new bestiary entry in the same directory as this script.''')
-

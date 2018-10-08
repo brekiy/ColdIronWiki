@@ -259,8 +259,14 @@
       </table>
     </div>
     <div id="perks">
-      <label for="perk-list"><b>Perks</b></label>
-      <textarea id="perk-list" name="perk-list" rows="15" cols="25" style="display: inline-block"></textarea>
+      <table>
+        <tr>
+            <td><label for="perk-list"><b>Perks</b></label></td>
+        </tr>
+        <tr>
+          <td><textarea id="perk-list" name="perk-list" rows="15" cols="60"></textarea></td>
+        </tr>
+      </table>
     </div>
   </div>
 
@@ -349,24 +355,26 @@
           <td><input id="inv-26-weight" type="number" value="0" min="0" class="sheet" onchange="weight()"></td>
         </tr>
       </table>
+    </div>
+    <div id="inventory-weight">
       <table>
-        <tr>
-          <td>Encumbered</td>
-          <td><output id="encumbered" class="sheet">15</output></td>
-        </tr>
-        <tr>
-          <td>Very Encumbered</td>
-          <td><output id="very-encumbered" class="sheet">25</output></td>
-        </tr>  
-        <tr>
-          <td>Over Encumbered</td>
-          <td><output id="over-encumbered" class="sheet">30</output></td>
-        </tr>
-        <tr>
-          <td>Current Inventory Weight</td>
-          <td><output id="inv-weight" class="sheet">0</output></td>
-        </tr>
-      </table>
+          <tr>
+            <td>Encumbered</td>
+            <td><output id="encumbered" class="sheet">15</output></td>
+          </tr>
+          <tr>
+            <td>Very Encumbered</td>
+            <td><output id="very-encumbered" class="sheet">25</output></td>
+          </tr>  
+          <tr>
+            <td>Over Encumbered</td>
+            <td><output id="over-encumbered" class="sheet">30</output></td>
+          </tr>
+          <tr>
+            <td>Current Inventory Weight</td>
+            <td><output id="inv-weight" class="sheet">0</output></td>
+          </tr>
+        </table>
     </div>
     <div id="wealth">
       <table>
@@ -386,44 +394,47 @@
           <td>100 Note</td>
           <td><input id="100-note" type="number" value="0" min="0" step="1" class="sheet" onchange="weight(); wealth()"></td>
         </tr>
+        <tr>
+          <td><label for="cur-wealth">Current Wealth</label></td>
+          <td><output id="cur-wealth">0</output></td>
+        </tr>
       </table>
-      <output id="cur-wealth">0</output>
-      <label for="cur-wealth">Current Wealth</label>
     </div>
   </div>
   
 
 <!-- CHARACTER BIOGRAPHY/GOALS/PERSONALITY -->
-  <div id="bio">
-    <label for="backstory">Backstory</label>
-    <textarea id="backstory" class="sheet" rows="10" cols="50"></textarea>
-    <label for="appearance">Appearance</label>
-    <textarea id="appearance" class="sheet" rows="10" cols="50"></textarea>
-    <label for="personality">Personality</label>
-    <textarea id="personality" class="sheet" rows="10" cols="50"></textarea>
+  <div id="bio" class="info-category">
+    <div>
+      <label for="backstory">Backstory</label>
+      <textarea id="backstory" class="sheet" rows="10" cols="50"></textarea>
+    </div>
+    <div>
+      <label for="appearance">Appearance</label>
+      <textarea id="appearance" class="sheet" rows="10" cols="50"></textarea>
+    </div>
+    <div>
+      <label for="personality">Personality</label>
+      <textarea id="personality" class="sheet" rows="10" cols="50"></textarea>
+    </div>
+  </div>
+  <div style="margin-left: 10px">
     <table>
       <tr>
-        <td>Legend Goal</td>
-        <td><textarea id="legend-goal" class="sheet" rows="5"></textarea></td>
+          <td>Legend Goal</td>
+          <td><textarea id="legend-goal" class="sheet" rows="5"></textarea></td>
+          <td>Dream Goal</td>
+          <td><textarea id="dream-goal" class="sheet" rows="5"></textarea></td>
+          <td>Minor Goal 1</td>
+          <td><textarea id="minor-goal-1" class="sheet" rows="5"></textarea></td>
+          <td>Minor Goal 2</td>
+          <td><textarea id="minor-goal-2" class="sheet" rows="5"></textarea></td>
+          <td>Minor Goal 3</td>
+          <td><textarea id="minor-goal-3" class="sheet" rows="5"></textarea></td>
       </tr>
-      <tr>
-        <td>Dream Goal</td>
-        <td><textarea id="dream-goal" class="sheet" rows="5"></textarea></td>
-      </tr>
-      <tr>
-        <td>Minor Goal 1</td>
-        <td><textarea id="minor-goal-1" class="sheet" rows="5"></textarea></td>
-      </tr>
-      <tr>
-        <td>Minor Goal 2</td>
-        <td><textarea id="minor-goal-2" class="sheet" rows="5"></textarea></td>
-      </tr>
-      <tr>
-        <td>Minor Goal 3</td>
-        <td><textarea id="minor-goal-3" class="sheet" rows="5"></textarea></td>
-      </tr>
-    </table>
+      </table>
   </div>
+  
 </body>
 
 </html>

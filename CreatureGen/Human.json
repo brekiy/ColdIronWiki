@@ -1,0 +1,38 @@
+{
+  "name": "Human",
+  "size": "Medium",
+  "description": "The humans are the youngest sapient race in the world. They have a tendency to create communities wherever they go, and they tend to expand and explore beyond the lands they already know. This has brought them to settle most of the known world, whether it be warm and comfortable or harsh and unyielding. Anywhere they can put down a bed, they seem to do so. This has resulted in a variety of cultures not seen in any other group. \\n This widespread population brings them into conflict with each other, as unfamiliar groups meet, and also with the other peoples of the world. In particular, the goblins and orcs have been long enemies of humans, although the dwarves and elves can remember more than a few wars with them as well. \\n Humans vary widely in height, skin tone, and hair color, due to the varied environments they can be found in. The average male human is about 1.8m tall and 73kg, while the average female human is about 1.6m tall and 63kg. \\n A human becomes an adult in most societies around 16-18 years of age, seldom living longer than 80.",
+  "category": "Sapient",
+  "playable": true,
+  "stats": {
+    "SPR": 10,
+    "PER": 10,
+    "AGI": 10,
+    "MGT": 10,
+    "FOR": 10,
+    "INT": 10,
+    "CHR": 10
+  },
+  "combat_stats": {
+    "ap": 8,
+    "willpower": 12,
+    "guard": 9,
+    "wounded": 10,
+    "very_wounded": 25,
+    "dead": 40
+  },
+  "techniques_allowed": true,
+  "num_attacks": 1,
+  "attacks": {
+    "0": {
+      "name": "sadg",
+      "ap_cost": 2,
+      "damage": "afdh",
+      "description": "asdg"
+    }
+  },
+  "perks_allowed": true,
+  "perks": "Language - Common",
+  "traits_allowed": false,
+  "traits": {}
+}
