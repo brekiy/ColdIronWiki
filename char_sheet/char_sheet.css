@@ -24,10 +24,11 @@ body {
 }
 
 .info-category {
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 5px;
-  margin: auto;
+  justify-content:center;
+  align-items:center;
+  padding: 0 auto;
   text-align: center;
 }
 

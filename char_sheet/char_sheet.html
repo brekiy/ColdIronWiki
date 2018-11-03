@@ -16,28 +16,31 @@
     <button onclick="upload()">Upload Character</button>
     <button onclick="download()">Download Character</button>
   </div>
-<!-- BASIC CHARACTER INFORMATION -->
 
+<!-- CORE INFORMATION AND STATISTICS -->
   <div id="core-bits" class="info-category">
+    <!-- CHARACTER NAME, SPECIES, ETC. -->
     <div id="basic-info">
-      <!-- Container for a character's basic information -->
-      <span style="white-space:nowrap">
-        <label for="name">Name</label>
-        <input id="name" type="text" class="sheet">
-      </span>
-      <span style="white-space:nowrap">
-        <label for="title">Title</label>
-        <input id="title" type="text" class="sheet">
-      </span>
-      <span style="white-space:nowrap">
-        <label for="species">Species</label>
-        <input id="species" type="text" class="sheet">
-      </span>
-      <span style="white-space:nowrap">
-        <label for="size">Size</label>
-        <input id="size" type="text" class="sheet">
-      </span>
+      <table>
+        <tr>
+          <td>Name</td>
+          <td><input id="name" type="text" class="sheet"></td>
+        </tr>
+        <tr>
+          <td>Title</td>
+          <td><input id="title" type="text" class="sheet"></td>
+        </tr>
+        <tr>
+          <td>Species</td>
+          <td><input id="species" type="text" class="sheet"></td>
+        </tr>
+        <tr>
+          <td>Size</td>
+          <td><input id="size" type="text" class="sheet"></td>
+        </tr>
+      </table>
     </div>
+    <!-- CHARACTER SPAMFIC STATS -->
     <div id="spamfic" class="group">
       <!-- Align the SPAMFIC stats, inputs and mods neatly in a table -->
       <table>
@@ -78,6 +81,7 @@
         </tr>
       </table>
     </div>
+    <!-- SPAMFIC-DERIVED COMBAT STATS -->
     <div id="combat-stats">
       <table id="combat-stats-table">
         <tr>
@@ -405,31 +409,34 @@
 
 <!-- CHARACTER BIOGRAPHY/GOALS/PERSONALITY -->
   <div id="bio" class="info-category">
-    <div>
-      <label for="backstory">Backstory</label>
-      <textarea id="backstory" class="sheet" rows="10" cols="50"></textarea>
-    </div>
-    <div>
-      <label for="appearance">Appearance</label>
-      <textarea id="appearance" class="sheet" rows="10" cols="50"></textarea>
-    </div>
-    <div>
-      <label for="personality">Personality</label>
-      <textarea id="personality" class="sheet" rows="10" cols="50"></textarea>
-    </div>
+    <table>
+        <tr>
+            <td>Backstory</td>
+            <td>Appearance</td>
+            <td>Personality</td>
+        </tr>
+        <tr>
+            <td><textarea id="backstory" class="sheet" rows="10" cols="50"></textarea></td>
+            <td><textarea id="appearance" class="sheet" rows="10" cols="50"></textarea></td>
+            <td><textarea id="personality" class="sheet" rows="10" cols="50"></textarea></td>
+        </tr>
+    </table>
   </div>
-  <div style="margin-left: 10px">
+  <div class="info-category" style="margin-left: 10px">
     <table>
       <tr>
           <td>Legend Goal</td>
-          <td><textarea id="legend-goal" class="sheet" rows="5"></textarea></td>
           <td>Dream Goal</td>
-          <td><textarea id="dream-goal" class="sheet" rows="5"></textarea></td>
           <td>Minor Goal 1</td>
-          <td><textarea id="minor-goal-1" class="sheet" rows="5"></textarea></td>
           <td>Minor Goal 2</td>
-          <td><textarea id="minor-goal-2" class="sheet" rows="5"></textarea></td>
           <td>Minor Goal 3</td>
+          
+      </tr>
+      <tr>
+          <td><textarea id="legend-goal" class="sheet" rows="5"></textarea></td>
+          <td><textarea id="dream-goal" class="sheet" rows="5"></textarea></td>
+          <td><textarea id="minor-goal-1" class="sheet" rows="5"></textarea></td>
+          <td><textarea id="minor-goal-2" class="sheet" rows="5"></textarea></td>
           <td><textarea id="minor-goal-3" class="sheet" rows="5"></textarea></td>
       </tr>
       </table>
