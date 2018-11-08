@@ -24,7 +24,8 @@ function makeTableFromJSON(json_obj) {
     // grab the table display element and set up for the table
     var table_display = document.getElementById("dynamic_table");
     var table = document.createElement("table");
-    var table_body = document.createElement("tbody");
+    var table_body = table.createTBody();
+    var table_header = table.createTHead();
 
     // cleaning the old table is part of setup
     while(table_display.firstChild) {
@@ -36,12 +37,11 @@ function makeTableFromJSON(json_obj) {
     if (rows < 1) {
         alert("Retrieved an empty JSON object! :(");
     }
-    // var cols = json_obj[0].length; // incorrect
     var cols = Object.keys(json_obj[0]).length;
     // console.log("DEBUG -> ROWS: " + rows + ", COLS: " + cols);
 
     // start some variables outside the loops and reuse them
-    var table_row = table_body.insertRow(0); 
+    var table_row = table_header.insertRow(0); 
     var table_col;
     var json_keys = Object.keys(json_obj[0]);
     // console.log(json_keys);
@@ -50,18 +50,17 @@ function makeTableFromJSON(json_obj) {
     var i = 0;
     json_keys.forEach(function(key) {
         table_col = table_row.insertCell(i);
-        table_col.innerHTML = key;
+        table_col.innerHTML = "<b>" + key + "</b>";
         i++;
     })
     
     for (var i=0; i<rows; i++) {
-        table_row = table_body.insertRow(i+1);
+        table_row = table_body.insertRow(i);
         for (var j=0; j<cols; j++) {
             table_col = table_row.insertCell(j);
             table_col.innerHTML = json_obj[i][json_keys[j]];
         }
     }
 
-    table.appendChild(table_body);
     table_display.appendChild(table);
 }
