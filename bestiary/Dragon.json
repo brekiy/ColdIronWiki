@@ -1,0 +1,69 @@
+{
+  "name": "Dragon",
+  "size": "Gigantic",
+  "description": "A large, winged magical ancestor of lizards. Dragons are fiercely territorial, are known to speak to sapients in multiple languages, are big enough to swallow a cow whole and strong enough to destroy a sturdy log cabin simply by smashing into it. They are covered in tough scales that bold hunters covet and turn into protective armor, although very few hunters are successful.",
+  "category": "Legendary",
+  "playable": false,
+  "stats": {
+    "SPR": 30,
+    "PER": 28,
+    "AGI": 15,
+    "MGT": 50,
+    "FOR": 50,
+    "INT": 25,
+    "CHR": 30
+  },
+  "combat_stats": {
+    "ap": 17,
+    "willpower": 37,
+    "guard": 18,
+    "wounded": 50,
+    "very_wounded": 125,
+    "dead": 200
+  },
+  "techniques_allowed": false,
+  "num_attacks": 4,
+  "attacks": {
+    "0": {
+      "name": "Breathe Fire",
+      "ap_cost": 12,
+      "damage": "6d10",
+      "description": "The dragon breathes fire in a 12m long straight line. When a creature is caught in the fire it can make a DC10 Acrobatics check to take half of the damage. The creature also gains the Burning status effect for 5 turns."
+    },
+    "1": {
+      "name": "Bite",
+      "ap_cost": 8,
+      "damage": "5d12 Rending",
+      "description": "The dragon bites one target adjacent to it. It can pay 2 more AP per round to hold it in its jaws until the dragon takes damage, dropping the creature. Additionally, it can pay 2 more AP to throw the creature, which travels 1d12 x 2m, taking 1d6 Crushing damage for every 2m traveled."
+    },
+    "2": {
+      "name": "Tail Swipe",
+      "ap_cost": 12,
+      "damage": "5d10 Crushing",
+      "description": "The dragon swipes at an arc of 3 tiles within 4m of it using its tail. Creatures hit by the sweep fall prone and are knocked back 2m."
+    },
+    "3": {
+      "name": "Body Slam",
+      "ap_cost": 16,
+      "damage": "10d10",
+      "description": "The dragon can forcefully land if in the air, crushing all targets beneath it."
+    }
+  },
+  "perks_allowed": true,
+  "perks": "Language - All, Death Blow 2, Tough",
+  "traits_allowed": true,
+  "traits": {
+    "0": {
+      "name": "Dragonhide",
+      "description": "Dragons take half damage from all sources."
+    },
+    "1": {
+      "name": "Frightening Presence",
+      "description": "Whenever a dragon flies or breathes fire, all creatures within 60m that can see it must make a SPR check or gain the Afraid status effect for 1d4 turns."
+    },
+    "2": {
+      "name": "Poisonous Blood",
+      "description": "A dragon's blood is a very potent toxin that can be absorbed through the skin. A couple of drops relaxes and numbs the area, making a good painkiller, but a small vial's worth, like the kind sold at an alchemist's shop, will kill any human. Dragon hunters fighting it in melee commonly wear full-face helmets to protect against splashing blood. Whenever a dragon is harmed in melee, make a DC5 (or DC1 if you are wearing full-body armor and some sort of face mask - doesn't need to be metal) AGI check or take 2d10 damage."
+    }
+  }
+}

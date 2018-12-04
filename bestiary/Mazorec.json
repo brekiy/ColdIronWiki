@@ -1,0 +1,31 @@
+{
+  "name": "Mazorec",
+  "size": "Medium",
+  "description": "The mazorecs were raised from the earth many years ago by their god, Mazu. Mazu blessed them with strong bodies and intelligence, for the pleasure of seeing conflict in the world. Their name is a reference to this, meaning \u201cPeople of Mazu\u201d in their language. Humans corrupted their name in the Common tongue to Orc, which many others call them now. Larger and stronger than a human and just as intelligent, orcs have carved out their space wherever they can. They live in large, nomadic tribes, and are known for their skill at riding. These tribes inevitably raid the territory of other species, and orcs are distrusted and feared, even if they have no tribal affiliation. Wizards especially loathe orcs, as orcs regard magic as the work of demons and torture them whenever they find them. Orcs who find themselves with magical talent are exiled from the tribe. // Throughout the years, orc technological development has been slightly behind that of humans on account of a lack of educational institutions. However, they adapted quickly to human military technology, such as catapults and the crossbow. Using this technology some orc tribes have managed to capture human settlements and form permanent towns. One of the most prominent examples of this is Buragbagol.",
+  "category": "Sapient",
+  "playable": true,
+  "stats": {
+    "SPR": 10,
+    "PER": 11,
+    "AGI": 9,
+    "MGT": 12,
+    "FOR": 13,
+    "INT": 10,
+    "CHR": 8
+  },
+  "combat_stats": {
+    "ap": 8,
+    "willpower": 12,
+    "guard": 8,
+    "wounded": 13,
+    "very_wounded": 32,
+    "dead": 51
+  },
+  "techniques_allowed": true,
+  "num_attacks": 0,
+  "attacks": {},
+  "perks_allowed": true,
+  "perks": "Language - Yorud/Common",
+  "traits_allowed": false,
+  "traits": {}
+}

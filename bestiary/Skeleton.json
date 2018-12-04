@@ -1,0 +1,38 @@
+{
+  "name": "Skeleton",
+  "size": "Medium",
+  "description": [
+    "A skeleton bound to a wizard's will."
+  ],
+  "category": "Megabeast",
+  "playable": false,
+  "stats": {
+    "SPR": 5,
+    "PER": 5,
+    "AGI": 10,
+    "MGT": 10,
+    "FOR": 8,
+    "INT": 1,
+    "CHR": 1
+  },
+  "combat_stats": {
+    "ap": 7,
+    "willpower": 5,
+    "guard": 7,
+    "wounded": 8,
+    "very_wounded": 21,
+    "dead": 34
+  },
+  "techniques_allowed": true,
+  "num_attacks": 0,
+  "attacks": {},
+  "perks_allowed": false,
+  "perks": "",
+  "traits_allowed": true,
+  "traits": {
+    "0": {
+      "name": "Vulnerability",
+      "description": "Skeletons have a vulnerability to Crushing damage, taking double damage from it."
+    }
+  }
+}

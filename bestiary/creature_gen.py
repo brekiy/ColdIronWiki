@@ -16,10 +16,11 @@ def int_positive():
       print('Error. Number must be greater than 0.')
   return num
 
+# simple check for y/n input
 def yes_no():
   while True:
     try:
-      boolean = str(input())
+      boolean = str(input()).lower()
       if(boolean != 'y' and boolean != 'n'):
         raise ValueError('D:')
       break
@@ -50,6 +51,7 @@ whether it requires a certain body part, etc. should go here.''')
   }
   return attack
 
+# build a dict containing the information for one trait
 def add_trait():
   print('''Name the trait.''')
   name = input()
@@ -88,7 +90,7 @@ def combat_stats(stat_dict):
   }
   return combat_stats_dict
 
-# createes a dict to hold the creature info and writes it to a json file
+# creates a dict to hold the creature info and writes it to a json file
 def make_json():
   combat_stats_dict = combat_stats(creature_stats)
   creature_obj = {
@@ -121,15 +123,16 @@ def make_html(creature):
   creature_file.write('<h2>' + creature["size"] + ' ' + creature["category"] + '</h2>\n\t')
   if(creature["playable"] == True):
     creature_file.write('<h2>Playable Species</h2>\n\t')
-  creature_file.write('<p>' + creature["description"] + '</p>\n\t')
+  for value in creature["description"]:
+    creature_file.write('<p>' + value + '</p>\n\t')
   # SPAMFIC table
   creature_file.write('<table>\n\t')
   for key, value in creature["stats"].items():
     creature_file.write('<th>' + key + '</th>')
-  creature_file.write('\n<tr>')
+  creature_file.write('\n\t<tr>')
   for key, value in creature["stats"].items():
-    creature_file.write('<td>' + str(value) + ' (' + modifier(value) + ') ' + '</td>')
-  creature_file.write('\n</tr>\n</table>')
+    creature_file.write('<td>' + str(value) + ' (' + modifier(value) + ')' + '</td>')
+  creature_file.write('</tr>\n\t</table>\n\t')
   # wounds, action points, willpower, guard table
   creature_file.write('<table>\n\t')
   creature_file.write('<tr><td>Action Points</td><td>' + str(creature["combat_stats"]["ap"]) + '</td>')
@@ -140,8 +143,7 @@ def make_html(creature):
   creature_file.write('<td>Dead</td><td>' + str(creature["combat_stats"]["dead"]) + '</td></tr></table>\n\t')
   # attacks
   creature_file.write('<h2>Attacks</h2>\n\t')
-  creature_file.write('<p><b>Can use techniques:</b> ' + str(creature["techniques_allowed"]) + '</p>')
-  # TODO: figure out why python thinks it's a tuple
+  creature_file.write('<p><b>Can use techniques:</b> ' + str(creature["techniques_allowed"]) + '</p>\n\t')
   for attack in creature["attacks"].items():
     creature_file.write('<p><b>' + str(attack[1]["name"]) + '</b> ')
     creature_file.write('(AP Cost: ' + str(attack[1]["ap_cost"]) + ') ')
@@ -152,13 +154,15 @@ def make_html(creature):
     creature_file.write('<p><b>' + str(trait[1]["name"]) + '</b> ')
     creature_file.write('<p>' + str(trait[1]["description"]) + '</p>\n\t')
   creature_file.write('<h2>Perks</h2>\n\t')
-  creature_file.write('<p>' + creature["perks"]+ '</p>\n')
+  creature_file.write('<p>' + creature["perks"] + '</p>\n')
   creature_file.write('</body>\n</html>')
 
 
 #################################
 ## FUNCTIONS END
 #################################
+
+yn_error_msg = 'Error. Please input y or n.'
 
 print('''Welcome to the Cold Iron creature generator.
 Enter a name for the creature, case sensitive:''')
@@ -168,8 +172,8 @@ name = input()
 creature_file = open(name + '.html', 'w+')
 
 # TODO: add multiple paragraph support
-print('''Enter a description of this creature.''')
-description = input()
+print('''Enter a description of this creature. You can add underscores between paragraphs to improve readability. They will be split into paragraphs on the web page.''')
+description = input().split('_')
 
 creature_sizes = ["Tiny", "Small", "Medium", "Large", "Huge", "Gigantic"]
 
@@ -211,9 +215,11 @@ while True:
   except ValueError:
     print('''Invalid category. Available categories are:
 1. Sapient, 2. Beast, 3. Megabeast, 4. Legendary''')
+playable = False
 
-print('''You said this is a sapient creature. Is this species playable? (y/n)''')
-playable = yes_no()
+if category == "1":
+  print('''You said this is a sapient creature. Is this species playable? (y/n)''')
+  playable = yes_no()
 
 category = creature_categories[int(category) - 1]
 
@@ -223,7 +229,7 @@ print('''Input the stat scores of the creature. All stats must be integers great
 Please see the Rules/SPAMFIC Stat System for more information on each stat.''')
 print('''How much Spirit (SPR) does the creature have? Spirit represents the creature's mental fortitude. 
 Spirit should differ with creature type. A Sapient has around 6-13 SPR, a Beast or Megabeast typically less than 5, and Legendaries are generally Sapient-level or higher.''')
-yn_error_msg = 'Error. Please input y or n.'
+
 creature_spr = int_positive()
 
 print('''How much Perception (PER) does the creature have? Perception represents sharp senses.''')
@@ -262,17 +268,25 @@ print('''Now you will add attacks to your creature. Every creature has at least 
 print('''Can your creature use techniques? (y/n)''')
 techniques_allowed = yes_no()
 
-print('''How many different attacks does it have?''')
-num_attacks = int_positive()
+attacks_allowed = True
+
+if techniques_allowed:
+  print('''Your creature can use techniques. Does it have any special attacks?''')
+  attacks_allowed = yes_no()
+
+num_attacks = 0
 attacks = {}
-for i in range(0, num_attacks):
-  attack = add_attack()
-  attacks[i] = attack
+if attacks_allowed:
+  print('''How many different attacks does it have?''')
+  num_attacks = int_positive()
+  for i in range(0, num_attacks):
+    attack = add_attack()
+    attacks[i] = attack
 
 ####### ADDING INNATE PERKS/TRAITS TO THE CREATURE
 print('''Does your creature have any perks? Check the perks page for a list of valid perks. (y/n)''')
 perks_allowed = yes_no()
-perks = ""
+perks = "N/A"
 if perks_allowed == True:
   print('''List the creature's perks, seperated by commas. i.e. perk1, perk2, perk3...''')
   perks = input()
@@ -280,7 +294,7 @@ if perks_allowed == True:
 print('''Does your creature have any unique traits? Traits are qualities more along
 the lines of "no predisposition for magic" or "regenerates 5 Wounds per round of combat". (y/n)''')
 traits_allowed = yes_no()
-traits = {}
+traits = {0: {"name": "N/A", "description": ""}}
 if traits_allowed == True:
   print('''List the number of the creature's traits.''')
   num_traits = int_positive()
@@ -288,9 +302,8 @@ if traits_allowed == True:
     trait = add_trait()
     traits[i] = trait
 
-# start building the creature object as a JSON object and return it as a dict
+# build the creature object as a JSON object and return it as a dict
 creature_json_obj = make_json()
-
 print('''You're all done! Generating HTML page...''')
 make_html(creature_json_obj)
 print('''You can find the new bestiary entry in the same directory as this script.''')

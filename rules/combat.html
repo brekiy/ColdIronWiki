@@ -66,12 +66,12 @@
   <h3>Dual-wielding</h3>
     <p>You get a +1 bonus to Guard in melee and a -1AP reduction to Swings and Thrusts as long as you alternate attacks between the main and off-hand. However, you take a -1/-2 penalty to attack with the main/off-hand, and the first attack still costs the full amount. The attack penalty is doubled for your off-hand if it isn’t holding a Light weapon.</p>
   <h3>Techniques</h3>
-    <p>Techniques are the method by which characters fight. They begin the game knowing all Basic and Universal Techniques. Advanced ones can be learned as characters grow in expertise and gain perks. Below, all techniques are listed in order of [Name, (AP Cost, Modifier(s) used)]</p>
+    <p>Techniques are the method by which player characters fight. They begin the game knowing all Basic and Universal Techniques. Advanced ones can be learned as characters grow in expertise and gain perks. Below, all technique qualities are listed in order of [Name, (AP Cost, Modifier(s) used)]. If a technique has <b>Auto</b> in its qualities, that means it does not need a dice roll to succeed.</p>
     <b><u>Universal</u></b>
     <ul>
-      <li><b>Disengage (3AP, None):</b> Carefully back away to just outside a target’s threat range, avoiding an AoO. In the case of multiple targets, Disengage must be used for each AoO seperately. Note that you can still attempt to move away from multiple targets if you don't have the AP to use Disengage from all of them - you will just take some AoOs. Automatic success.</li>
-      <li><b>Draw Item (3AP, None):</b> Retrieve something from your inventory and put it in one hand. If it was stored in a backpack or something similar, pay 4AP instead.</li>
-      <li><b>Stand (3AP, None):</b> Stand up from a prone state. Requires the use of both legs, or a suitable object.</li>
+      <li><b>Disengage (2AP, None) (Auto):</b> Carefully back away to just outside a target’s threat range, avoiding an AoO. In the case of multiple targets, Disengage must be used for each AoO seperately. Note that you can still attempt to move away from multiple targets if you don't have the AP to use Disengage from all of them - you will just take some AoOs.</li>
+      <li><b>Draw Item (3AP, None) (Auto):</b> Retrieve something from your inventory and put it in one hand. If it was stored in a backpack or something similar, pay 4AP instead.</li>
+      <li><b>Stand (3AP, None) (Auto):</b> Stand up from a prone state. Requires the use of both legs, or a suitable object.</li>
     </ul>
     <b><u>Weapon (Basic)</u></b>
     <ul>
@@ -82,7 +82,47 @@
     </ul>
     <b><u>Weapon (Advanced)</u></b>
     <ul>
-      <li><b>Disarm (Armed)</b></li>
+      <li><b>Disarm (Armed) (3AP, AGI or MGT):</b> Knock one of the target's weapons (shields not included) 2m directly behind you.</li>
+      <li><b>Shieldwall (3AP, None) (Auto):</b>Focus on defense, granting you and one ally next to you +2 Guard. The maximum Guard bonus you may receive from Shieldwall is +4. Requires a non-buckler shield.</li>
+      <li><b>Split Shield (Dep, MGT):</b> Use your weapon's Swing profile at the target's shield. On success, you make the usual damage roll and apply it to the shield. Requires a weapon with the Split trait.</li>
+      <li><b>Joint Thrust (Dep, AGI):</b> Use your weapon's Thrust profile at +1AP at a weak point in the target's armor, gaining Sunder 2/Piercing. Your weapon must deal Piercing damage on a Thrust.</li>
+      <li><b>Hook (4AP, MGT):</b> Use your weapon to hook either your target or their shield, making a roll against their Guard. On a successful roll, if you hooked your target, they must pass a DC(Your MGT) Athletics check to remain upright or else fall prone. If you hooked their shield, they must make a DC(Your MGT) AGI check to retain it or else drop it at their feet. Your weapon must have the Hook trait.</li>
+    </ul>
+    <b><u>Unarmed (Basic)</u></b>
+    <ul>
+      <li><b>Kick (3AP, MGT):</b> Kick the target to push them back 2m and deal 1 Unarmed damage. The target takes a DC(5 + Your MGT mod) Acrobatics check to remain upright or else fall prone.</li>
+      <li><b>Punch (2AP, MGT):</b> Punch the target to deal 1 Unarmed damage.</li>
+      <li><b>Break Free (3AP, AGI or MGT):</b> Attempt to break free when grappled. Make an Athletics check at DC(10 + Target MGT mod) to return to your position next to the target before grappling: if you were standing, return to standing, and if you were prone, return to prone.</li>
+      <li><b>Pin (3AP, MGT):</b> Pin the target so that they can't act until they break free.</li>
+    </ul>
+    <b><u>Unarmed (Advanced)</u></b>
+    <ul>
+      <li><b>Limb Break (5AP, MGT):</b> Break a target's limb or joint. Make a DC(5 + Target MGT mod) Athletics check with Disadvantage. On a success the target loses the use of that limb and takes 2 Unarmed damage.</li>
+      <li><b>Throw (3AP, MGT):</b> Make a dice roll with Disadvantage to throw the target your size or smaller 2m in a chosen direction. The target makes a DC10 Acrobatics check to land safely or take one Unarmed damage and land prone.</li>
+      <li><b>Disarm (Unarmed) (4AP, AGI or MGT):</b> Grab one of the target's held or sheathed items. On a success you will be holding said item.</li>
+      <li><b>Pin (3AP, MGT):</b> Pin the target so that they can't act until they break free.</li>
+    </ul>
+  <h2>Ranged Combat</h2>
+    <p>Ranged combat lacks the variety of actions that can be performed when in melee: a fighter can shoot their weapon or throw something. Only thrown projectiles get a bonus to damage, which is equal to the thrower's MGT modifier.</p>
+    <ul>
+      <li><b>Shoot (Dep, PER):</b> Fire a weapon that uses ammunition. If a target is in cover, your attack roll gets Disadvantage. Additionally, your attack gets a bonus equal to the inverse of the target's size modifier for initiative.</li>
+      <li><b>Weapon Throw (DEP, PER):</b> Throw a weapon or nearby object at the target, using the Thrust profile. If the projectile doesn't have the Thrown trait, it costs +1 AP to throw (or 5AP, if it's a regular object), takes a -2 penalty to attack every 2m the target is away, and deals 1 less damage die (or GM's discretion if it's a regular object).</li>
+    </ul>
+  <h2>Status Effects</h2>
+    <p>Status effects can be applied to creatures at any time, but are typically applied in combat. They will generally last for only a few turns, and many can be broken earlier through successful skill checks.</p>
+    <ul>
+      <li><b>Afraid:</b> A creature that is afraid takes a -2 penalty to attack rolls and skill checks while the source of its fear is within line of sight. It also can't willingly move towards the source.</li>
+      <li><b>Bleeding:</b> A bleeding creature takes 1d6 damage at the start of each combat turn. Bleeding can be stopped by passing a DC10 FOR check at the end of a turn, or by receiving successful first aid or healing magic.</li>
+      <li><b>Blinded:</b> A blinded creature can't see, takes a -4 penalty to attack rolls, and has halved Guard and PER.</li>
+      <li><b>Charmed:</b> A charmed creature can't attack or use any harmful abilities/effects on the charmer. The charmer gains a +4 bonus to checks regarding interaction with the charmed creature.</li>
+      <li><b>Deafened:</b> A deafened creature can't hear, its PER is halved and it takes a -1 penalty to Guard.</li>
+      <li><b>Exhausted:</b> All rolls and Guard get a -1 penalty. Exhaustion stacks up to 8 times.</li>
+      <li><b>Grappling:</b> You do not threaten any spaces around you. Any strikes from outside the grapple that miss you hit your opponent.</li>
+      <li><b>Incapacitated:</b> An incapacitated creature can’t act, fails all checks, has 1 Guard, drops what it’s holding and falls prone.</li>
+      <li><b>Invisible:</b> An invisible creature is impossible to see without some sort of special magic, sense or technology. It can be detected by sound. It gains a +4 to attack rolls and all attack rolls made against it get a -8 penalty. attack rolls can only be made against it if the attacker knows where it is.</li>
+      <li><b>Poisoned:</b> All rolls get a -4 penalty.</li>
+      <li><b>Prone:</b> A prone creature gets a -2 penalty to attack and ranged attacks made against it from range take a -2 penalty. Additionally, moving takes +1AP per 2m.</li>
+      <li><b>Stunned:</b> A stunned creature can’t act next turn and has halved Guard.</li>
     </ul>
 </body>
 
