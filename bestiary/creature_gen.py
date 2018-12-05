@@ -1,6 +1,13 @@
 import math, json
 
 ####################################
+## CONST STRINGS
+####################################
+
+yn_error_msg = 'Error. Please input y or n.'
+intp_error_msg = 'Error. Number must be greater than 0.'
+
+####################################
 ## FUNCTIONS
 ####################################
 
@@ -13,7 +20,7 @@ def int_positive():
         raise ValueError('D:')
       break
     except ValueError:
-      print('Error. Number must be greater than 0.')
+      print(intp_error_msg)
   return num
 
 # simple check for y/n input
@@ -109,7 +116,7 @@ def make_json():
     "traits_allowed": traits_allowed,
     "traits": traits
   }
-  creature_json = open(name + '.json', 'w+')
+  creature_json = open('json/' + name + '.json', 'w+')
   json.dump(creature_obj, creature_json, indent=2)
   return creature_obj
 
@@ -150,19 +157,18 @@ def make_html(creature):
     creature_file.write('[Damage: ' + str(attack[1]["damage"]) + ']</p>\n\t')
     creature_file.write('<p>' + str(attack[1]["description"]) + '</p>\n\t')
   creature_file.write('<h2>Traits</h2>\n\t')
+  #traits
   for trait in creature["traits"].items():
     creature_file.write('<p><b>' + str(trait[1]["name"]) + '</b> ')
     creature_file.write('<p>' + str(trait[1]["description"]) + '</p>\n\t')
   creature_file.write('<h2>Perks</h2>\n\t')
   creature_file.write('<p>' + creature["perks"] + '</p>\n')
   creature_file.write('</body>\n</html>')
-
+  creature_file.flush()
 
 #################################
-## FUNCTIONS END
+## USER INPUT
 #################################
-
-yn_error_msg = 'Error. Please input y or n.'
 
 print('''Welcome to the Cold Iron creature generator.
 Enter a name for the creature, case sensitive:''')
@@ -171,20 +177,19 @@ Enter a name for the creature, case sensitive:''')
 name = input()
 creature_file = open(name + '.html', 'w+')
 
-# TODO: add multiple paragraph support
 print('''Enter a description of this creature. You can add underscores between paragraphs to improve readability. They will be split into paragraphs on the web page.''')
 description = input().split('_')
 
 creature_sizes = ["Tiny", "Small", "Medium", "Large", "Huge", "Gigantic"]
 
-print('''Enter the number of the size that this creature is. The larger it is, the easier it is to hit in combat and the more space it takes up on the battlemap.
-Available categories and their general are:
-1. Tiny (less than 15cm: ants, spiders, small birds, etc.)
-2. Small (15cm to 1m: dogs, cats, birds of prey (eagles), etc.)
-3. Medium (1m to 2m: goblins, humans, mazorecs, goats, ghouls, etc.)
-4. Large (2m to 7m: bears, lions, wyverns, giant cave spiders, manticores, crocodiles, qhonitari, etc.)
-5. Huge (7m to 12m: rocs, hydra, elephants, rhinoceros, griffins, etc.)
-6. Gigantic (12m and beyond: dragons, sphinxes, landwyrms, etc.''')
+print('''Enter the number of the size that this creature is. The larger it is, the easier it is to hit in combat and the larger its hex diameter is on the battlemap.
+Available categories and their general sizes are:
+1. Tiny (less than 15cm: ants, spiders, small birds, etc.) - An indefinite amount per hex
+2. Small (15cm to 1m: dogs, cats, birds of prey (eagles), etc.) - 1 hex
+3. Medium (1m to 2m: goblins, humans, mazorecs, goats, ghouls, etc.) - 1 hex
+4. Large (2m to 7m: bears, lions, wyverns, giant cave spiders, manticores, crocodiles, qhonitari, etc.) - 3 hexes
+5. Huge (7m to 12m: rocs, hydra, elephants, rhinoceros, griffins, etc.) - 5 hexes
+6. Gigantic (12m and beyond: dragons, sphinxes, landwyrms, etc.) - 7+ hexes''') 
 while True:
   try:
     size = input()
@@ -224,7 +229,6 @@ if category == "1":
 category = creature_categories[int(category) - 1]
 
 ####### STATTING THE CREATURE
-
 print('''Input the stat scores of the creature. All stats must be integers greater than 0. 
 Please see the Rules/SPAMFIC Stat System for more information on each stat.''')
 print('''How much Spirit (SPR) does the creature have? Spirit represents the creature's mental fortitude. 
@@ -263,7 +267,6 @@ creature_stats = {
 }
 
 ####### ADDING ATTACKS TO THE CREATURE
-
 print('''Now you will add attacks to your creature. Every creature has at least one attack it can use.''')
 print('''Can your creature use techniques? (y/n)''')
 techniques_allowed = yes_no()
