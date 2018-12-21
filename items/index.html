@@ -2,7 +2,8 @@
   <head>
     <meta charset="utf-8">
     <title>Items - Index</title>
-    <script src="../dynamic_table.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.3.0/fuse.min.js"></script>
+    <script src="../scripts.js"></script>
   </head>
 
 <body>
@@ -12,8 +13,8 @@
   <h1>Items</h1>
     <p>Player characters and non-player characters alike carry a variety of items, suited for their daily lives. Clothes, armor, food, rope, camping gear, matchsticks - the list goes on and on. You can select a category and bring up a table containing all items in that category.</p>
     <div>
-      <button onclick="grabJSON('items/1h-weapons.json')">One-handed Weapons</button>
-      <button onclick="grabJSON('items/2h-weapons.json')">Two-handed Weapons</button>
+      <button onclick="grabJSON('items/1h-weapons.json', 0)">One-handed Weapons</button>
+      <button onclick="grabJSON('items/2h-weapons.json', 0)">Two-handed Weapons</button>
     </div>
 
     <div id="dynamic_table"></div>
