@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Aelvezi",
+    "category": "Sapient",
+    "size": "Medium"
+  },
+  {
+    "name": "Dragon",
+    "category": "Legendary",
+    "size": "Gigantic"
+  },
+  {
+    "name": "Fidazi",
+    "category": "Sapient",
+    "size": "Medium"
+  },
+  {
+    "name": "Goblin",
+    "category": "Sapient",
+    "size": "Small"
+  },
+  {
+    "name": "Human",
+    "category": "Sapient",
+    "size": "Medium"
+  },
+  {
+    "name": "Ketol",
+    "category": "Sapient",
+    "size": "Medium"
+  },
+  {
+    "name": "Mazorec",
+    "category": "Sapient",
+    "size": "Medium"
+  },
+  {
+    "name": "Skeleton",
+    "category": "Megabeast",
+    "size": "Medium"
+  },
+  {
+    "name": "test",
+    "category": "Sapient",
+    "size": "Tiny"
+  }
+]
