@@ -5,6 +5,11 @@
     "size": "Medium"
   },
   {
+    "name": "Bear",
+    "category": "Beast",
+    "size": "Large"
+  },
+  {
     "name": "Dragon",
     "category": "Legendary",
     "size": "Gigantic"
@@ -12,6 +17,11 @@
   {
     "name": "Fidazi",
     "category": "Sapient",
+    "size": "Medium"
+  },
+  {
+    "name": "Giant Cave Spider",
+    "category": "Beast",
     "size": "Medium"
   },
   {
@@ -38,10 +48,5 @@
     "name": "Skeleton",
     "category": "Megabeast",
     "size": "Medium"
-  },
-  {
-    "name": "test",
-    "category": "Sapient",
-    "size": "Tiny"
   }
 ]

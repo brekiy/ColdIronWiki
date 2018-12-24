@@ -7,7 +7,7 @@
     "Thrust AP": 3,
     "Thrust Dmg": "1d4 Piercing",
     "Crit Mult.": 2,
-    "Traits": "Finesse, Light, Thrown 4",
+    "Traits": "Finesse, Light, Thrown 4/16",
     "MGT Req.": "",
     "Price": 10
   },
@@ -55,7 +55,7 @@
     "Thrust AP": 3,
     "Thrust Dmg": "2d6 Piercing",
     "Crit Mult.": 2,
-    "Traits": "Finesse, Light, Thrown 6/18",
+    "Traits": "Finesse, Light, Thrown 6/24",
     "MGT Req.": "",
     "Price": 20
   },

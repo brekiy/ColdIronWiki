@@ -117,7 +117,7 @@ function searchResults(results) {
     //var link_text = document.createTextNode();
     var link = document.createElement('a');
     link.innerHTML = creature.name + ' (' + creature.size + " " + creature.category + ')';
-    link.href = codex_url + creature.name + '.html';
+    link.href = codex_url + '/bestiary/' + creature.name + '.html';
     console.log(link);
     list_node.appendChild(link);
     list.appendChild(list_node);
