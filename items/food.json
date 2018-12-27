@@ -1,0 +1,62 @@
+[
+  {
+    "Name": "Rations (1 day)",
+    "Weight": "2",
+    "Price (Notes)": "9"
+  },
+  {
+    "Name": "Round of cheese",
+    "Weight": "1",
+    "Price (Notes)": "5"
+  },
+  {
+    "Name": "Cheap butcher's meat (beef, pork, chicken)",
+    "Weight": "1",
+    "Price (Notes)": "8"
+  },
+  {
+    "Name": "Cheap fish",
+    "Weight": "1",
+    "Price (Notes)": "3"
+  },
+  {
+    "Name": "Vegetables",
+    "Weight": "1",
+    "Price (Notes)": "3"
+  },
+  {
+    "Name": "Cheap loaf of bread",
+    "Weight": "0.5",
+    "Price (Notes)": "2"
+  },
+  {
+    "Name": "Fine bread",
+    "Weight": "0.5",
+    "Price (Notes)": "5"
+  },
+  {
+    "Name": "Fine meat (veal, lamb, dormice)",
+    "Weight": "1",
+    "Price (Notes)": "17"
+  },
+  {
+    "Name": "Fine fish",
+    "Weight": "1",
+    "Price (Notes)": "7"
+  },
+  {
+    "Name": "Cheap meal",
+    "Weight": "1",
+    "Price (Notes)": "5"
+  },
+  {
+    "Name": "Fine meal",
+    "Weight": "1",
+    "Price (Notes)": "9"
+  },
+  {
+    "Name": "Lavish meal",
+    "Weight": "1",
+    "Price (Notes)": "15"
+  }
+]
