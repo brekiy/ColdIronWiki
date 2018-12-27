@@ -1,4 +1,5 @@
 import math, json
+encoding = 'utf-8'
 
 ####################################
 ## CONST STRINGS
@@ -116,7 +117,7 @@ def make_json():
     "traits_allowed": traits_allowed,
     "traits": traits
   }
-  creature_json = open('json/' + name + '.json', 'w+')
+  creature_json = open('json/' + name + '.json', 'w+', encoding = encoding)
   json.dump(creature_obj, creature_json, indent=2)
   return creature_obj
 
@@ -175,7 +176,7 @@ Enter a name for the creature, case sensitive:''')
 
 # TODO: clean numbers and certain punctuation from the input
 name = input()
-creature_file = open(name + '.html', 'w+')
+creature_file = open(name + '.html', 'w+', encoding = encoding)
 
 print('''Enter a description of this creature. You can add underscores between paragraphs to improve readability. They will be split into paragraphs on the web page.''')
 description = input().split('_')
@@ -272,7 +273,6 @@ print('''Can your creature use techniques? (y/n)''')
 techniques_allowed = yes_no()
 
 attacks_allowed = True
-
 if techniques_allowed:
   print('''Your creature can use techniques. Does it have any special attacks?''')
   attacks_allowed = yes_no()
@@ -290,7 +290,7 @@ if attacks_allowed:
 print('''Does your creature have any perks? Check the perks page for a list of valid perks. (y/n)''')
 perks_allowed = yes_no()
 perks = "N/A"
-if perks_allowed == True:
+if perks_allowed:
   print('''List the creature's perks, seperated by commas. i.e. perk1, perk2, perk3...''')
   perks = input()
 
@@ -298,7 +298,7 @@ print('''Does your creature have any unique traits? Traits are qualities more al
 the lines of "no predisposition for magic" or "regenerates 5 Wounds per round of combat". (y/n)''')
 traits_allowed = yes_no()
 traits = {0: {"name": "N/A", "description": ""}}
-if traits_allowed == True:
+if traits_allowed:
   print('''List the number of the creature's traits.''')
   num_traits = int_positive()
   for i in range(0, num_traits):

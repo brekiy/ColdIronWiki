@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Aelvezi",
+    "category": "Sapient",
+    "size": "Medium"
+  },
+  {
+    "name": "Bear",
+    "category": "Beast",
+    "size": "Large"
+  },
+  {
+    "name": "Dragon",
+    "category": "Legendary",
+    "size": "Gigantic"
+  },
+  {
+    "name": "Fidazi",
+    "category": "Sapient",
+    "size": "Medium"
+  },
+  {
+    "name": "Giant Cave Spider",
+    "category": "Beast",
+    "size": "Medium"
+  },
+  {
+    "name": "Goblin",
+    "category": "Sapient",
+    "size": "Small"
+  },
+  {
+    "name": "Human",
+    "category": "Sapient",
+    "size": "Medium"
+  },
+  {
+    "name": "Ketol",
+    "category": "Sapient",
+    "size": "Medium"
+  },
+  {
+    "name": "Mazorec",
+    "category": "Sapient",
+    "size": "Medium"
+  },
+  {
+    "name": "Skeleton",
+    "category": "Megabeast",
+    "size": "Medium"
+  }
+]

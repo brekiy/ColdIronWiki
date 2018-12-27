@@ -1,0 +1,63 @@
+{
+  "name": "Bear",
+  "size": "Large",
+  "description": [
+    "A large, intelligent animal. Bears are omnivorous and are known to raid isolated homes and camps in the wilderness in search of food, although they often shy from contact with people."
+  ],
+  "category": "Beast",
+  "playable": false,
+  "stats": {
+    "SPR": 4,
+    "PER": 12,
+    "AGI": 9,
+    "MGT": 15,
+    "FOR": 19,
+    "INT": 4,
+    "CHR": 4
+  },
+  "combat_stats": {
+    "ap": 9,
+    "willpower": 5,
+    "guard": 8,
+    "wounded": 19,
+    "very_wounded": 45,
+    "dead": 72
+  },
+  "techniques_allowed": false,
+  "num_attacks": 2,
+  "attacks": {
+    "0": {
+      "name": "Bite",
+      "ap_cost": 5,
+      "damage": "1d12 Rending",
+      "description": "The bear bites the target with its powerful jaws."
+    },
+    "1": {
+      "name": "Swipe",
+      "ap_cost": 4,
+      "damage": "1d8 Rending",
+      "description": "The bear rakes the target with its claws. When a Swipe hits a target that is smaller than the bear, it must take a DC8 Athletics check to remain upright or else be forced prone."
+    }
+  },
+  "perks_allowed": false,
+  "perks": "N/A",
+  "traits_allowed": true,
+  "traits": {
+    "0": {
+      "name": "Black Bear",
+      "description": "No change in the creature's stats."
+    },
+    "1": {
+      "name": "Brown Bear",
+      "description": "+1 MGT, +1 FOR."
+    },
+    "2": {
+      "name": "Cave Bear",
+      "description": "+3 MGT, +3 FOR. The cave bear is a rare, especially large species. Despite their name, they don't only live in caves, instead roaming the area around a cave at night and remaining inside by day."
+    },
+    "3": {
+      "name": "Polar Bear",
+      "description": "+1 MGT, +2 FOR. The polar bear inhabits the cold lands of the north, where great plains of ice and snow stretch as far as the eye can see."
+    }
+  }
+}
