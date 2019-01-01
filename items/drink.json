@@ -1,6 +1,6 @@
 [
   {
-    "Name": "Mug/bottle of beer",
+    "Name": "Mug/bottle of beer/cider/mead",
     "Weight": "0.5",
     "Price (Notes)": "2"
   },
@@ -10,14 +10,9 @@
     "Price (Notes)": "8"
   },
   {
-    "Name": "Gallon of cider",
+    "Name": "Gallon of beer/cider/mead",
     "Weight": "4",
     "Price (Notes)": "11"
-  },
-  {
-    "Name": "Gallon of mead",
-    "Weight": "4",
-    "Price (Notes)": "14"
   },
   {
     "Name": "Bottle of vodka/whisky/rum/sake/baijiu",

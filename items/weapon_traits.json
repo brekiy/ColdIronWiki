@@ -68,8 +68,8 @@
     "Description": "You strike with a blunt end of the weapon. Perform your Swing attack, but halve the damage done and convert it to Crushing."
   },
   {
-    "Name": "Sunder [X]",
-    "Description": "REWORK THIS"
+    "Name": "Sunder [X/Y]",
+    "Description": "This weapon ignores X of Y damage reduction."
   },
   {
     "Name": "Sweep",

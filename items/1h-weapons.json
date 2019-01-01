@@ -125,7 +125,7 @@
     "Swing AP": 5,
     "Swing Dmg": "4d6 Rending",
     "Thrust AP": 5,
-    "Thrust Dmg": "3d6+2 Piercing",
+    "Thrust Dmg": "3d6+4 Piercing",
     "Crit Mult.": 2,
     "Traits": "",
     "MGT Req.": 10,
@@ -199,7 +199,7 @@
     "Thrust AP": 5,
     "Thrust Dmg": "3d6 Piercing",
     "Crit Mult.": 2,
-    "Traits": "Double Grip 2",
+    "Traits": "Double Grip 2, Sunder 2/Crushing",
     "MGT Req.": 11,
     "Price": 700
   },
