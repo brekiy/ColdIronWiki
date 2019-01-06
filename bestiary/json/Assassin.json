@@ -1,0 +1,42 @@
+{
+  "name": "Assassin",
+  "size": "Medium",
+  "description": [
+    "A hired killer, sneakily taking lives for coin."
+  ],
+  "category": "Sapient",
+  "playable": false,
+  "stats": {
+    "SPR": 10,
+    "PER": 12,
+    "AGI": 12,
+    "MGT": 10,
+    "FOR": 10,
+    "INT": 10,
+    "CHR": 10
+  },
+  "combat_stats": {
+    "ap": 11,
+    "willpower": 12,
+    "guard": 10,
+    "wounded": 10,
+    "very_wounded": 25,
+    "dead": 40
+  },
+  "techniques_allowed": true,
+  "num_attacks": 0,
+  "attacks": {},
+  "perks_allowed": true,
+  "perks": "Duelist",
+  "traits_allowed": true,
+  "traits": {
+    "0": {
+      "name": "Sapient Bonuses",
+      "description": "The listed statline assumes a human assassin. For assassins of other sapient species, add/subtract to this statline based off of how the base species differs from humans. For example, aelvezim have 2 less MGT than humans, so subtract 2 from the MGT score of the aelvezi assassin."
+    },
+    "1": {
+      "name": "Inventory",
+      "description": "Assassins always carry a shortsword, with a rondel dagger as backup. They sometimes wear gambesons for protection."
+    }
+  }
+}
