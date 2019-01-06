@@ -31,10 +31,6 @@
   "traits_allowed": true,
   "traits": {
     "0": {
-      "name": "Sapient Bonuses",
-      "description": "The listed statline assumes a human assassin. For assassins of other sapient species, add/subtract to this statline based off of how the base species differs from humans. For example, aelvezim have 2 less MGT than humans, so subtract 2 from the MGT score of the aelvezi assassin."
-    },
-    "1": {
       "name": "Inventory",
       "description": "Assassins always carry a shortsword, with a rondel dagger as backup. They sometimes wear gambesons for protection."
     }
