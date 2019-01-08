@@ -1,3 +1,18 @@
+function hideOtherDivs(name) {
+  var divs = ['core-bits', 'specializations', 'posessions', 'biography'];
+  var x = document.getElementById(name);
+  for (var i = 0; i < divs.length; i++) {
+    console.log(divs[i] + ' ' + i);
+    if (x.id !== divs[i]) {
+      console.log("didn't match!");
+      document.getElementById(divs[i]).style.display = 'none';
+    } else {
+      console.log("match!");
+      document.getElementById(divs[i]).style.display = 'flex';
+    }
+  }
+}
+
 // fills modifiers for the SPAMFIC stats
 function modifier(object) {
   var score = object.value;
