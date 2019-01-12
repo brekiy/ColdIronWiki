@@ -2,19 +2,26 @@
   <head>
     <meta charset="utf-8">
     <title>Bestiary</title>
+    <link rel="stylesheet" type="text/css" href="../sidebar.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.3.0/fuse.min.js"></script>
     <script src="../scripts.js"></script>
   </head>
 
-<body>
-  <div>
-      <button onclick="window.location='../index.html'">Home</button>
+<body onload="grabJSON('bestiary/creatures.json', 1)">
+  <div class="sidebar">
+    <a href="../index.html">Home</a>
+    <a href="../rules/index.html">Rules</a>
+    <a href="../char_sheet/char_sheet.html">Character Sheet</a>
+    <a href="../perks/index.html">Perks</a>
+    <a href="../bestiary/index.html">Bestiary</a>
+    <a href="../items/index.html">Items</a>
   </div>
+  <div class="content">
   <h1>Bestiary</h1>
   <p>The bestiary contains information on all the creatures in the known world. It lists their SPAMFIC stats, methods of attack, and traits, as well as basic descriptions. Each creature has its own page.</p>
   <input id="search_bar" type="text"> <button onclick="grabJSON('bestiary/creatures.json', 1)">Search</button>
   <div id="dynamic_list"></div>
-
+    </div>
     
 </body>
 

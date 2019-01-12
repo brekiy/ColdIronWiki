@@ -6,7 +6,7 @@
   <title>Character Sheet</title>
   <link rel="stylesheet" type="text/css" href="../sidebar.css">
   <link rel="stylesheet" type="text/css" href="char_sheet.css">
-  
+  <script src="char_sheet.js"></script>
 </head>
 
 <body>
@@ -26,12 +26,6 @@
       <input id="fileupload" type="file" name="files[]">
       <button onclick="upload()">Upload Character</button>
       <button onclick="download()">Download Character</button>
-    </div>
-    <div id="categories">
-      <button onclick="hideOtherDivs('core-bits')">Basic Information</button>
-      <button onclick="hideOtherDivs('specializations')">Skills and Perks</button>
-      <button onclick="hideOtherDivs('posessions')">Inventory and Wealth</button>
-      <button onclick="hideOtherDivs('biography')">Background</button>
     </div>
 
     <!-- CORE INFORMATION AND STATISTICS -->
@@ -443,7 +437,7 @@
 
 
     <!-- CHARACTER BIOGRAPHY/GOALS/PERSONALITY -->
-    <div id="biography" class="info-category">
+    <div id="bio" class="info-category">
       <table>
         <tr>
           <td>Backstory</td>
@@ -465,6 +459,7 @@
           <td>Minor Goal 1</td>
           <td>Minor Goal 2</td>
           <td>Minor Goal 3</td>
+
         </tr>
         <tr>
           <td><textarea id="legend-goal" class="sheet" rows="5"></textarea></td>
@@ -479,5 +474,4 @@
 
 </body>
 
-<script src="char_sheet.js"></script>
 </html>
