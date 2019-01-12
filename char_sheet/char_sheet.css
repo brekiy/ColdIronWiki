@@ -1,35 +1,30 @@
 body {
-  background-color: lightsteelblue;
+  background-color: #eeffff;
 }
 
-#fileio {
+label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#fileio, #categories {
   margin: auto;
   text-align: center;
   padding-bottom: 20px;
 }
 
-#basic-info {
-  width: 240px;
-  padding: 10px;
-}
-
-#spamfic {
-  padding: 5px;
-  margin-left: 5px;
-}
-
-#combat-stats {
-  margin-top: 53px;
-  padding: 5px;
-}
-
 .info-category {
-  display: flex;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-content:center;
-  align-items:center;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   padding: 0 auto;
   text-align: center;
+}
+
+.flex-dir {
+  flex-direction: row;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -46,3 +41,8 @@ table {
   text-align: center;
 }
 
+@media screen and (max-width: 700px) {
+  .flex-dir {
+    flex-direction: column;
+  }
+}

@@ -90,7 +90,7 @@ function searchObjectsInJSON(json_obj, search_keys) {
   if (query) { 
     // create the fuse object with the keys we want to search for
     console.log('query is not null, searching');
-    var fuse = new Fuse(json_obj, { keys: search_keys });
+    var fuse = new Fuse(json_obj, { keys: search_keys, threshold: 0.0 });
     // search the json with the query in the search bar
     var results = fuse.search(query);
   } else {
