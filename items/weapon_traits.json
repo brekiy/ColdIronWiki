@@ -22,7 +22,7 @@
   {
     "Name": "Durability [X]",
     "Description": "This item can take X damage before it breaks."
-  }
+  },
   {
     "Name": "Finesse",
     "Description": "You may use your AGI modifier instead of your MGT modifier for the attack and damage rolls."
