@@ -8,6 +8,10 @@ label {
   justify-content: center;
 }
 
+div {
+  padding: 5px;
+}
+
 #fileio, #categories {
   margin: auto;
   text-align: center;

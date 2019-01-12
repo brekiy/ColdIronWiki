@@ -6,7 +6,7 @@
   <title>Character Sheet</title>
   <link rel="stylesheet" type="text/css" href="../sidebar.css">
   <link rel="stylesheet" type="text/css" href="char_sheet.css">
-  
+  <script src="char_sheet.js"></script>
 </head>
 
 <body onload="hideOtherDivs('core-bits')">
@@ -122,6 +122,14 @@
             <td><output id="dead">40</output></td>
           </tr>
         </table>
+      </div>
+      <div id="wounds">
+        <label for="current-wounds">Current Wounds</label>
+        <input id="current-wounds" type="number" value="0" min="0" step="1">
+      </div>
+      <div id="power-points">
+        <label for="current-power-points">Available Power Points</label>
+        <input id="current-power-points" type="number" value="0" min="0" step="1">
       </div>
     </div>
 
@@ -243,7 +251,7 @@
           <th>Mastery</th>
           <tr>
             <td>Force</td>
-            <td><input id="force-ignorant" name="force" type="radio" value="ignorant" checked"></td>
+            <td><input id="force-ignorant" name="force" type="radio" value="ignorant" checked></td>
             <td><input id="force-basic" name="force" type="radio" value="basic"></td>
             <td><input id="force-control" name="force" type="radio" value="control"></td>
             <td><input id="force-command" name="force" type="radio" value="command"></td>
@@ -528,6 +536,4 @@
   </div>
 
 </body>
-
-<script src="char_sheet.js"></script>
 </html>
