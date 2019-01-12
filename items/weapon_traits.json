@@ -28,10 +28,6 @@
     "Description": "You may use your AGI modifier instead of your MGT modifier for the attack and damage rolls."
   },
   {
-    "Name": "Fitted",
-    "Description": "If looted, requires fitting at an armorer before it is usable."
-  },
-  {
     "Name": "Flimsy",
     "Description": "This weapon gets a -2 penalty to attack rolls in melee and breaks on hit."
   },
@@ -49,7 +45,7 @@
   },
   {
     "Name": "Masterwork",
-    "Description": "Weapons: Gain +2 to attack/damage rolls. Armor: Gain +1 to damage reduction and reduce weight by 4."
+    "Description": "Gain +2 to attack/damage rolls."
   },
   {
     "Name": "Range [X]",
@@ -68,8 +64,8 @@
     "Description": "You strike with a blunt end of the weapon. Perform your Swing attack, but halve the damage done and convert it to Crushing."
   },
   {
-    "Name": "Sunder [X]",
-    "Description": "REWORK THIS"
+    "Name": "Sunder [X/Y]",
+    "Description": "This weapon ignores X of Y damage reduction."
   },
   {
     "Name": "Sweep",

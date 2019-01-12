@@ -6,7 +6,7 @@
   },
   {
     "Name": "Round of cheese",
-    "Weight": "1",
+    "Weight": "0.5",
     "Price (Notes)": "5"
   },
   {
@@ -15,7 +15,7 @@
     "Price (Notes)": "8"
   },
   {
-    "Name": "Cheap fish",
+    "Name": "Cheap fish/seafood (trout, salmon, carp, clams)",
     "Weight": "1",
     "Price (Notes)": "3"
   },
@@ -40,7 +40,7 @@
     "Price (Notes)": "17"
   },
   {
-    "Name": "Fine fish",
+    "Name": "Fine fish/seafood (swordfish, shark, abalone, tuna)",
     "Weight": "1",
     "Price (Notes)": "7"
   },
