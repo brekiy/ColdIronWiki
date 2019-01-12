@@ -7,7 +7,7 @@
     <script src="../scripts.js"></script>
   </head>
 
-<body onload="grabJSON('items/1h-weapons.json', 0)">
+<body onload="grabJSON('items/1h_weapons.json', 0)">
   <div class="sidebar">
     <a href="../index.html">Home</a>
     <a href="../rules/index.html">Rules</a>
@@ -22,11 +22,42 @@
       armor, food, rope, camping gear, matchsticks - the list goes on and on. You can select a category and bring up a
       table containing all items in that category.</p>
     <div>
-      <button onclick="grabJSON('items/1h-weapons.json', 0)">One-handed Weapons</button>
-      <button onclick="grabJSON('items/2h-weapons.json', 0)">Two-handed Weapons</button>
+      <button onclick="grabJSON('items/1h_weapons.json', 0)">One-handed Weapons</button>
+      <button onclick="grabJSON('items/2h_weapons.json', 0)">Two-handed Weapons</button>
+      <button onclick="grabJSON('items/ranged_weapons.json', 0)">Ranged Weapons</button>
+      <button onclick="grabJSON('items/weapons_traits.json', 0)">Weapon Traits</button>
+      <button onclick="grabJSON('items/armor.json', 0)">Armor</button>
+      <button onclick="grabJSON('items/armor_traits.json', 0)">Armor Traits</button>
       <button onclick="grabJSON('items/food.json', 0)">Food</button>
       <button onclick="grabJSON('items/drink.json', 0)">Drink</button>
     </div>
+
+    <div>
+        The abbreviations in the weapon/armor spreadsheets correspond as follows:
+        <table>
+          <tr>
+            <th>Abbreviation</th> <th>Damage Type</th>
+          </tr>
+          <tr>
+            <td>B</td><td>Blast</td>
+          </tr>
+          <tr>
+            <td>C</td><td>Crushing</td>
+          </tr>
+          <tr>
+            <td>F</td><td>Fire</td>
+          </tr>
+          <tr>
+            <td>L</td><td>Lightning</td>
+          </tr>
+          <tr>
+            <td>P</td><td>Piercing</td>
+          </tr>
+          <tr>
+            <td>R</td><td>Rending</td>
+          </tr>
+        </table>
+      </div>
     
     <div id="dynamic_table"></div>
   </div>

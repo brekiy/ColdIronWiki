@@ -1,6 +1,6 @@
 [
   {
-    "Name": "Blast [X/Y]",
+    "Name": "Blast Radius [X/Y]",
     "Description": "This weapon explodes, dealing no critical damage. Roll double damage dice within X meters, none beyond Y meters. If X is 0, only the tile it lands on receives double damage."
   },
   {
