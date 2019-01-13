@@ -34,24 +34,24 @@
     <p>A character’s Wounds stat broken into several breakpoints based off of their MGT and FOR. Once wounds equal or pass a breakpoint, the character suffers its penalties.</p>
     <ul>
       <li><u>Wounded (FOR):</u> You are injured, but still fit to fight. A -1 penalty on physical actions and initiative.</li>
-      <li><u>Very Wounded (0.5*MGT + 2*FOR):</u> You are injured, but still fit to fight. A -1 penalty on physical actions and initiative.</li>
+      <li><u>Very Wounded (MGT/2 + 2*FOR):</u> You are injured, but still fit to fight. A -1 penalty on physical actions and initiative.</li>
       <li><u>Dead (MGT + 3*FOR):</u> You are already dead.</li>
     </ul>
     <p>Physical actions include attack rolls, damage rolls, spellcasting, and various other interactions, such as performing medicine or climbing.</p>
     <p>Wounds are healed by drinking a Kumak potion (see Alchemy) or otherwise at the rate of 2 every 24 hours after being injured, provided that all bleeding has stopped and treatment was given.</p>
   <h4>Action Points (AP)</h4>
-    <p>A character’s AP determines their number of actions per round of combat, based off of their PER and AGI. The max AP for a character is calculated as (0.25*PER + AGI).</p>
+    <p>A character’s AP determines their number of actions per round of combat, based off of their PER and AGI. The max AP for a character is calculated as (PER/4 + AGI/1.5).</p>
   <h4>Willpower (WP)</h4>
-    <p>A character’s WP acts as additional action points. WP does not regenerate every round, and can be burned at any time during combat to perform actions that otherwise cost too much AP. Notably, WP is also used as a resource by magic users, in order to cast their spells. The starting WP for a character is calculated as (SPR + 0.25*CHR).</p>
+    <p>A character’s WP acts as additional action points. WP does not regenerate every round, and can be burned at any time during combat to perform actions that otherwise cost too much AP. Notably, WP is also used as a resource by magic users, in order to cast their spells. The starting WP for a character is calculated as (SPR + CHR/4).</p>
   <h4>Encumbrance</h4>
     <p>A character’s encumbrance represents the weight they can carry long term. Once weight equals or passes a breakpoint, the character suffers its penalties.</p>
     <ul>
-      <li><u>Encumbered (2*MGT):</u> You are carrying a moderate load. -2 penalty on AGI checks and initiative, and actions cost +1 AP.</li>
+      <li><u>Encumbered (1.5*MGT):</u> You are carrying a moderate load. -2 penalty on AGI checks and initiative, and actions cost +1 AP.</li>
       <li><u>Over Encumbered (2.5*MGT):</u> You are carrying a very heavy load. -5 penalty on AGI checks and initiative, and actions cost +2 AP.</li>
       <li><u>Max Encumbrance (3*MGT):</u> You cannot carry more than this value. If you do you are reduced to a stationary state as well as suffering a -8 penalty on AGI checks and initiative, and actions cost +4 AP.</li>
     </ul>
   <h4>Guard</h4>
-    <p>A character’s Guard represents how able they are to protect themselves from being struck by a solid blow. It is calculated as 8 + PER mod + AGI mod.</p>
+    <p>A character’s Guard represents how able they are to protect themselves from being struck by a solid blow. It is calculated as (PER/2.5 + AGI/2).</p>
 </body>
 
 </html>
