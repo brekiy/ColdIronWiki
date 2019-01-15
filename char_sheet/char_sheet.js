@@ -167,4 +167,5 @@ function upload() {
   } else {
     alert('Select a file to upload.');
   }
+  calculate();
 }

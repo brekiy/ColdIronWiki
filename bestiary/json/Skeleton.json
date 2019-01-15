@@ -10,7 +10,7 @@
     "SPR": 5,
     "PER": 5,
     "AGI": 10,
-    "MGT": 10,
+    "MGT": 8,
     "FOR": 8,
     "INT": 1,
     "CHR": 1
@@ -33,6 +33,14 @@
     "0": {
       "name": "Vulnerability",
       "description": "Skeletons have a vulnerability to Crushing damage, taking double damage from it."
+    },
+    "1": {
+      "name": "Resistance",
+      "description": "Skeletons resist Piercing damage, taking half damage from it."
+    },
+    "2": {
+      "name": "Inventory",
+      "description": "Skeletons are typically given spears, cheap weapons befitting their status as disposable fodder."
     }
   }
 }

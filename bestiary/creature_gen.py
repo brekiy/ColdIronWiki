@@ -1,4 +1,4 @@
-import math, json
+import os, math, json
 encoding = 'utf-8'
 
 ####################################
@@ -125,8 +125,21 @@ def make_json(creature_stats, name, size, description, category, playable,
 def make_html(creature, creature_file):
   # required tag bits
   creature_file.write('<!DOCTYPE html>\n<html>')
-  creature_file.write('<head>\n\t<meta charset="utf-8">\n\t<title>' + creature["name"] + '</title>\n<head>\n')
+  creature_file.write('<head>\n\t<meta charset="utf-8">\n\t<title>' + creature["name"] + '</title>\n')
+  creature_file.write('<link rel="stylesheet" type="text/css" href="../sidebar.css">\n\t<head>\n')
   creature_file.write('<body>\n\t')
+  
+  # sidebar
+  creature_file.write('<div class="sidebar">\n\t\t')
+  creature_file.write('<a href="../rules/index.html">Rules</a>\n\t\t')
+  creature_file.write('<a href="../char_sheet/char_sheet.html">Character Sheet</a>\n\t\t')
+  creature_file.write('<a href="../perks/index.html">Perks</a>\n\t\t')
+  creature_file.write('<a href="../bestiary/index.html">Bestiary</a>\n\t\t')
+  creature_file.write('<a href="../items/index.html">Items</a>\n\t\t</div>\n\t')
+
+  # start of the content div
+  creature_file.write('<div class="content">\n\t')
+
   # basic info
   creature_file.write('<h1>' + creature["name"] + '</h1>\n\t')
   creature_file.write('<h2>' + creature["size"] + ' ' + creature["category"] + '</h2>\n\t')
@@ -134,6 +147,7 @@ def make_html(creature, creature_file):
     creature_file.write('<h2>Playable Species</h2>\n\t')
   for value in creature["description"]:
     creature_file.write('<p>' + value + '</p>\n\t')
+
   # SPAMFIC table
   creature_file.write('<table>\n\t')
   for key, value in creature["stats"].items():
@@ -142,6 +156,7 @@ def make_html(creature, creature_file):
   for key, value in creature["stats"].items():
     creature_file.write('<td>' + str(value) + ' (' + modifier(value) + ')' + '</td>')
   creature_file.write('</tr>\n\t</table>\n\t')
+
   # wounds, action points, willpower, guard table
   creature_file.write('<table>\n\t')
   creature_file.write('<tr><td>Action Points</td><td>' + str(creature["combat_stats"]["ap"]) + '</td>')
@@ -150,6 +165,7 @@ def make_html(creature, creature_file):
   creature_file.write('<td>Very Wounded</td><td>' + str(creature["combat_stats"]["very_wounded"]) + '</td></tr>\n\t')
   creature_file.write('<tr><td>Guard</td><td>' + str(creature["combat_stats"]["guard"]) + '</td>')
   creature_file.write('<td>Dead</td><td>' + str(creature["combat_stats"]["dead"]) + '</td></tr></table>\n\t')
+  
   # attacks
   creature_file.write('<h2>Attacks</h2>\n\t')
   creature_file.write('<p><b>Can use techniques:</b> ' + str(creature["techniques_allowed"]) + '</p>\n\t')
@@ -159,30 +175,34 @@ def make_html(creature, creature_file):
     creature_file.write('[Damage: ' + str(attack[1]["damage"]) + ']</p>\n\t')
     creature_file.write('<p>' + str(attack[1]["description"]) + '</p>\n\t')
   creature_file.write('<h2>Traits</h2>\n\t')
-  #traits
+  
+  #traits/perks
   for trait in creature["traits"].items():
     creature_file.write('<p><b>' + str(trait[1]["name"]) + '</b> ')
     creature_file.write('<p>' + str(trait[1]["description"]) + '</p>\n\t')
   creature_file.write('<h2>Perks</h2>\n\t')
-  creature_file.write('<p>' + creature["perks"] + '</p>\n')
-  creature_file.write('</body>\n</html>')
+  creature_file.write('<p>' + creature["perks"] + '</p>\n\t')
+  creature_file.write('</div>\n</body>\n</html>')
   creature_file.flush()
 
-def update_html(): 
-  print('''Enter the name of the creature you want to update.''')
-  while True:
-    try:
-      name = input()
-      creature_json_file = open('json/' + name + '.json', 'r+', encoding = encoding)
-      break
-    except IOError:
-      print('Could not read file:' + 'json/' + name + '.json')
-
+def update_html(name, creature_json_file): 
   creature_json = {}
   creature_file = open(name + '.html', 'w+', encoding = encoding)
   creature_json = json.load(creature_json_file)
   make_html(creature_json, creature_file)
   creature_json_file.close()
+
+def update_all_html():
+  
+  creature_files = []
+  # grab all the creatures
+  for filename in os.listdir('json'):
+    if filename.endswith(".json"):
+      creature_files.append(str(filename))
+
+  for creature_file in creature_files:
+    creature_json_file = open('json/' + creature_file, 'r+', encoding = encoding)
+    update_html(creature_file[:-5], creature_json_file)
 
 def new_creature():
   print('''Enter a name for the creature, case sensitive:''')
@@ -333,20 +353,32 @@ def new_creature():
 
 print('''Welcome to the Cold Iron creature generator. Enter 1 or 2:
 1. Create a new creature
-2. Update an existing creature from its JSON file''')
+2. Update an existing creature from its JSON file
+3. Update all creatures from their JSON files''')
 
 while True:
     try:
       choice = input()
-      if choice not in ["1", "2"]:
+      if choice not in ["1", "2", "3"]:
         raise ValueError('D:')
       break
     except ValueError:
       print('''Enter 1 or 2:
 1. Create a new creature
-2. Update an existing creature from its JSON file''')
+2. Update an existing creature from its JSON file
+3. Update all creatures from their JSON files''')
 
 if choice == "1":
   new_creature()
+elif choice == "2":
+  print('''Enter the name of the creature you want to update.''')
+  while True:
+    try:
+      name = input()
+      creature_json_file = open('json/' + name + '.json', 'r+', encoding = encoding)
+      break
+    except IOError:
+      print('Could not read file:' + 'json/' + name + '.json, try again')
+  update_html(name, creature_json_file)
 else:
-  update_html()
+  update_all_html()

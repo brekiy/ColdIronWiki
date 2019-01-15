@@ -1,0 +1,55 @@
+{
+  "name": "Horse",
+  "size": "Large",
+  "description": [
+    "A four-legged creature domesticated by many cultures for use as a beast of burden, a means of transportation, and a war mount."
+  ],
+  "category": "Beast",
+  "playable": false,
+  "stats": {
+    "SPR": 3,
+    "PER": 11,
+    "AGI": 14,
+    "MGT": 20,
+    "FOR": 20,
+    "INT": 3,
+    "CHR": 4
+  },
+  "combat_stats": {
+    "ap": 11,
+    "willpower": 4,
+    "guard": 11,
+    "wounded": 20,
+    "very_wounded": 50,
+    "dead": 80
+  },
+  "techniques_allowed": false,
+  "num_attacks": 2,
+  "attacks": {
+    "0": {
+      "name": "Kick",
+      "ap_cost": 4,
+      "damage": "1d8+2 Crushing",
+      "description": "The horse kicks at a target with its hooves."
+    },
+    "1": {
+      "name": "Bite",
+      "ap_cost": 4,
+      "damage": "1d6+2 Rending",
+      "description": "The horse bites its target."
+    }
+  },
+  "perks_allowed": false,
+  "perks": "N/A",
+  "traits_allowed": true,
+  "traits": {
+    "0": {
+      "name": "Beast of Burden",
+      "description": "A horse can carry 80kg as a light load. With another 80kg (160kg), it carries a medium load, and at 240kg it carries a heavy load. It can't carry more than a heavy load."
+    },
+    "1": {
+      "name": "Warhorse",
+      "description": "A warhorse gains +2 to MGT and FOR, and increaes its load limits to 90/180/270kg for light/medium/heavy loads. "
+    }
+  }
+}
