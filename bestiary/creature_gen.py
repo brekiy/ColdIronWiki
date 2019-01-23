@@ -127,16 +127,18 @@ def make_html(creature, creature_file):
   # required tag bits
   creature_file.write('<!DOCTYPE html>\n<html>')
   creature_file.write('<head>\n\t<meta charset="utf-8">\n\t<title>' + creature["name"] + '</title>\n')
-  creature_file.write('<link rel="stylesheet" type="text/css" href="../sidebar.css">\n\t<head>\n')
+  creature_file.write('<base href="https://xiaohuynh.github.io/Codex/">\n')
+  creature_file.write('<link rel="stylesheet" type="text/css" href="css/sidebar.css">\n\t<head>\n')
   creature_file.write('<body>\n\t')
   
   # sidebar
   creature_file.write('<div class="sidebar">\n\t\t')
-  creature_file.write('<a href="../rules/index.html">Rules</a>\n\t\t')
-  creature_file.write('<a href="../char_sheet/char_sheet.html">Character Sheet</a>\n\t\t')
-  creature_file.write('<a href="../perks/index.html">Perks</a>\n\t\t')
-  creature_file.write('<a href="../bestiary/index.html">Bestiary</a>\n\t\t')
-  creature_file.write('<a href="../items/index.html">Items</a>\n\t\t</div>\n\t')
+  creature_file.write('<a href="index.html">Home</a>\n\t\t')
+  creature_file.write('<a href="rules/index.html">Rules</a>\n\t\t')
+  creature_file.write('<a href="char_sheet/char_sheet.html">Character Sheet</a>\n\t\t')
+  creature_file.write('<a href="perks/index.html">Perks</a>\n\t\t')
+  creature_file.write('<a href="bestiary/index.html">Bestiary</a>\n\t\t')
+  creature_file.write('<a href="items/index.html">Items</a>\n\t\t</div>\n\t')
 
   # start of the content div
   creature_file.write('<div class="content">\n\t')
