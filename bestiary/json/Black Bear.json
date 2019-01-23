@@ -1,5 +1,5 @@
 {
-  "name": "Bear",
+  "name": "Black Bear",
   "size": "Large",
   "description": [
     "A large, intelligent animal. Bears are omnivorous and are known to raid isolated homes and camps in the wilderness in search of food, although they often shy from contact with people."
@@ -41,23 +41,11 @@
   },
   "perks_allowed": false,
   "perks": "N/A",
-  "traits_allowed": true,
+  "traits_allowed": false,
   "traits": {
     "0": {
-      "name": "Black Bear",
-      "description": "No change in the creature's stats."
-    },
-    "1": {
-      "name": "Brown Bear",
-      "description": "+1 MGT, +1 FOR."
-    },
-    "2": {
-      "name": "Cave Bear",
-      "description": "+3 MGT, +3 FOR. The cave bear is a rare, especially large species. Despite their name, they don't only live in caves, instead roaming the area around a cave at night and remaining inside by day."
-    },
-    "3": {
-      "name": "Polar Bear",
-      "description": "+1 MGT, +2 FOR. The polar bear inhabits the cold lands of the north, where great plains of ice and snow stretch as far as the eye can see."
+      "name": "N/A",
+      "description": ""
     }
   }
 }

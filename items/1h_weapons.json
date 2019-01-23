@@ -225,7 +225,7 @@
     "Name": "Spear",
     "Weight": 1.5,
     "Swing AP": 5,
-    "Swing Dmg": "2d6 C",
+    "Swing Dmg": "2d6 R",
     "Thrust AP": 5,
     "Thrust Dmg": "4d6+2 P",
     "Crit Mult.": 2,

@@ -5,7 +5,27 @@
     "size": "Medium"
   },
   {
-    "name": "Bear",
+    "name": "Assassin",
+    "category": "Sapient",
+    "size": "Medium"
+  },
+  {
+    "name": "Bandit Captain",
+    "category": "Sapient",
+    "size": "Medium"
+  },
+  {
+    "name": "Bandit",
+    "category": "Sapient",
+    "size": "Medium"
+  },
+  {
+    "name": "Black Bear",
+    "category": "Beast",
+    "size": "Large"
+  },
+  {
+    "name": "Brown Bear",
     "category": "Beast",
     "size": "Large"
   },
@@ -30,6 +50,11 @@
     "size": "Small"
   },
   {
+    "name": "Horse",
+    "category": "Beast",
+    "size": "Large"
+  },
+  {
     "name": "Human",
     "category": "Sapient",
     "size": "Medium"
@@ -40,13 +65,33 @@
     "size": "Medium"
   },
   {
+    "name": "Lion",
+    "category": "Beast",
+    "size": "Large"
+  },
+  {
     "name": "Mazorec",
     "category": "Sapient",
     "size": "Medium"
   },
   {
+    "name": "Polar Bear",
+    "category": "Beast",
+    "size": "Large"
+  },
+  {
     "name": "Skeleton",
     "category": "Megabeast",
+    "size": "Medium"
+  },
+  {
+    "name": "Tiger",
+    "category": "Beast",
+    "size": "Large"
+  },
+  {
+    "name": "Wolf",
+    "category": "Beast",
     "size": "Medium"
   }
 ]

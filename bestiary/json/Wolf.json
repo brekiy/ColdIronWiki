@@ -1,0 +1,45 @@
+{
+  "name": "Wolf",
+  "size": "Medium",
+  "description": [
+    "The wild ancestor of the dog. It lives in packs, ranging the forests on both continents."
+  ],
+  "category": "Beast",
+  "playable": false,
+  "stats": {
+    "SPR": 3,
+    "PER": 15,
+    "AGI": 15,
+    "MGT": 11,
+    "FOR": 9,
+    "INT": 4,
+    "CHR": 4
+  },
+  "combat_stats": {
+    "ap": 13,
+    "willpower": 4,
+    "guard": 13,
+    "wounded": 9,
+    "very_wounded": 23,
+    "dead": 38
+  },
+  "techniques_allowed": false,
+  "num_attacks": 1,
+  "attacks": {
+    "0": {
+      "name": "Bite",
+      "ap_cost": 5,
+      "damage": "2d4 Piercing",
+      "description": "The wolf bites an adjacent target. If it is Medium or smaller, it must make a DC10 MGT check or else be knocked prone."
+    }
+  },
+  "perks_allowed": false,
+  "perks": "N/A",
+  "traits_allowed": false,
+  "traits": {
+    "0": {
+      "name": "N/A",
+      "description": ""
+    }
+  }
+}

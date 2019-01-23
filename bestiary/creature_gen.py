@@ -123,6 +123,7 @@ def make_json(creature_stats, name, size, description, category, playable,
   return creature_obj
 
 def make_html(creature, creature_file):
+  print('Generating HTML for ' + creature["name"])
   # required tag bits
   creature_file.write('<!DOCTYPE html>\n<html>')
   creature_file.write('<head>\n\t<meta charset="utf-8">\n\t<title>' + creature["name"] + '</title>\n')
@@ -178,8 +179,8 @@ def make_html(creature, creature_file):
   
   #traits/perks
   for trait in creature["traits"].items():
-    creature_file.write('<p><b>' + str(trait[1]["name"]) + '</b> ')
-    creature_file.write('<p>' + str(trait[1]["description"]) + '</p>\n\t')
+    creature_file.write('<p>' + str(trait[1]["name"]) + ' - ')
+    creature_file.write(str(trait[1]["description"]) + '\n\t')
   creature_file.write('<h2>Perks</h2>\n\t')
   creature_file.write('<p>' + creature["perks"] + '</p>\n\t')
   creature_file.write('</div>\n</body>\n</html>')
@@ -193,7 +194,6 @@ def update_html(name, creature_json_file):
   creature_json_file.close()
 
 def update_all_html():
-  
   creature_files = []
   # grab all the creatures
   for filename in os.listdir('json'):
@@ -327,8 +327,9 @@ def new_creature():
     print('''List the creature's perks, seperated by commas. i.e. perk1, perk2, perk3...''')
     perks = input()
 
-  print('''Does your creature have any unique traits? Traits are qualities more along
-  the lines of "no predisposition for magic" or "regenerates 5 Wounds per round of combat". (y/n)''')
+  print('''Does your creature have any unique traits?
+  Traits are qualities along the lines of "no predisposition for magic" or "regenerates 5 Wounds per round of combat".
+  If your creature carries weapons or armor, list each one as a trait, and list them first. Refer to the pre-existing bestiary entries for the correct format.(y/n)''')
   traits_allowed = yes_no()
   traits = {0: {"name": "N/A", "description": ""}}
   if traits_allowed:
@@ -351,34 +352,38 @@ def new_creature():
 ## USER INPUT
 #################################
 
-print('''Welcome to the Cold Iron creature generator. Enter 1 or 2:
-1. Create a new creature
-2. Update an existing creature from its JSON file
-3. Update all creatures from their JSON files''')
+def main():
+  print('''Welcome to the Cold Iron creature generator. Enter 1 or 2:
+  1. Create a new creature
+  2. Update an existing creature from its JSON file
+  3. Update all creatures from their JSON files''')
 
-while True:
-    try:
-      choice = input()
-      if choice not in ["1", "2", "3"]:
-        raise ValueError('D:')
-      break
-    except ValueError:
-      print('''Enter 1 or 2:
-1. Create a new creature
-2. Update an existing creature from its JSON file
-3. Update all creatures from their JSON files''')
-
-if choice == "1":
-  new_creature()
-elif choice == "2":
-  print('''Enter the name of the creature you want to update.''')
   while True:
-    try:
-      name = input()
-      creature_json_file = open('json/' + name + '.json', 'r+', encoding = encoding)
-      break
-    except IOError:
-      print('Could not read file:' + 'json/' + name + '.json, try again')
-  update_html(name, creature_json_file)
-else:
-  update_all_html()
+      try:
+        choice = input()
+        if choice not in ["1", "2", "3"]:
+          raise ValueError('D:')
+        break
+      except ValueError:
+        print('''Enter 1 or 2:
+  1. Create a new creature
+  2. Update an existing creature from its JSON file
+  3. Update all creatures from their JSON files''')
+
+  if choice == "1":
+    new_creature()
+  elif choice == "2":
+    print('''Enter the name of the creature you want to update.''')
+    while True:
+      try:
+        name = input()
+        creature_json_file = open('json/' + name + '.json', 'r+', encoding = encoding)
+        break
+      except IOError:
+        print('Could not read file:' + 'json/' + name + '.json, try again')
+    update_html(name, creature_json_file)
+  else:
+    update_all_html()
+
+if __name__ == "__main__":
+  main()

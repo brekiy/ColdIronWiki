@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <title>Character Sheet</title>
-  <link rel="stylesheet" type="text/css" href="../sidebar.css">
-  <link rel="stylesheet" type="text/css" href="char_sheet.css">
+  <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+  <link rel="stylesheet" type="text/css" href="/css/char_sheet.css">
   <script src="char_sheet.js"></script>
 </head>
 
@@ -441,26 +441,6 @@
           </tr>
         </table>
       </div>
-      <div id="inventory-weight">
-        <table>
-          <tr>
-            <td>Encumbered</td>
-            <td><output id="encumbered" class="sheet">15</output></td>
-          </tr>
-          <tr>
-            <td>Very Encumbered</td>
-            <td><output id="very-encumbered" class="sheet">25</output></td>
-          </tr>
-          <tr>
-            <td>Over Encumbered</td>
-            <td><output id="over-encumbered" class="sheet">30</output></td>
-          </tr>
-          <tr>
-            <td>Current Inventory Weight</td>
-            <td><output id="inv-weight" class="sheet">0</output></td>
-          </tr>
-        </table>
-      </div>
       <div id="inventory-notes">
         <label for="inventory-notes-text">Notes on Items</label>
         <textarea id="inventory-notes-text" rows="10" cols="50" class="sheet"></textarea>
@@ -486,6 +466,26 @@
           <tr>
             <td><label for="cur-wealth">Current Wealth</label></td>
             <td><output id="cur-wealth">0</output></td>
+          </tr>
+        </table>
+      </div>
+      <div id="inventory-weight">
+        <table>
+          <tr>
+            <td>Encumbered</td>
+            <td><output id="encumbered" class="sheet">15</output></td>
+          </tr>
+          <tr>
+            <td>Very Encumbered</td>
+            <td><output id="very-encumbered" class="sheet">25</output></td>
+          </tr>
+          <tr>
+            <td>Over Encumbered</td>
+            <td><output id="over-encumbered" class="sheet">30</output></td>
+          </tr>
+          <tr>
+            <td>Current Inventory Weight</td>
+            <td><output id="inv-weight" class="sheet">0</output></td>
           </tr>
         </table>
       </div>

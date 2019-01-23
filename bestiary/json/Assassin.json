@@ -31,8 +31,16 @@
   "traits_allowed": true,
   "traits": {
     "0": {
-      "name": "Inventory",
-      "description": "Assassins always carry a shortsword, with a rondel dagger as backup. They sometimes wear gambesons for protection."
+      "name": "Shortsword",
+      "description": "Swing [4AP/2d6+4 Rending], Thrust [4AP/4d6 Piercing], Finesse, Light"
+    },
+    "1": {
+      "name": "Rondel Dagger",
+      "description": "Swing [-], Thrust [3AP/4d4 Piercing], Finesse, Light, Sunder 2/Piercing"
+    },
+    "2": {
+      "name": "Gambeson",
+      "description": "Resistance [-], Reduction [2 Crushing, 3 Rending]"
     }
   }
 }

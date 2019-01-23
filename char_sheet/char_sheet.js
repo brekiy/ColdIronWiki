@@ -29,7 +29,7 @@ function weight() {
   }
   // add the weight of our money
   cur_weight += (parseInt(document.getElementById('1-note').value) + parseInt(document.getElementById('10-note').value) + parseInt(document.getElementById('50-note').value) + parseInt(document.getElementById('100-note').value)) / 100;
-  document.getElementById('inv-weight').value = cur_weight;
+  document.getElementById('inv-weight').value = cur_weight.toFixed(2);
 }
 
 function wealth() {
