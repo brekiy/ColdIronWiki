@@ -1,19 +1,27 @@
 {
-  "name": "Bandit",
+  "name": "Bandit Captain",
   "size": "Medium",
   "description": [
-    "An outlaw using thievery and violence to survive."
+    "An experienced outlaw using thievery and violence to survive."
   ],
   "category": "Sapient",
   "playable": false,
   "stats": {
     "SPR": 10,
-    "PER": 11,
+    "PER": 12,
     "AGI": 10,
     "MGT": 10,
     "FOR": 11,
     "INT": 10,
     "CHR": 10
+  },
+  "combat_stats": {
+    "ap": 9,
+    "willpower": 12,
+    "guard": 9,
+    "wounded": 11,
+    "very_wounded": 27,
+    "dead": 43
   },
   "techniques_allowed": true,
   "num_attacks": 0,
@@ -23,12 +31,16 @@
   "traits_allowed": true,
   "traits": {
     "0": {
-      "name": "Hatchet",
-      "description": "Swing [4AP/3d6 Rending], Thrust [-], Light, Thrown 6"
+      "name": "Shortsword",
+      "description": "Swing [4AP/2d6+4 Rending], Thrust [4/4d6 Piercing], Finesse, Light"
     },
     "1": {
       "name": "Shortbow",
       "description": "Shoot [5AP/3d6 Piercing], Melee [-], Range 14"
+    },
+    "2": {
+      "name": "Gambeson",
+      "description": "Resistance [N/A], Reduction [2 Crushing, 3 Rending]"
     }
   }
 }

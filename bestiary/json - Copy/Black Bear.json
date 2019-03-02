@@ -1,8 +1,8 @@
 {
-  "name": "Polar Bear",
+  "name": "Black Bear",
   "size": "Large",
   "description": [
-    "A large, intelligent animal. Bears are omnivorous and are known to raid isolated homes and camps in the wilderness in search of food, although they often shy from contact with people. The polar bear inhabits the cold lands of the north, where great plains of ice and snow stretch as far as the eye can see."
+    "A large, intelligent animal. Bears are omnivorous and are known to raid isolated homes and camps in the wilderness in search of food, although they often shy from contact with people."
   ],
   "category": "Beast",
   "playable": false,
@@ -10,10 +10,18 @@
     "SPR": 4,
     "PER": 12,
     "AGI": 9,
-    "MGT": 16,
-    "FOR": 21,
+    "MGT": 15,
+    "FOR": 19,
     "INT": 4,
     "CHR": 4
+  },
+  "combat_stats": {
+    "ap": 9,
+    "willpower": 5,
+    "guard": 8,
+    "wounded": 19,
+    "very_wounded": 45,
+    "dead": 72
   },
   "techniques_allowed": false,
   "num_attacks": 2,
@@ -33,7 +41,7 @@
   },
   "perks_allowed": false,
   "perks": "N/A",
-  "traits_allowed": true,
+  "traits_allowed": false,
   "traits": {
     "0": {
       "name": "N/A",

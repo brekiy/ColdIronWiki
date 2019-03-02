@@ -15,6 +15,14 @@
     "INT": 3,
     "CHR": 4
   },
+  "combat_stats": {
+    "ap": 11,
+    "willpower": 4,
+    "guard": 11,
+    "wounded": 20,
+    "very_wounded": 50,
+    "dead": 80
+  },
   "techniques_allowed": false,
   "num_attacks": 2,
   "attacks": {
