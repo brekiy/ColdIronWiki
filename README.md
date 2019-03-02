@@ -1,5 +1,8 @@
 # Codex
 
+EDIT MARCH 3 2019:
+This project has been discontinued. I am migrating the content to a Flask web app, Codex 2.0.
+
 This is a static site I started for two purposes:
 1. Host a ruleset for a homebrew pen-and-paper role-playing game.
 2. Learn a bit of HTML, CSS, and some Javascript on the way.
