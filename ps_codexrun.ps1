@@ -5,8 +5,8 @@
 #  ./bin/insta485db create
 #fi
 
-export FLASK_DEBUG=True
+$env:FLASK_DEBUG="1"
 $env:FLASK_APP="codex"
-export CODEX_SETTINGS=config.py
+$env:CODEX_SETTINGS="config.py"
 
 flask run --host 0.0.0.0 --port 8000
