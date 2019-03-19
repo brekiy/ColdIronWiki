@@ -1,0 +1,9 @@
+setup.py
+codex/__init__.py
+codex/config.py
+codex/model.py
+codex.egg-info/PKG-INFO
+codex.egg-info/SOURCES.txt
+codex.egg-info/dependency_links.txt
+codex.egg-info/requires.txt
+codex.egg-info/top_level.txt
