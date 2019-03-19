@@ -1,7 +1,7 @@
 # Codex
 
 EDIT MARCH 3 2019:
-This project has been discontinued. I am migrating the content to a Flask web app, Codex 2.0.
+The old static site has been discontinued and archived on the gh-pages branch. I am migrating the content to a Flask web app which will include user accounts for storing characters and their stat sheets.
 
 This is a static site I started for two purposes:
 1. Host a ruleset for a homebrew pen-and-paper role-playing game.
