@@ -40,6 +40,11 @@
     "size": "Medium"
   },
   {
+    "name": "Ghoul",
+    "category": "Megabeast",
+    "size": "Medium"
+  },
+  {
     "name": "Giant Cave Spider",
     "category": "Beast",
     "size": "Medium"
@@ -65,6 +70,11 @@
     "size": "Medium"
   },
   {
+    "name": "Leshy",
+    "category": "Legendary",
+    "size": "Medium"
+  },
+  {
     "name": "Lion",
     "category": "Beast",
     "size": "Large"
@@ -75,8 +85,23 @@
     "size": "Medium"
   },
   {
+    "name": "Mercenary Captain",
+    "category": "Sapient",
+    "size": "Medium"
+  },
+  {
+    "name": "Mercenary",
+    "category": "Sapient",
+    "size": "Medium"
+  },
+  {
     "name": "Polar Bear",
     "category": "Beast",
+    "size": "Large"
+  },
+  {
+    "name": "Qhonitar",
+    "category": "Megabeast",
     "size": "Large"
   },
   {
@@ -88,6 +113,11 @@
     "name": "Tiger",
     "category": "Beast",
     "size": "Large"
+  },
+  {
+    "name": "Troll",
+    "category": "Sapient",
+    "size": "Medium"
   },
   {
     "name": "Wolf",
