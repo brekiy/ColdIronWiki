@@ -1,0 +1,51 @@
+{
+  "name": "Ghoul",
+  "size": "Medium",
+  "description": [
+    "A malformed victim of a vampire attack that didn't die. They are consumed with a lust for flesh and will attack anything, even other ghouls, if they are hungry enough."
+  ],
+  "category": "Megabeast",
+  "playable": false,
+  "stats": {
+    "SPR": 5,
+    "PER": 10,
+    "AGI": 10,
+    "MGT": 10,
+    "FOR": 12,
+    "INT": 8,
+    "CHR": 4
+  },
+  "techniques_allowed": false,
+  "num_attacks": 2,
+  "attacks": {
+    "0": {
+      "name": "Bite",
+      "ap_cost": 6,
+      "damage": "2d6+2 Rending",
+      "description": "The ghoul bites one target within 2m."
+    },
+    "1": {
+      "name": "Claw Swipe",
+      "ap_cost": 4,
+      "damage": "1d10 Rending",
+      "description": "The ghoul swipes at one target within 2m with its claws."
+    }
+  },
+  "perks_allowed": false,
+  "perks": "N/A",
+  "traits_allowed": true,
+  "traits": {
+    "0": {
+      "name": "Poison Immunity",
+      "description": "Ghouls are immune to all poisons and the Poisoned status effect."
+    },
+    "1": {
+      "name": "Vulnerability",
+      "description": "Ghouls take double damage from fire and cold iron."
+    },
+    "2": {
+      "name": "Necrophage",
+      "description": "The ghoul can take a bite of a corpse, instantly healing 1d6 Wounds. This cannot bring it below 0 Wounds (full health)."
+    }
+  }
+}

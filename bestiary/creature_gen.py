@@ -101,7 +101,6 @@ def combat_stats(stat_dict):
 # creates a dict to hold the creature info and writes it to a json file
 def make_json(creature_stats, name, size, description, category, playable, 
   techniques_allowed, num_attacks, attacks, perks_allowed, perks, traits_allowed, traits):
-  combat_stats_dict = combat_stats(creature_stats)
   creature_obj = {
     "name": name,
     "size": size,
@@ -109,7 +108,6 @@ def make_json(creature_stats, name, size, description, category, playable,
     "category": category,
     "playable": playable,
     "stats": creature_stats,
-    "combat_stats": combat_stats_dict,
     "techniques_allowed": techniques_allowed,
     "num_attacks": num_attacks,
     "attacks": attacks,
@@ -124,6 +122,7 @@ def make_json(creature_stats, name, size, description, category, playable,
 
 def make_html(creature, creature_file):
   print('Generating HTML for ' + creature["name"])
+  combat_stats_dict = combat_stats(creature["stats"])
   # required tag bits
   creature_file.write('<!DOCTYPE html>\n<html>')
   creature_file.write('<head>\n\t<meta charset="utf-8">\n\t<title>' + creature["name"] + '</title>\n')
@@ -162,12 +161,12 @@ def make_html(creature, creature_file):
 
   # wounds, action points, willpower, guard table
   creature_file.write('<table>\n\t')
-  creature_file.write('<tr><td>Action Points</td><td>' + str(creature["combat_stats"]["ap"]) + '</td>')
-  creature_file.write('<td>Wounded</td><td>' + str(creature["combat_stats"]["wounded"]) + '</td></tr>\n\t')
-  creature_file.write('<tr><td>Willpower</td><td>' + str(creature["combat_stats"]["willpower"]) + '</td>')
-  creature_file.write('<td>Very Wounded</td><td>' + str(creature["combat_stats"]["very_wounded"]) + '</td></tr>\n\t')
-  creature_file.write('<tr><td>Guard</td><td>' + str(creature["combat_stats"]["guard"]) + '</td>')
-  creature_file.write('<td>Dead</td><td>' + str(creature["combat_stats"]["dead"]) + '</td></tr></table>\n\t')
+  creature_file.write('<tr><td>Action Points</td><td>' + str(combat_stats_dict["ap"]) + '</td>')
+  creature_file.write('<td>Wounded</td><td>' + str(combat_stats_dict["wounded"]) + '</td></tr>\n\t')
+  creature_file.write('<tr><td>Willpower</td><td>' + str(combat_stats_dict["willpower"]) + '</td>')
+  creature_file.write('<td>Very Wounded</td><td>' + str(combat_stats_dict["very_wounded"]) + '</td></tr>\n\t')
+  creature_file.write('<tr><td>Guard</td><td>' + str(combat_stats_dict["guard"]) + '</td>')
+  creature_file.write('<td>Dead</td><td>' + str(combat_stats_dict["dead"]) + '</td></tr></table>\n\t')
   
   # attacks
   creature_file.write('<h2>Attacks</h2>\n\t')

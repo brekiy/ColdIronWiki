@@ -1,0 +1,30 @@
+{
+  "name": "Troll",
+  "size": "Medium",
+  "description": [
+    "An ungainly, humanoid creature, trolls possess a human child's level of intelligence and generally keep to themselves in the wild. They do, however, warn people to stay out of their territory by hurling rocks at them, which usually results in the death of the trespasser."
+  ],
+  "category": "Sapient",
+  "playable": false,
+  "stats": {
+    "SPR": 8,
+    "PER": 9,
+    "AGI": 9,
+    "MGT": 26,
+    "FOR": 24,
+    "INT": 8,
+    "CHR": 7
+  },
+  "techniques_allowed": true,
+  "num_attacks": 0,
+  "attacks": {},
+  "perks_allowed": true,
+  "perks": "Deadeye 1, Tough",
+  "traits_allowed": true,
+  "traits": {
+    "0": {
+      "name": "Resistance",
+      "description": "The troll has Resistance to Rending damage."
+    }
+  }
+}

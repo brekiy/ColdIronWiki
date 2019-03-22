@@ -1,0 +1,57 @@
+{
+  "name": "Leshy",
+  "size": "Medium",
+  "description": [
+    "A curious shapeshifting creature that vaguely resembles a walking tree, with a twisted face that betrays its malevolent intent. It can extend its limbs to attack targets from afar, and is only found in forests, where it preys on woodsmen and unfortunate campers. Leshyn are bold and will happily attack groups of people no matter their size."
+  ],
+  "category": "Legendary",
+  "playable": false,
+  "stats": {
+    "SPR": 7,
+    "PER": 12,
+    "AGI": 15,
+    "MGT": 19,
+    "FOR": 28,
+    "INT": 7,
+    "CHR": 6
+  },
+  "techniques_allowed": false,
+  "num_attacks": 3,
+  "attacks": {
+    "0": {
+      "name": "Claws",
+      "ap_cost": 5,
+      "damage": "2d6+2 Rending",
+      "description": "The leshy swipes at a single target within 4m, extending its arms if necessary."
+    },
+    "1": {
+      "name": "Entangling Roots",
+      "ap_cost": 10,
+      "damage": "4d6 Crushing",
+      "description": "The leshy plunges its arms into the ground and targets up to 2 targets. The targets must pass a DC15 Acrobatics check or become grappled, taking the damage listed. They can use the Break Free action to escape, or an ally can do a total of 18 damage to the roots holding their ally (no attack roll needed). Each turn they are grappled they take the listed damage."
+    },
+    "2": {
+      "name": "Javelin Throw",
+      "ap_cost": 7,
+      "damage": "3d6+2 Piercing",
+      "description": "The leshy grows a sharp spear and hurls it at Thrown 8."
+    }
+  },
+  "perks_allowed": false,
+  "perks": "N/A",
+  "traits_allowed": true,
+  "traits": {
+    "0": {
+      "name": "Vulnerability",
+      "description": "Leshyn take double damage from fire."
+    },
+    "1": {
+      "name": "Resistance",
+      "description": "Leshyn resist Rending damage that isn't from a weapon forged of cold iron, and always resist Piercing and Crushing damage."
+    },
+    "2": {
+      "name": "Immunity",
+      "description": "Leshyn are immune to the Afraid, Bleeding, Charmed, Exhausted, and Poisoned status effects."
+    }
+  }
+}

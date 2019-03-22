@@ -1,0 +1,48 @@
+{
+  "name": "Qhonitar",
+  "size": "Large",
+  "description": [
+    "A large creature resembling some fusion of an ant and a scorpion, but blown up to the size of a mountain lion. It crawls on six legs and has a long tail tipped with a stinger. It's mandibles are strong enough to chop off a limb. It tries to poison its prey by stinging it before biting.",
+    "The qhonitar's name means \"forest ghost\" in Izil and it is not native to this world."
+  ],
+  "category": "Megabeast",
+  "playable": false,
+  "stats": {
+    "SPR": 2,
+    "PER": 14,
+    "AGI": 20,
+    "MGT": 14,
+    "FOR": 20,
+    "INT": 6,
+    "CHR": 5
+  },
+  "techniques_allowed": false,
+  "num_attacks": 2,
+  "attacks": {
+    "0": {
+      "name": "Sting",
+      "ap_cost": 5,
+      "damage": "3d6 Piercing",
+      "description": "The qhonitar stings one target within 4m. On hit, the target must make a DC10 FOR check or for the shorter of 2 full combat turns or passing a DC12 FOR check."
+    },
+    "1": {
+      "name": "Bite",
+      "ap_cost": 6,
+      "damage": "3d6 Rending",
+      "description": "The qhonitar bites one target in its forward arc."
+    }
+  },
+  "perks_allowed": true,
+  "perks": "Tough, Parkour, Sneaky Beaky",
+  "traits_allowed": true,
+  "traits": {
+    "0": {
+      "name": "Alien War Animal",
+      "description": "The qhonitar is Skilled in Acrobatics, Athletics, and Sneak, gaining a +4 to those skill checks."
+    },
+    "1": {
+      "name": "Natural Armor",
+      "description": "The qhonitar gains 2 damage reduction to Rending, Piercing, and Crushing damage sources."
+    }
+  }
+}
