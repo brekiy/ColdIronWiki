@@ -18,6 +18,13 @@
       <a href="bestiary/index.html">Bestiary</a>
       <a href="items/index.html">Items</a>
     </div>
+    <div class="login">
+      {% if logname %}
+        <p>Hello, {{ logname }}</p>
+      {% else %}
+        <p><a href="">Log in here</a></p>
+      {% endif %}
+    </div>
     {% block content %}{% endblock %}
   </body>
 

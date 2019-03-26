@@ -12,3 +12,6 @@ SESSION_COOKIE_NAME = "codex-login"
 
 ALLOWED_IMG_EXTENSIONS = set(["png", "jpg", "jpeg"])
 MAX_CONTENT_LENGTH = 16 * 1024 * 1024
+
+# Database
+MONGO_URI = "mongodb://localhost:27017/codex"

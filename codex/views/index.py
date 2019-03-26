@@ -3,8 +3,12 @@ import flask
 import codex
 
 @codex.app.route("/", methods=["GET", "POST"])
-def show_index():
-  """Display the index page."""
-  codex.app.logger.debug("HELLO")
+def home_page():
+  """Display the home page."""
+  codex.app.logger.info("Hello from home page")
   context = {}
-  return flask.render_template("index.html", **context)
+  username = codex.model.check_login()
+  if username is not None:
+    context["username"] = username
+  codex.app.logger.info(codex.mongo.db.collection_names())
+  return flask.render_template("home.html", **context)
