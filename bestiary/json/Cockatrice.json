@@ -1,0 +1,37 @@
+{
+  "name": "Cockatrice",
+  "size": "Small",
+  "description": [
+    "A small, vicious monster that almost resembles a chicken. It walks using its legs and wing forelimbs, and tends to hide in dark places. Its sharp beak has been known to punch straight through soft armor and leave its targets bleeding."
+  ],
+  "category": "Megabeast",
+  "playable": false,
+  "stats": {
+    "SPR": 3,
+    "PER": 14,
+    "AGI": 16,
+    "MGT": 8,
+    "FOR": 9,
+    "INT": 2,
+    "CHR": 2
+  },
+  "techniques_allowed": false,
+  "num_attacks": 1,
+  "attacks": {
+    "0": {
+      "name": "Peck",
+      "ap_cost": 5,
+      "damage": "3d6 Piercing",
+      "description": "The cockatrice strikes one target within 2m with its beak. The target's FOR threshold against the cockatrice's Piercing damage is equal to half of its base FOR."
+    }
+  },
+  "perks_allowed": false,
+  "perks": "N/A",
+  "traits_allowed": false,
+  "traits": {
+    "0": {
+      "name": "N/A",
+      "description": ""
+    }
+  }
+}

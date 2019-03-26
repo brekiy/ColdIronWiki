@@ -30,6 +30,11 @@
     "size": "Large"
   },
   {
+    "name": "Cockatrice",
+    "category": "Megabeast",
+    "size": "Small"
+  },
+  {
     "name": "Dragon",
     "category": "Legendary",
     "size": "Gigantic"
@@ -68,6 +73,11 @@
     "name": "Ketol",
     "category": "Sapient",
     "size": "Medium"
+  },
+  {
+    "name": "Landwyrm",
+    "category": "Legendary",
+    "size": "Huge"
   },
   {
     "name": "Leshy",

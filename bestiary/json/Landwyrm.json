@@ -1,0 +1,43 @@
+{
+  "name": "Landwyrm",
+  "size": "Huge",
+  "description": [
+    "A gigantic serpent that dwells in forests, hills, and caves. They are known to burst onto farmland and villages, devouring livestock and people before disappearing to their lair. Landwyrms mate for life and waiting in a lair will eventually guarantee a fight against the pair."
+  ],
+  "category": "Legendary",
+  "playable": false,
+  "stats": {
+    "SPR": 4,
+    "PER": 11,
+    "AGI": 7,
+    "MGT": 40,
+    "FOR": 42,
+    "INT": 1,
+    "CHR": 4
+  },
+  "techniques_allowed": false,
+  "num_attacks": 2,
+  "attacks": {
+    "0": {
+      "name": "Bite",
+      "ap_cost": 5,
+      "damage": "4d6 Piercing",
+      "description": "The landwyrm bites one target within 4m. If the target is Large or smaller, it must pass a DC16 Acrobatics check or be swallowed. A swallowed creature is Blinded, untargetable from outside the worm, and takes 3d6 Acid damage at the start of each new round. If the landwyrm takes 30 or more damage from a swallowed creature on a single turn, it spits out all swallowed creatures. Creatures must spend 4m of movement to exit the landwyrm corpse if it dies."
+    },
+    "1": {
+      "name": "Tail Swipe",
+      "ap_cost": 4,
+      "damage": "3d6+4 Crushing",
+      "description": "The landwyrm slams its tail into one creature within 6m. If the target is Large or smaller, it must pass a DC16 Acrobatics check to remain standing or else fall Prone."
+    }
+  },
+  "perks_allowed": true,
+  "perks": "Tough, Death Blow 1",
+  "traits_allowed": true,
+  "traits": {
+    "0": {
+      "name": "Resistance",
+      "description": "The landwyrm resists all sources of Rending and Crushing damage."
+    }
+  }
+}
