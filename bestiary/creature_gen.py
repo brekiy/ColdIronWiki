@@ -126,7 +126,7 @@ def make_html(creature, creature_file):
   # required tag bits
   creature_file.write('<!DOCTYPE html>\n<html>')
   creature_file.write('<head>\n\t<meta charset="utf-8">\n\t<title>' + creature["name"] + '</title>\n')
-  creature_file.write('<base href="https://xiaohuynh.github.io/Codex/">\n')
+  creature_file.write('<base href="https://brekiy.github.io/Codex/">\n')
   creature_file.write('<link rel="stylesheet" type="text/css" href="css/sidebar.css">\n\t<head>\n')
   creature_file.write('<body>\n\t')
   

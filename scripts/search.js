@@ -1,4 +1,4 @@
-var codex_url = 'https://xiaohuynh.github.io/Codex/';
+var codex_url = 'https://brekiy.github.io/Codex/';
 
 // pulls a specified JSON file and runs another function on the data
 function grabJSON(filepath, mode) {
